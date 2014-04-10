@@ -19,7 +19,7 @@
 
 
             <TabItem Header="Kontakte" Height="30" Width="100">
-                <Grid>
+                <Grid DataContext="{Binding ContactSearchViewModel}">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
@@ -44,7 +44,7 @@
                 </Grid>
             </TabItem>
             <TabItem Header="Rechnungen" Height="30" Width="100">
-                <Grid>
+                <Grid DataContext="{Binding InvoiceSearchViewModel}">
                     <TextBlock HorizontalAlignment="Left"
 			       Margin="10"
 			       TextWrapping="Wrap"
