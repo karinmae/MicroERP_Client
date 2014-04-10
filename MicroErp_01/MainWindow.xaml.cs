@@ -24,11 +24,5 @@ namespace MicroErp_01
         {
             InitializeComponent();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Search se = new Search();
-            se.ShowDialog();
-        }
     }
 }
