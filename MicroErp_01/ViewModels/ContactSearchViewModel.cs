@@ -10,7 +10,14 @@ namespace MicroErp_01.ViewModels
     {
         public override void Search()
         {
-            throw new NotImplementedException();
+            Proxy proxy = new Proxy();
+            var result = proxy.Search(SearchText);
+            Items.Clear();
+            foreach (var obj in result.Contact)
+            {
+                Items.Add(new ContactViewModel(obj));
+            }
+            
         }
 
         public override GridDisplayConfiguration DisplayedColumns

@@ -43,7 +43,7 @@ namespace MicroErp_01.ViewModels
                 if (_seachText != value)
                 {
                     _seachText = value;
-                    //SearchCommand.OnCanExecuteChanged();
+                    SearchCommand.OnCanExecuteChanged();
                     OnPropertyChanged("SearchText");
                 }
             }
