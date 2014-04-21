@@ -1,0 +1,27 @@
+﻿<Window x:Class="Paint.Core.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid Margin="0,-1,0,1">
+        <Canvas x:Name="Scene" 
+                MouseLeftButtonDown="Scene_MouseLeftButtonDown"
+                MouseLeftButtonUp="Scene_MouseLeftButtonUp"
+                MouseMove="Scene_MouseMove"
+                HorizontalAlignment="Left" Height="521" Margin="10,0,0,0" VerticalAlignment="Top" Width="772" Background="#00000000"/>
+        <TextBox x:Name="x" HorizontalAlignment="Left" Height="23" Margin="10,536,0,0" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="y" Text="{Binding Path=Test}" HorizontalAlignment="Left" Height="23" Margin="144,536,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+       
+    </Grid>
+
+    <Window.ContextMenu>
+        <ContextMenu>
+            <MenuItem Header="Resize mode" Click="MenuItem_ResizeMode"/>
+            <MenuItem Header="Drag and drop mode" Click="MenuItem_DragAndDropMode"/>
+            <MenuItem Header="NewShape">
+                <MenuItem Header="Rectangle" Click="MenuItem_Rectangle"/>
+                <MenuItem Header="Ellipse" Click="MenuItem_Ellipse"/>
+            </MenuItem>
+            <MenuItem Header="Group" Click="MenuItem_Group"/>
+        </ContextMenu>
+    </Window.ContextMenu>
+</Window>
