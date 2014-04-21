@@ -1,0 +1,13 @@
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\bin\Debug\Paint.Core.exe.config
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\bin\Debug\Paint.Core.exe
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\bin\Debug\Paint.Core.pdb
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\obj\Debug\Paint.Core.csprojResolveAssemblyReference.cache
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\obj\Debug\MainWindow.baml
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\obj\Debug\MainWindow.g.cs
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\obj\Debug\App.g.cs
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\obj\Debug\Paint.Core_MarkupCompile.cache
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\obj\Debug\Paint.Core.g.resources
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\obj\Debug\Paint.Core.Properties.Resources.resources
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\obj\Debug\Paint.Core.csproj.GenerateResource.Cache
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\obj\Debug\Paint.Core.exe
+c:\users\maxberg\documents\visual studio 2013\Projects\Paint\Paint.Core\obj\Debug\Paint.Core.pdb

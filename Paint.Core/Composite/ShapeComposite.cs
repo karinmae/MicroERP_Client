@@ -22,7 +22,7 @@ namespace Paint.Core.Composite
 {
     class ShapeComposite : GenericShape
     {
-        List<GenericShape> children;
+        public List<GenericShape> children {get; set;}
 
         public ShapeComposite()
         {

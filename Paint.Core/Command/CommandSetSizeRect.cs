@@ -19,28 +19,31 @@ using Paint.Core.Command;
 
 namespace Paint.Core.Command
 {
-    class CommandSetSizeRect : ISetSizeCommand
+    class CommandSetSizeRect : ICommands
     {
         double posX;
         double posY;
         int newShapeIndex;
         CanvasShapeContainer shapeContainer;
+        Brush brush;
 
         RectangleShape rectangle;
         //Path shape;
 
-        public CommandSetSizeRect(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer){
+        public CommandSetSizeRect(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer, Brush brush)
+        {
             this.posX = posX;
             this.posY = posY;
             this.newShapeIndex = newShapeIndex;
             this.shapeContainer = shapeContainer;
+            this.brush = brush;
         }
 
         public void Execute(){
             GenericShape newForm = shapeContainer.shapes[newShapeIndex];
             double width = Math.Abs(newForm.position.X - posX);
             double height = Math.Abs(newForm.position.Y - posY);
-            rectangle = new RectangleShape(newForm.position.X - 5, newForm.position.Y - 5, width, height, newShapeIndex);
+            rectangle = new RectangleShape(newForm.position.X - 5, newForm.position.Y - 5, width, height, newShapeIndex, brush);
         }
 
         public Path getShape(){

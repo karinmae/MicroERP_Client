@@ -19,39 +19,37 @@ using Paint.Core.Command;
 
 namespace Paint.Core.Command
 {
-    class CommandCreateRect : ICreateCommand
+    class CommandSelectSize : ICommands
     {
         double posX;
         double posY;
-        int newShapeIndex;
-        CanvasShapeContainer shapeContainer;
-
+       
         Brush brush;
+        GenericShape select;
 
         RectangleShape rectangle;
+      
 
-        public CommandCreateRect(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer, Brush brush)
+        public CommandSelectSize(double posX, double posY, GenericShape select, Brush brush)
         {
-
             this.posX = posX;
             this.posY = posY;
-            this.newShapeIndex = newShapeIndex;
-            this.shapeContainer = shapeContainer;
+            this.select = select;
             this.brush = brush;
         }
 
-        public void Execute(){
-            GenericShape newForm = new GenericShape();
-            rectangle = new RectangleShape(posX, posY, 0, 0, newShapeIndex, brush);
-            newForm.Shape = rectangle.Shape;
-            newForm.position = new Point(posX, posY);
-            newForm.ShapeTyp = GenericShape.type.Rectangle;
-
-            shapeContainer.shapes.Add(newShapeIndex, newForm);
+        public void Execute()
+        {
+            //GenericShape newForm = shapeContainer.shapes[newShapeIndex];
+            double width = Math.Abs(select.position.X - posX);
+            double height = Math.Abs(select.position.Y - posY);
+            rectangle = new RectangleShape(select.position.X - 5, select.position.Y - 5, width, height, 0, brush);
         }
 
-        
+        public Path getShape()
+        {
+            return rectangle.Shape;
+        }
     }
 }
 
-                

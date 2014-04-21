@@ -19,14 +19,11 @@ namespace Paint.Core.Models
     {
         public Path Shape { get; set; }
 
-        public RectangleShape(double posX, double posY, double width, double Height, int id)
+        public RectangleShape(double posX, double posY, double width, double Height, int id, Brush brush)
         {
-
-            //Brush myBrush = new BrushConverter().ConvertFromString(color) as SolidColorBrush;
-
             Shape = new Path
             {
-                Fill = Brushes.Violet,
+                Fill = brush,
                 Stroke = Brushes.Black,
                 Data = new RectangleGeometry(new Rect(posX, posY,width, Height)),
                 Tag = id
