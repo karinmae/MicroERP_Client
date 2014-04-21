@@ -191,29 +191,29 @@ namespace Paint.Core
                         }
                         Render();
                     }
+                    
+
+                 else if (path.Data.GetType() == typeof(EllipseGeometry))
+                    {
+                        int index = Convert.ToInt32(path.Tag.ToString());
+                        GenericShape form = shapeContainer.shapes[index];
+
+                        if (composite.children.Contains(form))
+                        {
+                            foreach (var pair in composite.children)
+                            {
+                                int indexGroup = Convert.ToInt32(pair.Shape.Tag);
+                                ICommands com = new CommandMoveEllipse(dX, dY, indexGroup, shapeContainer, pair.Shape, Brushes.Violet);
+                                com.Execute();
+                            }
+                        }
+                        else{
+                            ICommands com = new CommandMoveEllipse(dX, dY, index, shapeContainer, path, Brushes.Violet);
+                            com.Execute();
+                        }
+                        Render();
+                    }
                     break;
-
-                 //if (path.Data.GetType() == typeof(EllipseGeometry))
-                 //   {
-                 //       int index = Convert.ToInt32(path.Tag.ToString());
-                 //       GenericShape form = shapeContainer.shapes[index];
-
-                 //       if (composite.children.Contains(form))
-                 //       {
-                 //           foreach (var pair in composite.children)
-                 //           {
-                 //               int indexGroup = Convert.ToInt32(pair.Shape.Tag);
-                 //               ICommands com = new CommandMoveEllipse(dX, dY, indexGroup, shapeContainer, pair.Shape, Brushes.Blue);
-                 //               com.Execute();
-                 //           }
-                 //       }
-                 //       else{
-                 //           ICommands com = new CommandMoveRect(dX, dY, index, shapeContainer, path, Brushes.Blue);
-                 //           com.Execute();
-                 //       }
-                 //       Render();
-                 //   }
-                 //   break;
 
                 case Options.op.groupShape:
 

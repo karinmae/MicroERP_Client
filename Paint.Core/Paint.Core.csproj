@@ -57,6 +57,7 @@
     <Compile Include="Command\CommandCreateRect.cs" />
     <Compile Include="Command\CommandFinalizeEllipse.cs" />
     <Compile Include="Command\CommandFinalizeRect.cs" />
+    <Compile Include="Command\CommandMoveEllipse.cs" />
     <Compile Include="Command\CommandMoveRect.cs" />
     <Compile Include="Command\CommandSelectSize.cs" />
     <Compile Include="Command\CommandSelectStart.cs" />
