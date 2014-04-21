@@ -8,19 +8,19 @@ namespace Paint.Core.Shapes
 {
     class EllipseShape : ICloneable
     {
-        double radiusX;
-        double radiusY;
-       
-        public double RadiusX
+        double height;
+        double width;
+
+        public double Height
         {
-            get { return radiusX; }
-            set { radiusX = value; }
+            get { return height; }
+            set { height = value; }
         }
 
-        public double RadiusY
+        public double Width
         {
-            get { return radiusY; }
-            set { radiusY = value; }
+            get { return width; }
+            set { width = value; }
         }
 
         private object ShallowCopy()

@@ -10,7 +10,7 @@ namespace Paint.Core.Command
     {
         public enum op
         {
-            newShape, moveShape, groupShape
+            newShape_regtangle, newShape_ellipse, moveShape, groupShape
         };
         public op type { get; set; }
 

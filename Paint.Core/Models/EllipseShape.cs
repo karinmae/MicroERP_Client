@@ -19,12 +19,12 @@ namespace Paint.Core.Models
     {
         public Path Shape { get; set; }
 
-        public EllipseShape(double posX, double posY, double radiusX, double radiusY, int id)
+        public EllipseShape(double posX, double posY, double radiusX, double radiusY, int id,  Brush brush)
         {
             Shape = new Path
             {
                 
-                Fill = Brushes.Red,
+                Fill = brush,
                 Stroke = Brushes.Black,
                 Data = new EllipseGeometry(new Rect(posX, posY, radiusX, radiusY)),
                 Tag = id

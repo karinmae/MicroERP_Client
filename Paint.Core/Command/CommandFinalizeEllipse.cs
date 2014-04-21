@@ -19,20 +19,24 @@ using Paint.Core.Command;
 
 namespace Paint.Core.Command
 {
-    class CommandFinalizeEllipse : IFinalizeCommand
+    class CommandFinalizeEllipse : ICommands
     {
         double posX;
         double posY;
         int newShapeIndex;
         CanvasShapeContainer shapeContainer;
 
+        Brush brush;
+
         EllipseShape ellipse;
 
-        public CommandFinalizeEllipse(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer){
+        public CommandFinalizeEllipse(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer, Brush brush){
             this.posX = posX;
             this.posY = posY;
             this.newShapeIndex = newShapeIndex;
             this.shapeContainer = shapeContainer;
+            this.brush = brush;
+
         }
 
         public void Execute()
@@ -42,7 +46,7 @@ namespace Paint.Core.Command
             double width = Math.Abs(newForm.position.X - posX);
             double height = Math.Abs(newForm.position.Y - posY);
 
-            ellipse = new EllipseShape(newForm.position.X - 5, newForm.position.Y - 5, width, height, newShapeIndex);
+            ellipse = new EllipseShape(newForm.position.X - 5, newForm.position.Y - 5, width, height, newShapeIndex, brush);
             newForm.Shape = ellipse.Shape;
             shapeContainer.UpdateShape(newForm, newShapeIndex);
         }

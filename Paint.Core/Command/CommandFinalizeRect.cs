@@ -19,8 +19,7 @@ using Paint.Core.Command;
 
 namespace Paint.Core.Command
 {
-<<<<<<< HEAD
-    class CommandFinalizeRect : IFinalizeCommand
+    class CommandFinalizeRect : ICommands
     {
         double posX;
         double posY;

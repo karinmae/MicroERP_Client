@@ -19,22 +19,23 @@ using Paint.Core.Command;
 
 namespace Paint.Core.Command
 {
-    class CommandSetSizeEllipse : ISetSizeCommand
+    class CommandSetSizeEllipse : ICommands
     {
         double posX;
         double posY;
         int newShapeIndex;
         CanvasShapeContainer shapeContainer;
+        Brush brush;
 
         EllipseShape ellipse;
-        //Path shape;
 
-        public CommandSetSizeEllipse(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer)
+        public CommandSetSizeEllipse(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer, Brush brush)
         {
             this.posX = posX;
             this.posY = posY;
             this.newShapeIndex = newShapeIndex;
             this.shapeContainer = shapeContainer;
+            this.brush = brush;
         }
 
         public void Execute()
@@ -42,7 +43,7 @@ namespace Paint.Core.Command
             GenericShape newForm = shapeContainer.shapes[newShapeIndex];
             double width = Math.Abs(newForm.position.X - posX);
             double height = Math.Abs(newForm.position.Y - posY);
-            ellipse = new EllipseShape(newForm.position.X - 5, newForm.position.Y - 5, width, height, newShapeIndex);
+            ellipse = new EllipseShape(newForm.position.X - 5, newForm.position.Y - 5, width, height, newShapeIndex, brush);
         }
 
         public Path getShape()

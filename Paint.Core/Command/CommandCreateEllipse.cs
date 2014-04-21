@@ -20,27 +20,30 @@ using Paint.Core.Command;
 
 namespace Paint.Core.Command
 {
-    class CommandCreateEllipse : ICreateCommand
+    class CommandCreateEllipse : ICommands
     {
         double posX;
         double posY;
         int newShapeIndex;
         CanvasShapeContainer shapeContainer;
 
+        Brush brush;
+
         EllipseShape ellipse;
 
-         public CommandCreateEllipse(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer){
+         public CommandCreateEllipse(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer,  Brush brush){
             this.posX = posX;
             this.posY = posY;
             this.newShapeIndex = newShapeIndex;
             this.shapeContainer = shapeContainer;
+            this.brush = brush;
         }
 
         public void Execute()
         {
             GenericShape newForm = new GenericShape();
 
-            ellipse = new EllipseShape(posX, posY, 0, 0, newShapeIndex);
+            ellipse = new EllipseShape(posX, posY, 0, 0, newShapeIndex, brush);
 
             newForm.Shape = ellipse.Shape;
             newForm.position = new Point(posX, posY);
