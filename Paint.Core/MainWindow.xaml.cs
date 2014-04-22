@@ -29,7 +29,8 @@ namespace Paint.Core
     {
         #region Variables
         MatrixTransform transform;
-        RectangleShape rectangle;
+        //RectangleShape rectangle;
+        //EllipseShape ellipse;
         Path tempForm;
         Brush brush;
 
@@ -79,7 +80,6 @@ namespace Paint.Core
         private void MenuItem_Regtangle(object sender, RoutedEventArgs e)
         {
             option.type = Options.op.newShape_regtangle;
-
         }
 
         private void MenuItem_Ellipse(object sender, RoutedEventArgs e)
@@ -87,11 +87,20 @@ namespace Paint.Core
             option.type = Options.op.newShape_ellipse;
         }
 
+        private void MenuItem_Pencil(object sender, RoutedEventArgs e)
+        {
+            option.type = Options.op.newLine_Pencil;
+        }
+
+        private void MenuItem_Marker(object sender, RoutedEventArgs e)
+        {
+            option.type = Options.op.newLine_Marker;
+        }
+
         private void MenuItem_Group(object sender, RoutedEventArgs e)
         {
             option.type = Options.op.groupShape;
         }
-
 
 
         #endregion
@@ -107,6 +116,7 @@ namespace Paint.Core
             double posX = e.GetPosition(Scene).X;
             double posY = e.GetPosition(Scene).Y;
 
+
             switch (option.type)
             {
                 case Options.op.newShape_regtangle:
@@ -116,6 +126,16 @@ namespace Paint.Core
 
                 case Options.op.newShape_ellipse:
                     com = new CommandCreateEllipse(posX, posY, newShapeIndex, shapeContainer, brush);
+                    com.Execute();
+                    break;
+
+                case Options.op.newLine_Pencil:
+                    com = new CommandCreatePencil(StartMovePoint, StartMovePoint, newShapeIndex, shapeContainer, brush);
+                    com.Execute();
+                    break;
+
+                case Options.op.newLine_Marker:
+                    com = new CommandCreateMarker(StartMovePoint, StartMovePoint, newShapeIndex, shapeContainer, brush);
                     com.Execute();
                     break;
 
@@ -167,6 +187,25 @@ namespace Paint.Core
                     }
                     break;
 
+                case Options.op.newLine_Pencil:
+                    if (shapeContainer.shapes.ContainsKey(newShapeIndex))
+                    {
+                        ICommands com = new CommandFinalizePencil(StartMovePoint, EndMovePoint, newShapeIndex, shapeContainer, brush);
+                        com.Execute();
+                        newShapeIndex++;
+                        Render();
+                    }
+                    break;
+                case Options.op.newLine_Marker:
+                    if (shapeContainer.shapes.ContainsKey(newShapeIndex))
+                    {
+                        ICommands com = new CommandFinalizeMarker(StartMovePoint, EndMovePoint, newShapeIndex, shapeContainer, brush);
+                        com.Execute();
+                        newShapeIndex++;
+                        Render();
+                    }
+                    break;
+
                 case Options.op.moveShape:
 
                     HitTestResult result = VisualTreeHelper.HitTest(Scene, Mouse.GetPosition(Scene));
@@ -190,7 +229,6 @@ namespace Paint.Core
                             ICommands com = new CommandMoveRect(dX, dY, index, shapeContainer, path, brush);
                             com.Execute();
                         }
-                        Render();
                     }
                     
 
@@ -343,6 +381,11 @@ namespace Paint.Core
         private void AddCircle_Click(object sender, RoutedEventArgs e)
         {
             option.type = Options.op.newShape_ellipse;
+        }
+
+        private void Pencil_Click(object sender, RoutedEventArgs e)
+        {
+            option.type = Options.op.newLine_Pencil;
         }
 
         private void Group_Click(object sender, RoutedEventArgs e)

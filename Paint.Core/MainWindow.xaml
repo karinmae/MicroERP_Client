@@ -12,12 +12,13 @@
         <TextBox x:Name="y" Text="{Binding Path=Test}" HorizontalAlignment="Left" Height="23" Margin="144,536,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Add Rectangle" HorizontalAlignment="Left" Margin="692,539,0,0" VerticalAlignment="Top" Width="90" Click="AddRectangle_Click"/>
         <Button Content="Add Circle" HorizontalAlignment="Left" Margin="612,539,0,0" VerticalAlignment="Top" Width="75" Click="AddCircle_Click"/>
-        <Button Content="Group" HorizontalAlignment="Left" Margin="532,539,0,0" VerticalAlignment="Top" Width="75" Click="Group_Click"/>
-        <Button Content="Move" HorizontalAlignment="Left" Margin="452,539,0,0" VerticalAlignment="Top" Width="75" Click="Move_Click"/>
+        <Button Content="Group" HorizontalAlignment="Left" Margin="452,539,0,0" VerticalAlignment="Top" Width="75" Click="Group_Click"/>
+        <Button Content="Move" HorizontalAlignment="Left" Margin="372,539,0,0" VerticalAlignment="Top" Width="75" Click="Move_Click"/>
         <RadioButton Content="Blue" HorizontalAlignment="Left" Margin="452,521,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" IsChecked="True"/>
         <RadioButton Content="Green" HorizontalAlignment="Left" Margin="505,521,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
         <RadioButton Content="Red" HorizontalAlignment="Left" Margin="621,521,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
         <RadioButton Content="Violet" HorizontalAlignment="Left" Margin="563,521,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <Button Content="Pencil" HorizontalAlignment="Left" Margin="532,539,0,0" VerticalAlignment="Top" Width="75" Click="Pencil_Click"/>
 
     </Grid>
 
@@ -28,6 +29,10 @@
             <MenuItem Header="NewShape">
                 <MenuItem Header="Regtangle" Click="MenuItem_Regtangle"/>
                 <MenuItem Header="Ellipse" Click="MenuItem_Ellipse"/>
+            </MenuItem>
+            <MenuItem Header="Line">
+                <MenuItem Header="Pen" Click="MenuItem_Pencil"/>
+                <MenuItem Header="Marker" Click="MenuItem_Marker"/>
             </MenuItem>
             <MenuItem Header="Group" Click="MenuItem_Group"/>
         </ContextMenu>

@@ -15,18 +15,20 @@ using System.Windows.Shapes;
 
 namespace Paint.Core.Models
 {
-    class GenericShape
+    class Pencil
     {
-        public enum type
+        public Path Shape { get; set; }
+
+        public Pencil(Point start, Point end, int id, Brush brush)
         {
-            Rectangle, Ellipse, Pencil, Marker
-        };
-        public type ShapeTyp { get; set; }
+            Shape = new Path
+            {
 
-        public Path Shape {get; set; }
-        public Point position { get; set; }
-
-
-
+                Stroke = brush,
+                StrokeThickness = 3,
+                Data = new LineGeometry(start, end),
+                Tag = id
+            };
+        }
     }
 }

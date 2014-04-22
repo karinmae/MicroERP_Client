@@ -54,8 +54,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Command\CommandCreateEllipse.cs" />
+    <Compile Include="Command\CommandCreateMarker.cs" />
+    <Compile Include="Command\CommandCreatePencil.cs" />
     <Compile Include="Command\CommandCreateRect.cs" />
     <Compile Include="Command\CommandFinalizeEllipse.cs" />
+    <Compile Include="Command\CommandFinalizeMarker.cs" />
+    <Compile Include="Command\CommandFinalizePencil.cs" />
     <Compile Include="Command\CommandFinalizeRect.cs" />
     <Compile Include="Command\CommandMoveEllipse.cs" />
     <Compile Include="Command\CommandMoveRect.cs" />
@@ -68,9 +72,13 @@
     <Compile Include="Composite\ShapeComposite.cs" />
     <Compile Include="Helper\EllipseHelper.cs" />
     <Compile Include="Helper\RectangleHelper.cs" />
+    <Compile Include="Line\Marker.cs" />
+    <Compile Include="Line\Pencil.cs" />
     <Compile Include="Models\EllipseShape.cs" />
     <Compile Include="Models\GenericShape.cs" />
     <Compile Include="Models\CanvasShapeContainer.cs" />
+    <Compile Include="Models\Marker.cs" />
+    <Compile Include="Models\Pencil.cs" />
     <Compile Include="Models\RectangleShape.cs" />
     <Compile Include="Shapes\EllipseShape.cs" />
     <Compile Include="Shapes\RectangleShape.cs" />
