@@ -39,7 +39,8 @@ namespace Paint.Core.Command
             this.brush = brush;
         }
 
-        public void Execute(){
+        public void Execute()
+        {
             GenericShape newForm = new GenericShape();
             rectangle = new RectangleShape(posX, posY, 0, 0, newShapeIndex, brush);
 
@@ -50,8 +51,6 @@ namespace Paint.Core.Command
             shapeContainer.shapes.Add(newShapeIndex, newForm);
         }
 
-        
+
     }
 }
-
-                

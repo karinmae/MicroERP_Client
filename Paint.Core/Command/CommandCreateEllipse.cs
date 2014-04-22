@@ -17,21 +17,21 @@ using Paint.Core.Models;
 using Paint.Core.ViewModels;
 using Paint.Core.Command;
 
+
 namespace Paint.Core.Command
 {
-    class CommandSetSizeRect : ICommands
+    class CommandCreateEllipse : ICommands
     {
         double posX;
         double posY;
         int newShapeIndex;
         CanvasShapeContainer shapeContainer;
+
         Brush brush;
 
-        RectangleShape rectangle;
-        //Path shape;
+        EllipseShape ellipse;
 
-        public CommandSetSizeRect(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer, Brush brush)
-        {
+         public CommandCreateEllipse(double posX, double posY, int newShapeIndex, CanvasShapeContainer shapeContainer,  Brush brush){
             this.posX = posX;
             this.posY = posY;
             this.newShapeIndex = newShapeIndex;
@@ -39,16 +39,18 @@ namespace Paint.Core.Command
             this.brush = brush;
         }
 
-        public void Execute(){
-            GenericShape newForm = shapeContainer.shapes[newShapeIndex];
-            double width = Math.Abs(newForm.position.X - posX);
-            double height = Math.Abs(newForm.position.Y - posY);
-            rectangle = new RectangleShape(newForm.position.X - 5, newForm.position.Y - 5, width, height, newShapeIndex, brush);
-        }
+        public void Execute()
+        {
+            GenericShape newForm = new GenericShape();
 
-        public Path getShape(){
-            return rectangle.Shape;
+            ellipse = new EllipseShape(posX, posY, 0, 0, newShapeIndex, brush);
+
+            newForm.Shape = ellipse.Shape;
+            newForm.position = new Point(posX, posY);
+            newForm.ShapeTyp = GenericShape.type.Ellipse;
+
+            shapeContainer.shapes.Add(newShapeIndex, newForm);
+
         }
     }
 }
-

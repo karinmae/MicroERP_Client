@@ -53,20 +53,27 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Command\CommandCreateEllipse.cs" />
     <Compile Include="Command\CommandCreateRect.cs" />
+    <Compile Include="Command\CommandFinalizeEllipse.cs" />
     <Compile Include="Command\CommandFinalizeRect.cs" />
+    <Compile Include="Command\CommandMoveEllipse.cs" />
     <Compile Include="Command\CommandMoveRect.cs" />
     <Compile Include="Command\CommandResizeRect.cs" />
     <Compile Include="Command\CommandSelectSize.cs" />
     <Compile Include="Command\CommandSelectStart.cs" />
+    <Compile Include="Command\CommandSetSizeEllipse.cs" />
     <Compile Include="Command\CommandSetSizeRect.cs" />
     <Compile Include="Command\ICommands.cs" />
     <Compile Include="Command\Options.cs" />
     <Compile Include="Composite\ShapeComposite.cs" />
+    <Compile Include="Helper\EllipseHelper.cs" />
     <Compile Include="Helper\RectangleHelper.cs" />
+    <Compile Include="Models\EllipseShape.cs" />
     <Compile Include="Models\GenericShape.cs" />
     <Compile Include="Models\CanvasShapeContainer.cs" />
     <Compile Include="Models\RectangleShape.cs" />
+    <Compile Include="Shapes\EllipseShape.cs" />
     <Compile Include="Shapes\RectangleShape.cs" />
     <Compile Include="ViewModels\MVVMViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />

@@ -8,13 +8,19 @@
                 MouseLeftButtonUp="Scene_MouseLeftButtonUp"
                 MouseMove="Scene_MouseMove"
                 HorizontalAlignment="Left" Height="511" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" Background="#00000000"/>
+                HorizontalAlignment="Left" Height="494" Margin="10,10,0,0" VerticalAlignment="Top" Width="772" Background="#00000000"/>
         <TextBox x:Name="x" HorizontalAlignment="Left" Height="23" Margin="10,536,0,0" TextWrapping="Wrap" Text="X" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="y" Text="{Binding Path=Test}" HorizontalAlignment="Left" Height="23" Margin="144,536,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
         <Button Content="Add Rectangle" HorizontalAlignment="Left" Margin="692,539,0,0" VerticalAlignment="Top" Width="90" Click="AddRectangle_Click"/>
         <Button Content="Add Circle" HorizontalAlignment="Left" Margin="612,539,0,0" VerticalAlignment="Top" Width="75" Click="AddCircle_Click"/>
         <Button Content="Group" HorizontalAlignment="Left" Margin="532,539,0,0" VerticalAlignment="Top" Width="75" Click="Group_Click"/>
         <Button Content="Move" HorizontalAlignment="Left" Margin="452,539,0,0" VerticalAlignment="Top" Width="75" Click="Move_Click"/>
+
         <Button Content="Resize" HorizontalAlignment="Left" Margin="372,539,0,0" VerticalAlignment="Top" Width="75" Click="Resize_Click"/>
+        <RadioButton Content="Blue" HorizontalAlignment="Left" Margin="452,521,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked" IsChecked="True"/>
+        <RadioButton Content="Green" HorizontalAlignment="Left" Margin="505,521,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <RadioButton Content="Red" HorizontalAlignment="Left" Margin="621,521,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+        <RadioButton Content="Violet" HorizontalAlignment="Left" Margin="563,521,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
 
 
     </Grid>
@@ -23,7 +29,10 @@
         <ContextMenu>
             <MenuItem Header="Resize mode" Click="MenuItem_ResizeMode"/>
             <MenuItem Header="Drag and drop mode" Click="MenuItem_DragAndDropMode"/>
-            <MenuItem Header="NewShape" Click="MenuItem_Shape"/>
+            <MenuItem Header="NewShape">
+                <MenuItem Header="Regtangle" Click="MenuItem_Regtangle"/>
+                <MenuItem Header="Ellipse" Click="MenuItem_Ellipse"/>
+            </MenuItem>
             <MenuItem Header="Group" Click="MenuItem_Group"/>
         </ContextMenu>
     </Window.ContextMenu>

@@ -15,19 +15,21 @@ using System.Windows.Shapes;
 
 namespace Paint.Core.Models
 {
-    class RectangleShape
+    class EllipseShape
     {
         public Path Shape { get; set; }
 
-        public RectangleShape(double posX, double posY, double width, double Height, int id, Brush brush)
+        public EllipseShape(double posX, double posY, double radiusX, double radiusY, int id,  Brush brush)
         {
             Shape = new Path
             {
+                
                 Fill = brush,
                 Stroke = Brushes.Black,
-                Data = new RectangleGeometry(new Rect(posX, posY,width, Height)),
+                Data = new EllipseGeometry(new Rect(posX, posY, radiusX, radiusY)),
                 Tag = id
             };
         }
+
     }
 }
