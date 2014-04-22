@@ -56,6 +56,7 @@
     <Compile Include="Command\CommandCreateRect.cs" />
     <Compile Include="Command\CommandFinalizeRect.cs" />
     <Compile Include="Command\CommandMoveRect.cs" />
+    <Compile Include="Command\CommandResizeRect.cs" />
     <Compile Include="Command\CommandSelectSize.cs" />
     <Compile Include="Command\CommandSelectStart.cs" />
     <Compile Include="Command\CommandSetSizeRect.cs" />

@@ -33,6 +33,8 @@ namespace Paint.Core
         RectangleShape rectangle;
         Path tempForm;
 
+
+        HitTestResult resize;
         
 
         ShapeComposite composite;
@@ -58,16 +60,13 @@ namespace Paint.Core
 
             shapeContainer = new CanvasShapeContainer();
             transform = new MatrixTransform();
-
             tempForm = new Path();
             newShapeIndex = 0;
 
-           
             composite = new ShapeComposite();
         }
 
-        #region Add Shapes and define the mode
-
+        #region define the mode
 
         private void MenuItem_ResizeMode(object sender, RoutedEventArgs args)
         {
@@ -88,14 +87,13 @@ namespace Paint.Core
             option.type = Options.op.groupShape;
         }
 
-
         #endregion
 
         private void Scene_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             ICommands com;
-            x.Text = " down";
             HitTestResult result = VisualTreeHelper.HitTest(Scene, Mouse.GetPosition(Scene));
+            resize = result;
             Path path = result.VisualHit as Path;
 
             StartMovePoint = e.GetPosition(Scene);
@@ -117,13 +115,13 @@ namespace Paint.Core
                     break;
 
                 case Options.op.groupShape:
-                    ShapeComposite group = new ShapeComposite();
+                    
                     com = new CommandSelectStart(posX, posY, select, Brushes.Transparent);
                     com.Execute();
+                    break;
 
-                    //int index = Convert.ToInt32(path.Tag.ToString());
-                    //GenericShape form1 = shapeContainer.shapes[index];
-                    //group1.add(form1);
+                case Options.op.resize:
+
                     break;
             }
 
@@ -131,7 +129,8 @@ namespace Paint.Core
 
         private void Scene_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            x.Text = " UP";
+            ICommands com;
+
             EndMovePoint = e.GetPosition(Scene);
             double dX = EndMovePoint.X - StartMovePoint.X;
             double dY = EndMovePoint.Y - StartMovePoint.Y;
@@ -141,11 +140,39 @@ namespace Paint.Core
                 case Options.op.newShape:
                     if (shapeContainer.shapes.ContainsKey(newShapeIndex))
                     {
-                        ICommands com = new CommandFinalizeRect(EndMovePoint.X, EndMovePoint.Y, newShapeIndex, shapeContainer, Brushes.Blue);
+                        com = new CommandFinalizeRect(EndMovePoint.X, EndMovePoint.Y, newShapeIndex, shapeContainer, Brushes.Blue);
                         com.Execute();
                         newShapeIndex++;
                         Render();
                     }
+                    break;
+
+                case Options.op.resize:
+                    Path path_r = resize.VisualHit as Path;
+                    int index_r = Convert.ToInt32(path_r.Tag.ToString());
+
+                    if (path_r.Data.GetType() == typeof(RectangleGeometry))
+                    {
+                        int index = Convert.ToInt32(path_r.Tag.ToString());
+                        GenericShape form = shapeContainer.shapes[index];
+
+                        if (composite.child.Contains(form))
+                        {
+                            foreach (var pair in composite.child)
+                            {
+                                int indexGroup = Convert.ToInt32(pair.Shape.Tag);
+                                com = new CommandResizeRect(dX, dY, indexGroup, shapeContainer, pair.Shape, Brushes.Blue);
+                                com.Execute();
+                            }
+                        }
+                        else
+                        {
+                            com = new CommandResizeRect(dX, dY, index_r, shapeContainer, path_r, Brushes.Blue);
+                            com.Execute();
+                        }
+                        Render();
+                    }
+
                     break;
 
                 case Options.op.moveShape:
@@ -158,17 +185,17 @@ namespace Paint.Core
                         int index = Convert.ToInt32(path.Tag.ToString());
                         GenericShape form = shapeContainer.shapes[index];
 
-                        if (composite.children.Contains(form))
+                        if (composite.child.Contains(form))
                         {
-                            foreach (var pair in composite.children)
+                            foreach (var pair in composite.child)
                             {
                                 int indexGroup = Convert.ToInt32(pair.Shape.Tag);
-                                ICommands com = new CommandMoveRect(dX, dY, indexGroup, shapeContainer, pair.Shape, Brushes.Blue);
+                                com = new CommandMoveRect(dX, dY, indexGroup, shapeContainer, pair.Shape, Brushes.Blue);
                                 com.Execute();
                             }
                         }
                         else{
-                            ICommands com = new CommandMoveRect(dX, dY, index, shapeContainer, path, Brushes.Blue);
+                            com = new CommandMoveRect(dX, dY, index, shapeContainer, path, Brushes.Blue);
                             com.Execute();
                         }
                         Render();
@@ -176,24 +203,23 @@ namespace Paint.Core
                     break;
 
                 case Options.op.groupShape:
-
                     ShapeComposite group = new ShapeComposite();
-
+                   
                     foreach (var pair in shapeContainer.shapes)
                     {
                         GenericShape temp = new GenericShape();
                         temp = pair.Value;
                         if ((temp.position.X > StartMovePoint.X) && (temp.position.Y > StartMovePoint.Y) && (temp.position.X < EndMovePoint.X) && (temp.position.Y < EndMovePoint.Y))
                         {
-                            group.add(temp);
-                            Scene.Children.Add(temp.Shape);
+                            //group.add(temp);
+                            composite.add(temp);
+                            //Scene.Children.Add(temp.Shape);
                         }
-
-                        composite.add(group);
-                       
                     }
 
+                    //composite.add(group);
                     Scene.Children.Remove(select.Shape);
+                    Render();
                     break;
             }
         }
@@ -232,9 +258,9 @@ namespace Paint.Core
                         int index = Convert.ToInt32(path.Tag.ToString());
                         GenericShape form = shapeContainer.shapes[index];
 
-                        if (composite.children.Contains(form))
+                        if (composite.child.Contains(form))                     
                         {
-                            foreach (var pair in composite.children)
+                            foreach (var pair in composite.child)
                             {
                                 transform.Matrix = new Matrix(1, 0, 0, 1,
                                       posX - StartMovePoint.X,
@@ -298,8 +324,12 @@ namespace Paint.Core
             option.type = Options.op.moveShape;
         }
 
-      
+        private void Resize_Click(object sender, RoutedEventArgs e)
+        {
+            option.type = Options.op.resize;
+        }
 
+       
     }
 
 
