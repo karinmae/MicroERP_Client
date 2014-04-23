@@ -31,18 +31,18 @@ namespace MicroErp_01.ViewModels
             }
         }
 
-        private string _seachText;
+        private string _searchText;
         public string SearchText
         {
             get
             {
-                return _seachText;
+                return _searchText;
             }
             set
             {
-                if (_seachText != value)
+                if (_searchText != value)
                 {
-                    _seachText = value;
+                    _searchText = value;
                     SearchCommand.OnCanExecuteChanged();
                     OnPropertyChanged("SearchText");
                 }

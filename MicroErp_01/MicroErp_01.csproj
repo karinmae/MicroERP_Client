@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5792797E-7124-464C-9440-0E07B53CB275}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MicroErp_01</RootNamespace>
     <AssemblyName>MicroErp_01</AssemblyName>
@@ -70,6 +70,7 @@
     <Compile Include="Proxy\Proxy.cs" />
     <Compile Include="ViewModels\ColumnDisplayModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
+    <Compile Include="ViewModels\ContactNewViewModel.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />
     <Compile Include="ViewModels\InvoiceSearchViewModel.cs" />
     <Compile Include="ViewModels\ContactSearchViewModel.cs" />
