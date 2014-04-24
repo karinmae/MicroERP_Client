@@ -39,7 +39,7 @@
                     
                     <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" Margin="360, 0, 0, 0">
                         <Button Width="100" HorizontalAlignment="Right" Margin="10,5,5,5" Command="{Binding SearchCommand}" >Suchen</Button>
-                        <Button  Width="100" HorizontalAlignment="Right" Margin="5,5,30,5" Command="{Binding NewContact}">Neu</Button>
+                        <Button  Width="100" HorizontalAlignment="Right" Margin="5,5,30,5" Command="{Binding NewContactCommand}">Neu</Button>
                     </StackPanel>
                     
                     <ListView Name="Suche" ItemsSource="{Binding Items}" Grid.Row="3" Grid.ColumnSpan="2" Margin="30,5,30,5" Height="265" >

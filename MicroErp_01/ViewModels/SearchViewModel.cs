@@ -66,6 +66,27 @@ namespace MicroErp_01.ViewModels
             }
         }
 
+        private ICommandViewModel _NewContactCommand;
+
+        public ICommandViewModel NewContactCommand
+        {
+            get
+            {
+                if (_NewContactCommand == null)
+                {
+                    _NewContactCommand = new SimpleCommandViewModel(
+                        "NewContact",
+                        "Öffnet das NewContact Beispiel",
+                        () =>
+                        {
+                            var dlg = new NewContact();
+                            //dlg.DataContext = new ContactNewViewModel();
+                            dlg.ShowDialog();
+                        });
+                }
+                return _NewContactCommand;
+            }
+        }
         public abstract void Search();
 
         public abstract GridDisplayConfiguration DisplayedColumns { get; }

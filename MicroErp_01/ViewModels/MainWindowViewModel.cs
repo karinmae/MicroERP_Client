@@ -37,7 +37,5 @@ namespace MicroErp_01.ViewModels
                 return _ContactSearchViewModel;
             }
         }
-
-
     }
 }
