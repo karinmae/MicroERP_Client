@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5792797E-7124-464C-9440-0E07B53CB275}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MicroErp_01</RootNamespace>
     <AssemblyName>MicroErp_01</AssemblyName>
@@ -66,10 +66,14 @@
     <Compile Include="Converter\InvertedBoolConverter.cs" />
     <Compile Include="Converter\ShadeConverter.cs" />
     <Compile Include="Converter\SystemDrawingConverter.cs" />
+    <Compile Include="NewContact.xaml.cs">
+      <DependentUpon>NewContact.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Proxy\Contact.cs" />
     <Compile Include="Proxy\Proxy.cs" />
     <Compile Include="ViewModels\ColumnDisplayModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
+    <Compile Include="ViewModels\ContactNewViewModel.cs" />
     <Compile Include="ViewModels\ContactViewModel.cs" />
     <Compile Include="ViewModels\InvoiceSearchViewModel.cs" />
     <Compile Include="ViewModels\ContactSearchViewModel.cs" />
@@ -88,6 +92,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="NewContact.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">

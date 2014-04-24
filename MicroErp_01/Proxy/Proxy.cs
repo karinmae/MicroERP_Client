@@ -24,7 +24,7 @@ namespace MicroErp_01
             XmlSerializer serializer = new XmlSerializer(typeof(ContactsList));
             TextReader reader = new StringReader(result);
             ContactsList list = (ContactsList)serializer.Deserialize(reader);
-            Display(list);
+            //Display(list);
             reader.Close();
             return list;
         }
