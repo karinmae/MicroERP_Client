@@ -1,0 +1,12 @@
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\obj\Debug\MainWindow.baml
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\obj\Debug\MainWindow.g.cs
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\obj\Debug\App.g.cs
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\obj\Debug\Paint.Core_MarkupCompile.cache
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\obj\Debug\Paint.Core.g.resources
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\obj\Debug\Paint.Core.Properties.Resources.resources
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\obj\Debug\Paint.Core.csproj.GenerateResource.Cache
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\bin\Debug\Paint.Core.exe.config
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\bin\Debug\Paint.Core.exe
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\bin\Debug\Paint.Core.pdb
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\obj\Debug\Paint.Core.exe
+D:\FH\4.Semester\Softwareparadigmen\Paint\Paint.Core\obj\Debug\Paint.Core.pdb
