@@ -12,11 +12,31 @@ namespace MicroErp_01.ViewModels
         {
             this.Object = obj;
 
+            
+
             this.FirstName = obj.Vorname;
             this.LastName = obj.Nachname;
+            this.name = FirstName + " " + LastName;
         }
 
         public Contact Object { get; set; }
+
+        private string _name;
+        public string name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    OnPropertyChanged("name");
+                }
+            }
+        }
 
         private string _firstname;
         public string FirstName

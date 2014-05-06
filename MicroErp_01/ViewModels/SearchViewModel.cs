@@ -67,7 +67,6 @@ namespace MicroErp_01.ViewModels
         }
 
         private ICommandViewModel _NewContactCommand;
-
         public ICommandViewModel NewContactCommand
         {
             get
@@ -85,6 +84,27 @@ namespace MicroErp_01.ViewModels
                         });
                 }
                 return _NewContactCommand;
+            }
+        }
+
+        private ICommandViewModel _EditContactCommand;
+        public ICommandViewModel EditContactCommand
+        {
+            get
+            {
+                if (_EditContactCommand == null)
+                {
+                    _EditContactCommand = new SimpleCommandViewModel(
+                        "EditContact",
+                        "Öffnet das NewContact Beispiel",
+                        () =>
+                        {
+                            var dlg = new EditContact();
+                            //dlg.DataContext = new ContactNewViewModel();
+                            dlg.ShowDialog();
+                        });
+                }
+                return _EditContactCommand;
             }
         }
         public abstract void Search();

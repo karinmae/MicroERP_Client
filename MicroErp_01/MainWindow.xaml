@@ -25,6 +25,7 @@
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
                         <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="Auto" />
@@ -45,11 +46,11 @@
                     <ListView Name="Suche" ItemsSource="{Binding Items}" Grid.Row="3" Grid.ColumnSpan="2" Margin="30,5,30,5" Height="265" >
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Vorname"  DisplayMemberBinding="{Binding FirstName}" Width="310"/>
-                                <GridViewColumn Header="Nachname" DisplayMemberBinding="{Binding LastName}" Width="310"/>
+                                <GridViewColumn Header="Kontakt"  DisplayMemberBinding="{Binding name}" Width="620"/>
                             </GridView>
                         </ListView.View>
                     </ListView>
+                    <Button  Grid.Row="4" Grid.Column="1" Width="100" HorizontalAlignment="Right" Margin="10,5,30,5" Command="{Binding EditContactCommand}" >Anzeigen</Button>
                 </Grid>
             </TabItem>
             <TabItem Header="Rechnungen" Height="30" Width="100">
