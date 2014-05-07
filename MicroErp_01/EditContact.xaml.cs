@@ -22,7 +22,7 @@ namespace MicroErp_01
         public EditContact()
         {
             InitializeComponent();
-            //this.DataContext = new MicroErp_01.ViewModels.ContactEditViewModel();
+            //DataContext = new MicroErp_01.ViewModels.ContactEditViewModel();
         }
     }
 }

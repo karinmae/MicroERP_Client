@@ -13,6 +13,7 @@ namespace MicroErp_01.ViewModels
             this.Object = obj;
 
             this.ID = obj.ID;
+            this.Titel = obj.Titel;
             this.FirstName = obj.Vorname;
             this.LastName = obj.Nachname;
             this.Suffix = obj.Suffix;
@@ -59,6 +60,25 @@ namespace MicroErp_01.ViewModels
                 {
                     _ID = value;
                     OnPropertyChanged("ID");
+                }
+            }
+        }
+        #endregion
+
+        #region Titel
+        private string _Titel;
+        public string Titel
+        {
+            get
+            {
+                return _Titel;
+            }
+            set
+            {
+                if (_Titel != value)
+                {
+                    _Titel = value;
+                    OnPropertyChanged("Titel");
                 }
             }
         }

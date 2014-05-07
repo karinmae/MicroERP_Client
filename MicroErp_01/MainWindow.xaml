@@ -44,7 +44,7 @@
                         <Button  Width="100" HorizontalAlignment="Right" Margin="5,5,30,5" Command="{Binding NewContactCommand}">Neu</Button>
                     </StackPanel>
 
-                    <ListView Name="Suche" ItemsSource="{Binding Items}" SelectedItem="{Binding Path=SelectedItem, Mode=TwoWay}" Grid.Row="3" Grid.ColumnSpan="2" Margin="30,5,30,5" Height="265" >
+                    <ListView x:Name="Suche" ItemsSource="{Binding Items}" SelectedItem="{Binding Path=SelectedItem}" Grid.Row="3" Grid.ColumnSpan="2" Margin="30,5,30,5" Height="265" >
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Kontakt" DisplayMemberBinding="{Binding name}" Width="620"/>
