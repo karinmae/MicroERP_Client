@@ -6,10 +6,12 @@ using System.Threading.Tasks;
 
 namespace MicroErp_01.ViewModels
 {
-    class ContactEditViewModel : ViewModel
+    public class ContactEditViewModel : ViewModel
     {
+        private string ID2;
         public ContactEditViewModel(string ID)
         {
+            ID2 = ID;
             Proxy proxy = new Proxy();
             ContactsList result = proxy.SearchID(ID);
             foreach (var obj in result.Contact)
@@ -22,10 +24,54 @@ namespace MicroErp_01.ViewModels
                 Adresse = obj.Adresse;
                 Deliveryaddress = obj.Lieferadresse;
                 Billingaddress = obj.Rechnungsadresse;
+                ID = obj.ID;
 
             }
         }
 
+        private ICommandViewModel _UpdateContactCommand;
+        public ICommandViewModel UpdateContactCommand
+        {
+            get
+            {
+                if (_UpdateContactCommand == null)
+                {
+                    _UpdateContactCommand = new SimpleCommandViewModel(
+                        "Update",
+                        "Startet Update",
+                        () =>
+                            {
+                            Proxy prx = new Proxy();
+                            string resp = prx.Update(ID2, FirstName, LastName, Titel, Suffix, Birthday);
+                            Result = resp;
+
+                                Console.WriteLine(resp);
+                        });
+                   
+                }
+                return _UpdateContactCommand;
+            }
+        }
+
+        #region Result
+        private string _Result;
+        public string Result
+        {
+            get
+            {
+                return _Result;
+            }
+            set
+            {
+                if (_Result != value)
+                {
+                    _Result = value;
+                    OnPropertyChanged("FirstName");
+                }
+            }
+        }
+        #endregion
+        
         #region Firstname
         private string _firstname;
         public string FirstName
@@ -44,6 +90,7 @@ namespace MicroErp_01.ViewModels
             }
         }
         #endregion
+
         #region Titel
         private string _Titel;
         public string Titel
