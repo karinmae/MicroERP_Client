@@ -14,22 +14,6 @@ namespace MicroErp_01.ViewModels
             SelectedViewModels = new ObservableCollection<ViewModel>();
         }
 
-        private string _label;
-        public string Label
-        {
-            get
-            {
-                return _label ?? "Suche:";
-            }
-            set
-            {
-                if (_label != value)
-                {
-                    _label = value;
-                    OnPropertyChanged("Label");
-                }
-            }
-        }
 
         private string _searchText;
         public string SearchText
@@ -49,6 +33,23 @@ namespace MicroErp_01.ViewModels
             }
         }
 
+        private ContactViewModel _SelectedItem;
+        public ContactViewModel SelectedItem
+        {
+            get
+            {
+                return _SelectedItem;
+            }
+            set
+            {
+                if (_SelectedItem != value)
+                {
+                    _SelectedItem = value;
+                    OnPropertyChanged("SelectedItem");
+                }
+            }
+        }
+
         private ICommandViewModel _searchCommand;
         public ICommandViewModel SearchCommand
         {
@@ -57,8 +58,8 @@ namespace MicroErp_01.ViewModels
                 if (_searchCommand == null)
                 {
                     _searchCommand = new SimpleCommandViewModel(
-                        "Suchen", 
-                        "Startet eine Suche", 
+                        "Suchen",
+                        "Startet eine Suche",
                         Search,
                         () => !string.IsNullOrEmpty(SearchText));
                 }
@@ -96,13 +97,13 @@ namespace MicroErp_01.ViewModels
                 {
                     _EditContactCommand = new SimpleCommandViewModel(
                         "EditContact",
-                        "Öffnet das NewContact Beispiel",
+                        "Öffnet das EditContact Beispiel",
                         () =>
                         {
-                            var dlg = new EditContact();
-                            //dlg.DataContext = new ContactNewViewModel();
-                            dlg.ShowDialog();
-                        });
+                          var dlg = new EditContact();
+                          dlg.DataContext = new ContactEditViewModel(SelectedItem.ID); ;
+                         dlg.ShowDialog();
+                         });
                 }
                 return _EditContactCommand;
             }

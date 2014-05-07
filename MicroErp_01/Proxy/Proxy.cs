@@ -10,11 +10,10 @@ namespace MicroErp_01
     {
         //Server
         protected string URL = "http://localhost:8080/";
-
+        
         public Proxy()
         {}
 
-        /*Search Contacts */
         #region Search Contacts
         public ContactsList Search(string text)
         {
@@ -24,10 +23,31 @@ namespace MicroErp_01
             XmlSerializer serializer = new XmlSerializer(typeof(ContactsList));
             TextReader reader = new StringReader(result);
             ContactsList list = (ContactsList)serializer.Deserialize(reader);
-            //Display(list);
+            Display(list);
             reader.Close();
             return list;
         }
+        #endregion
+
+        #region Search ID
+        public ContactsList SearchID(string text)
+        {
+            WebClient http = new WebClient();
+            //Console.WriteLine(text);
+            string result = http.DownloadString(new Uri(URL + "Contacts/ID?id=" + Uri.EscapeUriString(text)));
+            //Contact list=null;
+            Console.WriteLine(result);
+            XmlSerializer serializer = new XmlSerializer(typeof(ContactsList));
+            TextReader reader = new StringReader(result);
+            ContactsList list = (ContactsList)serializer.Deserialize(reader);
+            Display(list);
+            reader.Close();
+            return list;
+        }
+        #endregion
+
+        #region Edit Contacts
+
         #endregion
 
         #region Display

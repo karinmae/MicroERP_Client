@@ -14,7 +14,42 @@
             <Setter Property="Control.VerticalAlignment" Value="Center" />
         </Style>
     </Window.Resources>
-    <Grid>
+    <Grid DataContext="{Binding ContactEditViewModel}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition  />
+        </Grid.ColumnDefinitions>
+        <Label Style="{StaticResource style1}" Grid.Row="0" Height="26" Margin="15,5,10,0" Content="{Binding Path=kon.Firstname, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+        <Label Style="{StaticResource style1}" Grid.Row="0" Height="26" Margin="15,5,10,0" >Vorname:</Label>
+        <TextBox Grid.Column="1" Grid.Row="0" Margin="10,10,30,5"  Text="{Binding Firstname}"></TextBox>
         
+        <Label Style="{StaticResource style1}" Grid.Row="1" Height="26" Margin="15,5,10,0" >Nachname:</Label>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="10,10,30,5"  Text="{Binding Lastname}"></TextBox>
+        
+        <Label Style="{StaticResource style1}" Grid.Row="2" Height="26" Margin="15,5,10,0" >Suffix:</Label>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="10,10,30,5"  Text="{Binding Suffix}"></TextBox>
+        
+        <Label Style="{StaticResource style1}" Grid.Row="3" Height="26" Margin="15,5,10,0" >Geburtstag:</Label>
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="10,10,30,5"  Text="{Binding Birthday}"></TextBox>
+        
+        <Label Style="{StaticResource style1}" Grid.Row="4" Height="26" Margin="15,5,10,0" >Adresse:</Label>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="10,10,30,5"  Text="{Binding Adresse}"></TextBox>
+
+        <Label Style="{StaticResource style1}" Grid.Row="5" Height="26" Margin="15,5,10,0" >Lieferadresse:</Label>
+        <TextBox Grid.Column="1" Grid.Row="5" Margin="10,10,30,5"  Text="{Binding deliveryaddress}"></TextBox>
+
+        <Label Style="{StaticResource style1}" Grid.Row="6" Height="26" Margin="15,5,10,0" >Rechnungsadresse:</Label>
+        <TextBox Grid.Column="1" Grid.Row="6" Margin="10,10,30,5"  Text="{Binding billingaddress}"></TextBox>
+
+
     </Grid>
 </Window>
