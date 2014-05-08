@@ -9,7 +9,7 @@ namespace MicroErp_01
     internal class Proxy
     {
         //Server
-        protected string URL = "http://localhost:8080/";
+        protected string URL = "http://127.0.0.1:8080/";
         
         public Proxy()
         {}
