@@ -47,15 +47,18 @@ namespace MicroErp_01
         #endregion
 
         #region Edit Contacts
-        public string Update(string ID, string FirstName, string LastName, string Titel, string Suffix, string Birthday)
+        public string Update(string ID, string FirstName, string LastName, string Titel, string Suffix, string Birthday, string Adresse, string Deliveryaddress, string Billingaddress)
         {
             WebClient http = new WebClient();
             string req =
                 "&firstname=" + Uri.EscapeUriString(FirstName) +
                 "&lastname=" + Uri.EscapeUriString(LastName) +
-                "&titel=" + Uri.EscapeUriString(Titel) +
+                "&title=" + Uri.EscapeUriString(Titel) +
                 "&suffix=" + Uri.EscapeUriString(Suffix) +
-                "&birthday=" + Uri.EscapeUriString(Birthday);
+                "&birthday=" + Uri.EscapeUriString(Birthday) +
+                "&adress=" + Uri.EscapeUriString(Adresse) +
+                "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
+                "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
             string result = http.DownloadString(new Uri(URL + "Contacts/Update?id=" + Uri.EscapeUriString(ID) + req));
             
             return result;
