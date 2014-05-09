@@ -24,34 +24,38 @@
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
             <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="Auto" />
             <ColumnDefinition  />
         </Grid.ColumnDefinitions>
-        
-        <Label Style="{StaticResource style1}" Grid.Row="0" Height="26" Margin="15,5,10,0" >Vorname:</Label>
-        <TextBox Grid.Column="1" Grid.Row="0" Margin="10,10,30,5"  Text="{Binding Path=FirstName, Mode=TwoWay}"></TextBox>
-        
-        <Label Style="{StaticResource style1}" Grid.Row="1" Height="26" Margin="15,5,10,0" >Nachname:</Label>
-        <TextBox Grid.Column="1" Grid.Row="1" Margin="10,10,30,5"  Text="{Binding Path=LastName, Mode=TwoWay}"></TextBox>
-        
-        <Label Style="{StaticResource style1}" Grid.Row="2" Height="26" Margin="15,5,10,0" >Suffix:</Label>
-        <TextBox Grid.Column="1" Grid.Row="2" Margin="10,10,30,5"  Text="{Binding Path=Suffix, Mode=TwoWay}"></TextBox>
-        
-        <Label Style="{StaticResource style1}" Grid.Row="3" Height="26" Margin="15,5,10,0" >Geburtstag:</Label>
-        <TextBox Grid.Column="1" Grid.Row="3" Margin="10,10,30,5"  Text="{Binding Path=Birthday, Mode=TwoWay}"></TextBox>
-        
-        <Label Style="{StaticResource style1}" Grid.Row="4" Height="26" Margin="15,5,10,0" >Adresse:</Label>
-        <TextBox Grid.Column="1" Grid.Row="4" Margin="10,10,30,5"  Text="{Binding Path=Adresse, Mode=TwoWay}"></TextBox>
+        <Label Style="{StaticResource style1}" Grid.Row="0" Height="26" Margin="15,5,10,0" >Titel:</Label>
+        <TextBox Grid.Column="1" Grid.Row="0" Margin="10,10,30,5"  Text="{Binding Titel}"></TextBox>
 
-        <Label Style="{StaticResource style1}" Grid.Row="5" Height="26" Margin="15,5,10,0" >Lieferadresse:</Label>
-        <TextBox Grid.Column="1" Grid.Row="5" Margin="10,10,30,5"  Text="{Binding Path=Deliveryaddress, Mode=TwoWay}"></TextBox>
+        <Label Style="{StaticResource style1}" Grid.Row="1" Height="26" Margin="15,5,10,0" >Vorname:</Label>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="10,10,30,5"  Text="{Binding FirstName}"></TextBox>
+        
+        <Label Style="{StaticResource style1}" Grid.Row="2" Height="26" Margin="15,5,10,0" >Nachname:</Label>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="10,10,30,5"  Text="{Binding LastName}"></TextBox>
+        
+        <Label Style="{StaticResource style1}" Grid.Row="3" Height="26" Margin="15,5,10,0" >Suffix:</Label>
+        <TextBox Grid.Column="1" Grid.Row="3" Margin="10,10,30,5"  Text="{Binding Suffix}"></TextBox>
+        
+        <Label Style="{StaticResource style1}" Grid.Row="4" Height="26" Margin="15,5,10,0" >Geburtstag:</Label>
+        <TextBox Grid.Column="1" Grid.Row="4" Margin="10,10,30,5"  Text="{Binding Birthday}"></TextBox>
+        
+        <Label Style="{StaticResource style1}" Grid.Row="5" Height="26" Margin="15,5,10,0" >Adresse:</Label>
+        <TextBox Grid.Column="1" Grid.Row="5" Margin="10,10,30,5"  Text="{Binding Adresse}"></TextBox>
 
-        <Label Style="{StaticResource style1}" Grid.Row="6" Height="26" Margin="15,5,10,0" >Rechnungsadresse:</Label>
-        <TextBox Grid.Column="1" Grid.Row="6" Margin="10,10,30,5"  Text="{Binding Path=Billingaddress, Mode=TwoWay}"></TextBox>
-        <Button Content="Bearbeiten" Command="{Binding UpdateContactCommand}" Grid.Column="1" HorizontalAlignment="Left" Margin="251,3,0,0" Grid.Row="7" VerticalAlignment="Top" Width="75"/>
-        <Label Content="{Binding Path=Result, Mode=TwoWay}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,1,0,0" Grid.Row="7" VerticalAlignment="Top"/>
+        <Label Style="{StaticResource style1}" Grid.Row="6" Height="26" Margin="15,5,10,0" >Lieferadresse:</Label>
+        <TextBox Grid.Column="1" Grid.Row="6" Margin="10,10,30,5"  Text="{Binding Deliveryaddress}"></TextBox>
+
+        <Label Style="{StaticResource style1}" Grid.Row="7" Height="26" Margin="15,5,10,0" >Rechnungsadresse:</Label>
+        <TextBox Grid.Column="1" Grid.Row="7" Margin="10,10,30,5"  Text="{Binding Billingaddress}"></TextBox>
+        
+        <Button Content="Bearbeiten" Command="{Binding UpdateContactCommand}" Grid.Column="1" HorizontalAlignment="Left" Margin="251,3,0,0" Grid.Row="8" VerticalAlignment="Top" Width="75"/>
+        <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,1,0,0" Grid.Row="8" VerticalAlignment="Top"/>
 
 
     </Grid>

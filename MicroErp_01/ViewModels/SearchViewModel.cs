@@ -101,8 +101,11 @@ namespace MicroErp_01.ViewModels
                         () =>
                         {
                           var dlg = new EditContact();
-                          dlg.DataContext = new ContactEditViewModel(SelectedItem.ID); ;
-                         dlg.ShowDialog();
+                          if (SelectedItem.ID != "x")
+                          {
+                              dlg.DataContext = new ContactEditViewModel(SelectedItem.ID); ;
+                              dlg.ShowDialog();
+                          }
                          });
                 }
                 return _EditContactCommand;

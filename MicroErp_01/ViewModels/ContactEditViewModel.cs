@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
 namespace MicroErp_01.ViewModels
 {
@@ -20,11 +21,14 @@ namespace MicroErp_01.ViewModels
                 LastName = obj.Nachname;
                 Titel = obj.Titel;
                 Suffix = obj.Suffix;
-                Birthday = obj.Geburtsdatum;
+                string birth2 = obj.Geburtsdatum;
                 Adresse = obj.Adresse;
                 Deliveryaddress = obj.Lieferadresse;
                 Billingaddress = obj.Rechnungsadresse;
                 ID = obj.ID;
+
+               string[] birth = Regex.Split(birth2, "T");
+               Birthday = birth[0];
 
             }
         }
@@ -40,14 +44,13 @@ namespace MicroErp_01.ViewModels
                         "Update",
                         "Startet Update",
                         () =>
-                            {
+                        {
                             Proxy prx = new Proxy();
                             string resp = prx.Update(ID2, FirstName, LastName, Titel, Suffix, Birthday, Adresse, Deliveryaddress, Billingaddress);
                             Result = resp;
 
-                                Console.WriteLine(resp);
+                            Console.WriteLine(resp);
                         });
-                   
                 }
                 return _UpdateContactCommand;
             }
@@ -66,12 +69,12 @@ namespace MicroErp_01.ViewModels
                 if (_Result != value)
                 {
                     _Result = value;
-                    OnPropertyChanged("FirstName");
+                    OnPropertyChanged("Result");
                 }
             }
         }
         #endregion
-        
+
         #region Firstname
         private string _firstname;
         public string FirstName

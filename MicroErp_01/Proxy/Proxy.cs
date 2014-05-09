@@ -17,15 +17,25 @@ namespace MicroErp_01
         #region Search Contacts
         public ContactsList Search(string text)
         {
+            ContactsList list = new ContactsList();
             WebClient http = new WebClient();
-            string result = http.DownloadString(new Uri(URL + "Contacts/Search?name=" + Uri.EscapeUriString(text)));
-            Console.WriteLine(result);
-            XmlSerializer serializer = new XmlSerializer(typeof(ContactsList));
-            TextReader reader = new StringReader(result);
-            ContactsList list = (ContactsList)serializer.Deserialize(reader);
-            Display(list);
-            reader.Close();
+            try
+            {
+                string result = http.DownloadString(new Uri(URL + "Contacts/Search?name=" + Uri.EscapeUriString(text)));
+                Console.WriteLine(result);
+                XmlSerializer serializer = new XmlSerializer(typeof(ContactsList));
+                TextReader reader = new StringReader(result);
+                list = (ContactsList)serializer.Deserialize(reader);
+                Display(list);
+                reader.Close();
+                
+            }
+            catch (System.Net.WebException ex)
+            {
+
+             }
             return list;
+            
         }
         #endregion
 

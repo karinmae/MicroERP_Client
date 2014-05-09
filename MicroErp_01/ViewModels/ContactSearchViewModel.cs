@@ -13,8 +13,18 @@ namespace MicroErp_01.ViewModels
             Proxy proxy = new Proxy();
             result = proxy.Search(SearchText);
             Items.Clear();
-            foreach (var obj in result.Contact)
+            if (result.Contact != null)
             {
+                foreach (var obj in result.Contact)
+                {
+                    Items.Add(new ContactViewModel(obj));
+                }
+            }
+            else
+            {
+                Contact obj = new Contact();
+                obj.Vorname = "Keine Verbindung zum Server!";
+                obj.ID = "x";
                 Items.Add(new ContactViewModel(obj));
             }
         }
