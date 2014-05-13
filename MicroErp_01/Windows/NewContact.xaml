@@ -1,0 +1,58 @@
+﻿<Window x:Class="MicroErp_01.NewContact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Neuen Kontakt anlegen" Height="623" Width="442">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" >
+            <GradientStop Color="Wheat" Offset="0" />
+            <GradientStop Color="White" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.Resources>
+        <Style x:Key="style1">
+            <Setter Property="Control.Foreground" Value="Black" />
+            <Setter Property="Control.VerticalAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+    	<Label Content="Firma" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
+    	<Label Content="Name:" HorizontalAlignment="Left" Margin="48,35.96,0,0" VerticalAlignment="Top"/>
+    	<Label Content="UID Nr.:" HorizontalAlignment="Left" Margin="48.289,66.92,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Person" HorizontalAlignment="Left" Margin="10,97.88,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+    	<Label Content="Vorname:" HorizontalAlignment="Left" Margin="48,128.84,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Nachname:" HorizontalAlignment="Left" Margin="48,159.8,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Firma:" HorizontalAlignment="Left" Margin="48,190.76,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Geburtstag:" HorizontalAlignment="Left" Margin="48.289,221.72,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Adressen" HorizontalAlignment="Left" Margin="10,252.68,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+    	<Label Content="Straße:" HorizontalAlignment="Left" Margin="48.402,283.64,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Lieferadresse" HorizontalAlignment="Left" Margin="10,354.56,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+    	<Label Content="Rechnungsadresse" HorizontalAlignment="Left" Margin="10,447.57,0,0" VerticalAlignment="Top" FontWeight="Bold"/>
+    	<Label Content="PLZ:" HorizontalAlignment="Left" Margin="48.289,314.6,0,0" VerticalAlignment="Top"/>
+    	<Label Content="PLZ:" HorizontalAlignment="Left" Margin="48.402,416.48,0,0" VerticalAlignment="Top"/>
+    	<Label Content="PLZ:" HorizontalAlignment="Left" Margin="48.402,509.49,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Ort:" HorizontalAlignment="Left" Margin="227,314.6,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Ort:" HorizontalAlignment="Left" Margin="227,513.49,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Ort:" HorizontalAlignment="Left" Margin="227,417.52,0,0" VerticalAlignment="Top"/>
+    	<Button Content="Abbrechen" HorizontalAlignment="Left" Margin="245.887,551.04,0,0" VerticalAlignment="Top" Width="80" Height="30.96"/>
+    	<Button Content="Speichern" HorizontalAlignment="Left" Margin="330.887,551.04,0,0" VerticalAlignment="Top" Width="75" Height="30.96"/>
+    	<DatePicker HorizontalAlignment="Left" Margin="123.815,223.68,0,0" VerticalAlignment="Top"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="111.816,39.96,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289.071"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="111.816,70.92,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="289.071"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="125.127,131.8,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275.76"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="125.127,162.76,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="275.76"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="125.127,193.72,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="127.221"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="99.525,287.64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301.362"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="99.525,318.6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="99.525,389.52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301.362"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="99.525,420.48,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="99.525,482.53,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301.362"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="99.525,513.49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="261.887,513.49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="261.887,421.52,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+    	<TextBox HorizontalAlignment="Left" Height="23" Margin="261.887,318.6,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="139"/>
+    	<Button Content="Suche" HorizontalAlignment="Left" Margin="257.348,193.72,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+    	<Label Content="Straße:" HorizontalAlignment="Left" Margin="48.402,385.52,0,0" VerticalAlignment="Top"/>
+    	<Label Content="Straße:" HorizontalAlignment="Left" Margin="48.402,478.53,0,0" VerticalAlignment="Top"/>
+        
+    </Grid>
+</Window>
