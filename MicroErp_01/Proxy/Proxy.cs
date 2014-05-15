@@ -75,6 +75,30 @@ namespace MicroErp_01
         }
         #endregion
 
+        #region New Contacts
+        public string New(string Name, string UID, 
+                            string AStrasse, string APlz, string AOrt, 
+                            string LStrasse, string LPlz, string LOrt,
+                            string RStrasse, string RPlz, string ROrt)
+        {
+            string Deliveryaddress, Billingaddress, Adress;
+
+            Adress = AStrasse + " " + APlz + " " + AOrt;
+            Deliveryaddress = LStrasse + " " + LPlz + " " + LOrt;
+            Billingaddress = RStrasse + " " + RPlz + " " + ROrt;
+
+            WebClient http = new WebClient();
+            string req =
+                "&UID=" + Uri.EscapeUriString(UID) +
+                "&adress=" + Uri.EscapeUriString(Adress) +
+                "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
+                "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
+            string result = http.DownloadString(new Uri(URL + "Firma/New?Name=" + Uri.EscapeUriString(Name) + req));
+
+            return result;
+        }
+        #endregion
+
         #region Display
         private static void Display(ContactsList list)
         {
