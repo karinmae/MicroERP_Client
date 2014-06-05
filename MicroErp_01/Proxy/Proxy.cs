@@ -9,7 +9,7 @@ namespace MicroErp_01
     internal class Proxy
     {
         //Server
-        protected string URL = "http://127.0.0.1:8080/";
+        protected string URL = Properties.Settings.Default.ServerSTring;
 
         public Proxy()
         { }
@@ -62,26 +62,47 @@ namespace MicroErp_01
         #endregion
 
         #region Search Invoice
-        public InvoiceList SearchInvoice(string AmountFrom, string AmountTo, string SearchContact)
+        public InvoiceList SearchInvoice(string DateFrom, string DateTo, string AmountFrom, string AmountTo, string SearchContact)
         {
+            if (string.IsNullOrEmpty(DateFrom))
+                DateFrom = "";
+
+            if (string.IsNullOrEmpty(DateTo))
+                DateTo = "";
+
+            if (string.IsNullOrEmpty(AmountFrom))
+                AmountFrom = "";
+
+            if (string.IsNullOrEmpty(AmountTo))
+                AmountTo = "";
+
+            if (string.IsNullOrEmpty(SearchContact))
+                SearchContact = "";
+
+
             InvoiceList list = new InvoiceList();
-            WebClient http = new WebClient();
-            try
-            {
-                string req = "&AmountTo=" + Uri.EscapeUriString(AmountTo)
-                    + "&SearchContact=" + Uri.EscapeUriString(SearchContact);
-                string result = http.DownloadString(new Uri(URL + "Invoice/Search?AmountFrom=" + Uri.EscapeUriString(AmountFrom) + req));
-                Console.WriteLine(result);
-                XmlSerializer serializer = new XmlSerializer(typeof(InvoiceList));
-                TextReader reader = new StringReader(result);
-                list = (InvoiceList)serializer.Deserialize(reader);
-                reader.Close();
+            Console.WriteLine(DateFrom);
+            Console.WriteLine(DateTo);
+            Console.WriteLine(AmountFrom);
+            Console.WriteLine(AmountTo);
+            Console.WriteLine( SearchContact);
+            //WebClient http = new WebClient();
+            //try
+            //{
+            //    string req = "&DateTo=" + Uri.EscapeUriString(DateTo) + "&AmountTo=" + Uri.EscapeUriString(AmountTo)
+            //        + "&SearchContact=" + Uri.EscapeUriString(SearchContact);
+            //    string result = http.DownloadString(new Uri(URL + "Invoice/Search?DateFrom=" + Uri.EscapeUriString(AmountFrom) + req));
+            //    Console.WriteLine(result);
+            //    XmlSerializer serializer = new XmlSerializer(typeof(InvoiceList));
+            //    TextReader reader = new StringReader(result);
+            //    list = (InvoiceList)serializer.Deserialize(reader);
+            //    reader.Close();
 
-            }
-            catch (System.Net.WebException ex)
-            {
+            //}
+            //catch (System.Net.WebException ex)
+            //{
 
-            }
+            //}
             return list;
 
         }
@@ -123,8 +144,8 @@ namespace MicroErp_01
         }
         #endregion
 
-        #region New Contacts
-        public string New(string Name, string UID,
+        #region New Firm
+        public string NewFirm(string Name, string UID,
                             string AStrasse, string APlz, string AOrt,
                             string LStrasse, string LPlz, string LOrt,
                             string RStrasse, string RPlz, string ROrt)
@@ -142,6 +163,34 @@ namespace MicroErp_01
                 "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
                 "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
             string result = http.DownloadString(new Uri(URL + "Firma/New?Name=" + Uri.EscapeUriString(Name) + req));
+
+            return result;
+        }
+        #endregion
+
+        #region New Contact
+        public string NewContact(string Titel, string Vorname, string Nachname,
+                            string Suffix, string Geburtstag,
+                            string AStrasse, string APlz, string AOrt,
+                            string LStrasse, string LPlz, string LOrt,
+                            string RStrasse, string RPlz, string ROrt)
+        {
+            string Deliveryaddress, Billingaddress, Adress;
+
+            Adress = AStrasse + " " + APlz + " " + AOrt;
+            Deliveryaddress = LStrasse + " " + LPlz + " " + LOrt;
+            Billingaddress = RStrasse + " " + RPlz + " " + ROrt;
+            Console.WriteLine(Geburtstag);
+
+            WebClient http = new WebClient();
+            string req =
+                "&vorname=" + Uri.EscapeUriString(Vorname) +
+                "&nachname=" + Uri.EscapeUriString(Nachname) +
+                "&suffix=" + Uri.EscapeUriString(Suffix) +
+                "&adress=" + Uri.EscapeUriString(Adress) +
+                "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
+                "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
+            string result = http.DownloadString(new Uri(URL + "Contact/New?Titel=" + Uri.EscapeUriString(Titel) + req));
 
             return result;
         }

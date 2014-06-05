@@ -86,6 +86,44 @@ namespace MicroErp_01.ViewModels
                 }
             }
         }
+
+        private string _Titel;
+        public string Titel
+        {
+            get
+            {
+                return _Titel;
+            }
+            set
+            {
+                if (_Titel != value)
+                {
+                    _Titel = value;
+                    OnPropertyChanged("Titel");
+                    NotifyStateChanged();
+                }
+            }
+        }
+
+        private string _Suffix;
+        public string Suffix
+        {
+            get
+            {
+                return _Suffix;
+            }
+            set
+            {
+                if (_Suffix != value)
+                {
+                    _Suffix = value;
+                    OnPropertyChanged("Suffix");
+                    NotifyStateChanged();
+                }
+            }
+        }
+
+
         public string _GebTag;
         public string GebTag
         {
@@ -269,9 +307,11 @@ namespace MicroErp_01.ViewModels
         {
             get
             {
-                if (string.IsNullOrWhiteSpace(NName) && string.IsNullOrWhiteSpace(VName) && string.IsNullOrWhiteSpace(Firmenname)) return null;
+                if (string.IsNullOrWhiteSpace(NName) && string.IsNullOrWhiteSpace(VName) && string.IsNullOrWhiteSpace(Titel)
+                    && string.IsNullOrWhiteSpace(Suffix) && string.IsNullOrWhiteSpace(GebTag) && string.IsNullOrWhiteSpace(Firmenname))
+                    return null;
                 return !string.IsNullOrWhiteSpace(Firmenname);
-            }
+            } // && string.IsNullOrWhiteSpace(Firmenname)
         }
 
         public bool CanEditPerson
@@ -299,25 +339,38 @@ namespace MicroErp_01.ViewModels
         #endregion
 
         #region Command
-        private ICommandViewModel _UpdateContactCommand;
-        public ICommandViewModel UpdateContactCommand
+        private ICommandViewModel _NewContactCommand;
+        public ICommandViewModel NewContactCommand
         {
             get
             {
-                if (_UpdateContactCommand == null)
+                if (_NewContactCommand == null)
                 {
-                    _UpdateContactCommand = new SimpleCommandViewModel(
+                    _NewContactCommand = new SimpleCommandViewModel(
                         "New",
                         "Startet New",
                         () =>
                         {
                             Proxy prx = new Proxy();
-                            //string resp = prx.New(ID2, FirstName, LastName, Titel, Suffix, Birthday, Adresse, Deliveryaddress, Billingaddress);
-                            //Result = resp;
+                            if (CanEditFirma == true)
+                            {
+                                string resp = prx.NewFirm(Firmenname, UID, AStrasse, APlz, AOrt,
+                                LStrasse, LPlz, LOrt,
+                                RStrasse, RPlz, ROrt);
+                                Result = resp;
+                            }
+                            if (CanEditPerson == true)
+                            {
+                                string resp = prx.NewContact(Titel, VName, NName, Suffix, GebTag, AStrasse, APlz, AOrt,
+                                LStrasse, LPlz, LOrt,
+                                RStrasse, RPlz, ROrt);
+                                Result = resp;
+                            }
+                            
 
                         });
                 }
-                return _UpdateContactCommand;
+                return _NewContactCommand;
             }
         }
 

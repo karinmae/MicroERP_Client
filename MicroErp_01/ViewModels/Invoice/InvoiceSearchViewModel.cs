@@ -11,7 +11,7 @@ namespace MicroErp_01.ViewModels
         public override void Search()
         {
             Proxy proxy = new Proxy();
-            result = proxy.SearchInvoice(AmountFrom,AmountTo,SearchContact);
+            result = proxy.SearchInvoice(DateFrom, DateTo, AmountFrom,AmountTo,SearchContact);
             Items.Clear();
             if (result.Invoice != null)
             {

@@ -131,6 +131,48 @@ namespace MicroErp_01.ViewModels
         /* Invoice */
         #region Invoice
 
+        /* Rechnungsdatum von */
+        #region DateFrom
+        private string _DateFrom;
+        public string DateFrom
+        {
+            get
+            {
+                return _DateFrom;
+            }
+            set
+            {
+                if (_DateFrom != value)
+                {
+                    _DateFrom = value;
+                    SearchInvoiceCommand.OnCanExecuteChanged();
+                    OnPropertyChanged("DateFrom");
+                }
+            }
+        }
+        #endregion
+
+        /* Rechnungsdatum bis */
+        #region DateTo
+        private string _DateTo;
+        public string DateTo
+        {
+            get
+            {
+                return _DateTo;
+            }
+            set
+            {
+                if (_DateTo != value)
+                {
+                    _DateTo = value;
+                    SearchInvoiceCommand.OnCanExecuteChanged();
+                    OnPropertyChanged("DateTo");
+                }
+            }
+        }
+        #endregion
+
         /* Rechnungsbetrag von */
         #region AmountFrom
         private string _AmountFrom;
@@ -145,6 +187,7 @@ namespace MicroErp_01.ViewModels
                 if (_AmountFrom != value)
                 {
                     _AmountFrom = value;
+                    SearchInvoiceCommand.OnCanExecuteChanged();
                     OnPropertyChanged("AmountFrom");
                 }
             }
@@ -165,7 +208,7 @@ namespace MicroErp_01.ViewModels
                 if (_AmountTo != value)
                 {
                     _AmountTo = value;
-
+                    SearchInvoiceCommand.OnCanExecuteChanged();
                     OnPropertyChanged("AmountTo");
                 }
             }
@@ -186,6 +229,7 @@ namespace MicroErp_01.ViewModels
                 if (_SearchContact != value)
                 {
                     _SearchContact = value;
+                    SearchInvoiceCommand.OnCanExecuteChanged();
                     OnPropertyChanged("SearchContact");
                 }
             }
@@ -201,24 +245,14 @@ namespace MicroErp_01.ViewModels
             {
                 if (_SearchInvoiceCommand == null)
                 {
-                    if (string.IsNullOrEmpty(AmountFrom))
-                    {
-                        AmountFrom = " ";
-                    }
-                    if (string.IsNullOrEmpty(AmountTo))
-                    {
-                        AmountTo = " ";
-                    }
-                    if (string.IsNullOrEmpty(SearchContact))
-                    {
-                        SearchContact = " ";
-                    }
                     _SearchInvoiceCommand = new SimpleCommandViewModel(
                         "Suchen",
                         "Startet eine Suche",
                         Search,
-                        () => (!string.IsNullOrEmpty(AmountFrom)) && (!string.IsNullOrEmpty(AmountTo)
-                            && (!string.IsNullOrEmpty(SearchContact)))
+                        () => //!string.IsNullOrEmpty(SearchContact)
+                            (!string.IsNullOrEmpty(DateFrom)) || (!string.IsNullOrEmpty(DateTo)) ||
+                            (!string.IsNullOrEmpty(AmountFrom)) || (!string.IsNullOrEmpty(AmountTo))
+                            || (!string.IsNullOrEmpty(SearchContact))
                         );
                 }
                 return _SearchInvoiceCommand;

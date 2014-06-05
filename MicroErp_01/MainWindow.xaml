@@ -85,18 +85,18 @@
                     </Grid.ColumnDefinitions>
                     <Label Content="Datum:"  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="51" Margin="15,0,0,0"/>
                     <Label Content="von" Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="30" Margin="5,0,0,0"/>
-                    <DatePicker SelectedDate="{Binding DateFrom}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="102"/>
+                    <DatePicker SelectedDate="{Binding DateFrom, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" VerticalAlignment="Top" Height="24" Width="102"/>
                     <Label Content="bis" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="25" Margin="5,5,0,0"/>
-                    <DatePicker SelectedDate="{Binding DateTo}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="102" Margin="0,5,0,0"/>
+                    <DatePicker SelectedDate="{Binding DateTo, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="102" Margin="0,5,0,0"/>
 
                     <Label Content="Betrag:" Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="50"/>
                     <Label Content="von" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="30"/>
-                    <TextBox Grid.Row="1" Text="{Binding AmountFrom}" Grid.Column="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" />
+                    <TextBox Grid.Row="1" Text="{Binding AmountFrom, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" />
                     <Label Content="bis" Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Top" Height="26" Width="26" Margin="0,5,0,0"/>
-                    <TextBox Grid.Row="2" Text="{Binding AmountTo}" Grid.Column="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Margin="0,5,0,0" />
+                    <TextBox Grid.Row="2" Text="{Binding AmountTo, UpdateSourceTrigger=PropertyChanged}" Grid.Column="3" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="56" Margin="0,5,0,0" />
 
                     <Label Content="Kunde:" Grid.Row="0" Grid.Column="4" HorizontalAlignment="Left" VerticalAlignment="Top" FontWeight="Bold" Height="26" Width="48"/>
-                    <TextBox Grid.Row="1" Text="{Binding SearchContact}" Grid.Column="4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
+                    <TextBox Grid.Row="1" Text="{Binding SearchContact, UpdateSourceTrigger=PropertyChanged}" Grid.Column="4" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" />
 
                     <Button Grid.Row="2" Grid.Column="4" Command="{Binding SearchInvoiceCommand}" Content="Suchen" HorizontalAlignment="Right" VerticalAlignment="Top" Width="100" Height="20" Margin="0,5,0,0"/>
                     <Button Grid.Row="2" Grid.Column="5" Content="Neu" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"  Height="20" Margin="10,5,0,0"/>
