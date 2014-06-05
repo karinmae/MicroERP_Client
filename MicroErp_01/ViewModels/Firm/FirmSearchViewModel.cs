@@ -6,36 +6,32 @@ using System.Threading.Tasks;
 
 namespace MicroErp_01.ViewModels
 {
-    public class ContactSearchViewModel : SearchViewModel
+    public class FirmSearchViewModel : SearchViewModel
     {
         public override void Search()
         {
             Proxy proxy = new Proxy();
-            result = proxy.Search(SearchText);
+            result = proxy.SearchFirm(SearchText);
             Items.Clear();
-            if (result.Contact != null)
+            if (result.Firma != null)
             {
-                foreach (var obj in result.Contact)
+                foreach (var obj in result.Firma)
                 {
-                    Items.Add(new ContactViewModel(obj));
+                    Items.Add(new FirmViewModel(obj));
                 }
             }
             else
             {
-                Contact obj = new Contact();
-                obj.Vorname = "Keine Verbindung zum Server!";
+                Firma obj = new Firma();
+                obj.Name = "Keinen Eintrag gefunden!";
                 obj.ID = "x";
-                Items.Add(new ContactViewModel(obj));
+                Items.Add(new FirmViewModel(obj));
             }
         }
 
-        public override GridDisplayConfiguration DisplayedColumns
-        {
-            get { return null; }
-        }
-
-        private ContactsList _result;
-        public ContactsList result
+        #region Firmlist Result
+        private Firmlist _result;
+        public Firmlist result
         {
             get
             {
@@ -49,6 +45,11 @@ namespace MicroErp_01.ViewModels
                 }
             }
         }
-    }
+        #endregion
 
+        public override GridDisplayConfiguration DisplayedColumns
+        {
+            get { return null; }
+        }
+    }
 }

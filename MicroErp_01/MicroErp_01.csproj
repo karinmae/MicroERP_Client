@@ -5,7 +5,7 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{5792797E-7124-464C-9440-0E07B53CB275}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>MicroErp_01</RootNamespace>
     <AssemblyName>MicroErp_01</AssemblyName>
@@ -65,9 +65,15 @@
     <Compile Include="Converter\BooleanMultiselectToSelectionModeConverter.cs" />
     <Compile Include="Converter\BooleanToVisibilityConverter.cs" />
     <Compile Include="Converter\EmptyToCollapsedConverter.cs" />
+    <Compile Include="Converter\EnumMatchToBooleanConverter.cs" />
     <Compile Include="Converter\InvertedBoolConverter.cs" />
     <Compile Include="Converter\ShadeConverter.cs" />
     <Compile Include="Converter\SystemDrawingConverter.cs" />
+    <Compile Include="Proxy\Firma.cs" />
+    <Compile Include="Proxy\Invoice.cs" />
+    <Compile Include="ViewModels\Firm\FirmSearchViewModel.cs" />
+    <Compile Include="ViewModels\Firm\FirmViewModel.cs" />
+    <Compile Include="ViewModels\Invoice\InvoiceViewModel.cs" />
     <Compile Include="Windows\EditContact.xaml.cs">
       <DependentUpon>EditContact.xaml</DependentUpon>
     </Compile>
@@ -78,11 +84,11 @@
     <Compile Include="Proxy\Proxy.cs" />
     <Compile Include="ViewModels\ColumnDisplayModel.cs" />
     <Compile Include="ViewModels\CommandViewModel.cs" />
-    <Compile Include="ViewModels\ContactEditViewModel.cs" />
-    <Compile Include="ViewModels\ContactNewViewModel.cs" />
-    <Compile Include="ViewModels\ContactViewModel.cs" />
-    <Compile Include="ViewModels\InvoiceSearchViewModel.cs" />
-    <Compile Include="ViewModels\ContactSearchViewModel.cs" />
+    <Compile Include="ViewModels\Contact\ContactEditViewModel.cs" />
+    <Compile Include="ViewModels\Contact\ContactNewViewModel.cs" />
+    <Compile Include="ViewModels\Contact\ContactViewModel.cs" />
+    <Compile Include="ViewModels\Invoice\InvoiceSearchViewModel.cs" />
+    <Compile Include="ViewModels\Contact\ContactSearchViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\SearchViewModel.cs" />
     <Compile Include="ViewModels\ViewModel.cs" />
@@ -125,7 +131,6 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="Design\projectGuides.guides" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

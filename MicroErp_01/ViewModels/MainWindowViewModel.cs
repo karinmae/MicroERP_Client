@@ -12,6 +12,7 @@ namespace MicroErp_01.ViewModels
         {
         }
 
+        #region Invoice
         private InvoiceSearchViewModel _InvoiceSearchViewModel;
         public InvoiceSearchViewModel InvoiceSearchViewModel
         {
@@ -24,7 +25,9 @@ namespace MicroErp_01.ViewModels
                 return _InvoiceSearchViewModel;
             }
         }
+        #endregion
 
+        #region Contacts
         private ContactSearchViewModel _ContactSearchViewModel;
         public ContactSearchViewModel ContactSearchViewModel
         {
@@ -37,5 +40,6 @@ namespace MicroErp_01.ViewModels
                 return _ContactSearchViewModel;
             }
         }
+        #endregion
     }
 }

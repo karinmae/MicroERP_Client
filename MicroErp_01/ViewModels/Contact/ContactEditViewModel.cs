@@ -48,8 +48,6 @@ namespace MicroErp_01.ViewModels
                             Proxy prx = new Proxy();
                             string resp = prx.Update(ID2, FirstName, LastName, Titel, Suffix, Birthday, Adresse, Deliveryaddress, Billingaddress);
                             Result = resp;
-
-                            Console.WriteLine(resp);
                         });
                 }
                 return _UpdateContactCommand;

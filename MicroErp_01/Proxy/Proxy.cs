@@ -10,9 +10,9 @@ namespace MicroErp_01
     {
         //Server
         protected string URL = "http://127.0.0.1:8080/";
-        
+
         public Proxy()
-        {}
+        { }
 
         #region Search Contacts
         public ContactsList Search(string text)
@@ -26,16 +26,64 @@ namespace MicroErp_01
                 XmlSerializer serializer = new XmlSerializer(typeof(ContactsList));
                 TextReader reader = new StringReader(result);
                 list = (ContactsList)serializer.Deserialize(reader);
-                Display(list);
                 reader.Close();
-                
+
             }
             catch (System.Net.WebException ex)
             {
 
-             }
+            }
             return list;
-            
+
+        }
+        #endregion
+
+        #region Search Firm
+        public Firmlist SearchFirm(string text)
+        {
+            Firmlist list = new Firmlist();
+            WebClient http = new WebClient();
+            try
+            {
+                string result = http.DownloadString(new Uri(URL + "Contacts/SearchFirm?name=" + Uri.EscapeUriString(text)));
+                Console.WriteLine(result);
+                XmlSerializer serializer = new XmlSerializer(typeof(Firmlist));
+                TextReader reader = new StringReader(result);
+                list = (Firmlist)serializer.Deserialize(reader);
+                reader.Close();
+
+            }
+            catch (System.Net.WebException ex)
+            {
+
+            }
+            return list;
+        }
+        #endregion
+
+        #region Search Invoice
+        public InvoiceList SearchInvoice(string AmountFrom, string AmountTo, string SearchContact)
+        {
+            InvoiceList list = new InvoiceList();
+            WebClient http = new WebClient();
+            try
+            {
+                string req = "&AmountTo=" + Uri.EscapeUriString(AmountTo)
+                    + "&SearchContact=" + Uri.EscapeUriString(SearchContact);
+                string result = http.DownloadString(new Uri(URL + "Invoice/Search?AmountFrom=" + Uri.EscapeUriString(AmountFrom) + req));
+                Console.WriteLine(result);
+                XmlSerializer serializer = new XmlSerializer(typeof(InvoiceList));
+                TextReader reader = new StringReader(result);
+                list = (InvoiceList)serializer.Deserialize(reader);
+                reader.Close();
+
+            }
+            catch (System.Net.WebException ex)
+            {
+
+            }
+            return list;
+
         }
         #endregion
 
@@ -70,14 +118,14 @@ namespace MicroErp_01
                 "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
                 "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
             string result = http.DownloadString(new Uri(URL + "Contacts/Update?id=" + Uri.EscapeUriString(ID) + req));
-            
+
             return result;
         }
         #endregion
 
         #region New Contacts
-        public string New(string Name, string UID, 
-                            string AStrasse, string APlz, string AOrt, 
+        public string New(string Name, string UID,
+                            string AStrasse, string APlz, string AOrt,
                             string LStrasse, string LPlz, string LOrt,
                             string RStrasse, string RPlz, string ROrt)
         {

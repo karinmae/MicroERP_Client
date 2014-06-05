@@ -27,5 +27,10 @@ namespace MicroErp_01
 
             this.DataContext = new MainWindowViewModel();
         }
+
+        private void RadioButton_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
