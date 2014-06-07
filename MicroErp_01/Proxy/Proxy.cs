@@ -85,7 +85,7 @@ namespace MicroErp_01
             Console.WriteLine(DateTo);
             Console.WriteLine(AmountFrom);
             Console.WriteLine(AmountTo);
-            Console.WriteLine( SearchContact);
+            Console.WriteLine(SearchContact);
             //WebClient http = new WebClient();
             //try
             //{
@@ -139,6 +139,36 @@ namespace MicroErp_01
                 "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
                 "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
             string result = http.DownloadString(new Uri(URL + "Contacts/Update?id=" + Uri.EscapeUriString(ID) + req));
+
+            return result;
+        }
+        #endregion
+
+        #region Search Firm ID
+        public Firmlist SearchFirmID(string text)
+        {
+            WebClient http = new WebClient();
+            string result = http.DownloadString(new Uri(URL + "Contacts/FirmID?id=" + Uri.EscapeUriString(text)));
+            Console.WriteLine(result);
+            XmlSerializer serializer = new XmlSerializer(typeof(ContactsList));
+            TextReader reader = new StringReader(result);
+            Firmlist list = (Firmlist)serializer.Deserialize(reader);
+            reader.Close();
+            return list;
+        }
+        #endregion
+
+        #region Edit Firm Contacts
+        public string UpdateFirm(string ID, string Name, string UID, string Adresse, string Deliveryaddress, string Billingaddress)
+        {
+            WebClient http = new WebClient();
+            string req =
+                "&firstname=" + Uri.EscapeUriString(Name) +
+                "&lastname=" + Uri.EscapeUriString(UID) +
+                "&adress=" + Uri.EscapeUriString(Adresse) +
+                "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
+                "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
+            string result = http.DownloadString(new Uri(URL + "Contacts/UpdateFirm?id=" + Uri.EscapeUriString(ID) + req));
 
             return result;
         }

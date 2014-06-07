@@ -3,25 +3,71 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Text.RegularExpressions;
 
-namespace MicroErp_01.ViewModels.Firm
+namespace MicroErp_01.ViewModels
 {
-    public class FirmViewModel : ViewModel
+    public class FirmEditViewModel : ViewModel
     {
-        public FirmViewModel(Firma obj)
+        private string ID2;
+        public FirmEditViewModel(string ID, string selected)
         {
-            this.Object = obj;
+            ID2 = ID;
+            Proxy proxy = new Proxy();
+            Firmlist result = proxy.SearchFirmID(ID);
+            foreach (var obj in result.Firma)
+            {
 
-            this.ID = obj.ID;
+                name = obj.Name;
+                UID = obj.UID;
+                Adresse = obj.Adresse;
+                Deliveryaddress = obj.Lieferadresse;
+                Billingaddress = obj.Rechnungsadresse;
+                ID = obj.ID;
 
-            this.name = obj.Name;
-            this.UID = obj.UID;
-            this.Adresse = obj.Adresse;
-            this.Deliveryaddress = obj.Lieferadresse;
-            this.Billingaddress = obj.Rechnungsadresse;
+            }
+
         }
 
-        public Firma Object { get; set; }
+        private ICommandViewModel _UpdateFirmContactCommand;
+        public ICommandViewModel UpdateFirmContactCommand
+        {
+            get
+            {
+                if (_UpdateFirmContactCommand == null)
+                {
+                    _UpdateFirmContactCommand = new SimpleCommandViewModel(
+                        "Update",
+                        "Startet Update",
+                        () =>
+                        {
+                            Proxy prx = new Proxy();
+                            string resp = prx.UpdateFirm(ID2, name, UID, Adresse, Deliveryaddress, Billingaddress);
+                            Result = resp;
+                        });
+                }
+                return _UpdateFirmContactCommand;
+            }
+        }
+
+        #region Result
+        private string _Result;
+        public string Result
+        {
+            get
+            {
+                return _Result;
+            }
+            set
+            {
+                if (_Result != value)
+                {
+                    _Result = value;
+                    OnPropertyChanged("Result");
+                }
+            }
+        }
+        #endregion
 
         #region name
         private string _name;
@@ -37,25 +83,6 @@ namespace MicroErp_01.ViewModels.Firm
                 {
                     _name = value;
                     OnPropertyChanged("name");
-                }
-            }
-        }
-        #endregion
-
-        #region ID
-        private string _ID;
-        public string ID
-        {
-            get
-            {
-                return _ID;
-            }
-            set
-            {
-                if (_ID != value)
-                {
-                    _ID = value;
-                    OnPropertyChanged("ID");
                 }
             }
         }
@@ -136,6 +163,7 @@ namespace MicroErp_01.ViewModels.Firm
             }
         }
         #endregion
-
     }
 }
+
+

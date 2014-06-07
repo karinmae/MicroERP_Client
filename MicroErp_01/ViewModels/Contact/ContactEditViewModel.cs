@@ -10,27 +10,28 @@ namespace MicroErp_01.ViewModels
     public class ContactEditViewModel : ViewModel
     {
         private string ID2;
-        public ContactEditViewModel(string ID)
+        public ContactEditViewModel(string ID, string selected)
         {
             ID2 = ID;
             Proxy proxy = new Proxy();
-            ContactsList result = proxy.SearchID(ID);
-            foreach (var obj in result.Contact)
-            {
-                FirstName = obj.Vorname;
-                LastName = obj.Nachname;
-                Titel = obj.Titel;
-                Suffix = obj.Suffix;
-                string birth2 = obj.Geburtsdatum;
-                Adresse = obj.Adresse;
-                Deliveryaddress = obj.Lieferadresse;
-                Billingaddress = obj.Rechnungsadresse;
-                ID = obj.ID;
+             ContactsList result = proxy.SearchID(ID);
+                foreach (var obj in result.Contact)
+                {
+                    FirstName = obj.Vorname;
+                    LastName = obj.Nachname;
+                    Titel = obj.Titel;
+                    Suffix = obj.Suffix;
+                    string birth2 = obj.Geburtsdatum;
+                    Adresse = obj.Adresse;
+                    Deliveryaddress = obj.Lieferadresse;
+                    Billingaddress = obj.Rechnungsadresse;
+                    ID = obj.ID;
 
-               string[] birth = Regex.Split(birth2, "T");
-               Birthday = birth[0];
+                    string[] birth = Regex.Split(birth2, "T");
+                    Birthday = birth[0];
 
-            }
+                }
+            
         }
 
         private ICommandViewModel _UpdateContactCommand;

@@ -1,0 +1,54 @@
+﻿<Window x:Class="MicroErp_01.EditFirmContact"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Kontakt editieren" Height="400" Width="500">
+    <Window.Background>
+        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5" >
+            <GradientStop Color="Wheat" Offset="0" />
+            <GradientStop Color="White" Offset="1" />
+        </LinearGradientBrush>
+    </Window.Background>
+    <Window.Resources>
+        <Style x:Key="style1">
+            <Setter Property="Control.Foreground" Value="Black" />
+            <Setter Property="Control.VerticalAlignment" Value="Center" />
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition  />
+        </Grid.ColumnDefinitions>
+
+        <Label Style="{StaticResource style1}" Grid.Row="1" Height="26" Margin="15,5,10,0" >Name:</Label>
+        <TextBox Grid.Column="1" Grid.Row="1" Margin="10,10,30,5"  Text="{Binding name}"></TextBox>
+        
+        <Label Style="{StaticResource style1}" Grid.Row="2" Height="26" Margin="15,5,10,0" >UID:</Label>
+        <TextBox Grid.Column="1" Grid.Row="2" Margin="10,10,30,5"  Text="{Binding UID}"></TextBox>
+
+        <Label Style="{StaticResource style1}" Grid.Row="5" Height="26" Margin="15,5,10,0" >Adresse:</Label>
+        <TextBox Grid.Column="1" Grid.Row="5" Margin="10,10,30,5"  Text="{Binding Adresse}"></TextBox>
+
+        <Label Style="{StaticResource style1}" Grid.Row="6" Height="26" Margin="15,5,10,0" >Lieferadresse:</Label>
+        <TextBox Grid.Column="1" Grid.Row="6" Margin="10,10,30,5"  Text="{Binding Deliveryaddress}"></TextBox>
+
+        <Label Style="{StaticResource style1}" Grid.Row="7" Height="26" Margin="15,5,10,0" >Rechnungsadresse:</Label>
+        <TextBox Grid.Column="1" Grid.Row="7" Margin="10,10,30,5"  Text="{Binding Billingaddress}"></TextBox>
+        
+        <Button Content="Bearbeiten" Command="{Binding UpdateContactCommand}" Grid.Column="1" HorizontalAlignment="Left" Margin="251,3,0,0" Grid.Row="8" VerticalAlignment="Top" Width="75"/>
+        <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,1,0,0" Grid.Row="8" VerticalAlignment="Top"/>
+
+
+    </Grid>
+</Window>

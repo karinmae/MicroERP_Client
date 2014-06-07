@@ -35,6 +35,65 @@ namespace MicroErp_01.ViewModels
                 }
             }
         }
+
+        private string _Contact1 = "Kontakte";
+        public string Contact1
+        {
+            get { return this._Contact1; }
+            set
+            {
+                this._Contact1 = value;
+                this.OnPropertyChanged("Contact1");
+            }
+        }
+
+        private bool _ContactIsCheck;
+        public bool ContactIsCheck
+        {
+            get { return this._ContactIsCheck; }
+            set
+            {
+                this._ContactIsCheck = value;
+                this.OnPropertyChanged("ContactIsCheck");
+                this.OnPropertyChanged("selected");
+            }
+        }
+
+        private bool _FirmIsCheck;
+        public bool FirmIsCheck
+        {
+            get { return this._FirmIsCheck; }
+            set
+            {
+                this._FirmIsCheck = value;
+                this.OnPropertyChanged("FirmIsCheck");
+                this.OnPropertyChanged("selected");
+            }
+        }
+
+        private string _Firm1 = "Firma";
+        public string Firm1
+        {
+            get { return this._Firm1; }
+            set
+            {
+                this._Firm1 = value;
+                this.OnPropertyChanged("Firm1");
+            }
+        }
+
+        private string _selected;
+        public string selected
+        {
+            
+            get
+            {
+                _selected = this.ContactIsCheck ? this.Contact1 : this.Firm1;
+                return _selected;
+            }
+
+        }
+
         #endregion
 
         /* Ausgewählte Items der ListView */
@@ -66,11 +125,15 @@ namespace MicroErp_01.ViewModels
             {
                 if (_searchCommand == null)
                 {
-                    _searchCommand = new SimpleCommandViewModel(
-                        "Suchen",
-                        "Startet eine Suche",
-                        Search,
-                        () => !string.IsNullOrEmpty(SearchText));
+                       
+                        _searchCommand = new SimpleCommandViewModel(
+                            "Suchen",
+                            "Startet eine Suche",
+                            Search,
+                            () => !string.IsNullOrEmpty(SearchText) &&
+                                  !string.IsNullOrEmpty(selected)) ;
+                            
+                    
                 }
                 return _searchCommand;
             }
@@ -114,11 +177,21 @@ namespace MicroErp_01.ViewModels
                         "Öffnet das EditContact Beispiel",
                         () =>
                         {
-                            var dlg = new EditContact();
+                            
                             if (SelectedItem.ID != "x")
                             {
-                                dlg.DataContext = new ContactEditViewModel(SelectedItem.ID); ;
-                                dlg.ShowDialog();
+                                if (selected == "Kontakte")
+                                {
+                                    var dlg = new EditContact();
+                                    dlg.DataContext = new ContactEditViewModel(SelectedItem.ID, selected); ;
+                                    dlg.ShowDialog();
+                                }
+                                else
+                                {
+                                    var dlg = new EditFirmContact();
+                                    dlg.DataContext = new FirmEditViewModel(SelectedItem.ID, selected); ;
+                                    dlg.ShowDialog();
+                                }
                             }
                         });
                 }
