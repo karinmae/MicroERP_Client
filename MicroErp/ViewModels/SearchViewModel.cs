@@ -99,8 +99,8 @@ namespace MicroErp.ViewModels
 
         /* Ausgewählte Items der ListView */
         #region SelectedItem
-        private InvoiceViewModel _SelectedItem;
-        public InvoiceViewModel SelectedItem
+        private ContactViewModel _SelectedItem;
+        public ContactViewModel SelectedItem
         {
             get
             {
@@ -179,8 +179,8 @@ namespace MicroErp.ViewModels
                         () =>
                         {
 
-                            if (SelectedItem.ID != "x")
-                            {
+                            //if (SelectedItem.ID != "x")
+                            //{
                                 if (Selected == "Kontakte")
                                 {
                                     var dlg = new EditContact();
@@ -193,7 +193,7 @@ namespace MicroErp.ViewModels
                                     dlg.DataContext = new FirmEditViewModel(SelectedItem.ID); ;
                                     dlg.ShowDialog();
                                 }
-                            }
+                            //}
                         });
                 }
                 return _EditContactCommand;
@@ -204,6 +204,26 @@ namespace MicroErp.ViewModels
 
         /* Invoice */
         #region Invoice
+
+        /* Ausgewählte Items der ListView */
+        #region SelectedItem
+        private InvoiceViewModel _SelectedInvoiceItem;
+        public InvoiceViewModel SelectedInvoiceItem
+        {
+            get
+            {
+                return _SelectedInvoiceItem;
+            }
+            set
+            {
+                if (_SelectedInvoiceItem != value)
+                {
+                    _SelectedInvoiceItem = value;
+                    OnPropertyChanged("SelectedInvoiveItem");
+                }
+            }
+        }
+        #endregion
 
         /* Rechnungsdatum von */
         #region DateFrom
