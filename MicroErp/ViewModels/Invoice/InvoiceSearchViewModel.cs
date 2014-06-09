@@ -29,7 +29,7 @@ namespace MicroErp.ViewModels
             }
         }
 
-        #region ContacList Result
+        #region InvoiceList Result
         private InvoiceList _result;
         public InvoiceList result
         {

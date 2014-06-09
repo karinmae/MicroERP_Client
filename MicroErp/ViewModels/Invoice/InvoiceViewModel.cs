@@ -18,9 +18,9 @@ namespace MicroErp.ViewModels
             this.Nummer = obj.Nummer;
             this.Kommentar = obj.Kommentar;
             this.Nachricht = obj.Nachricht;
-            this.Menge = obj.Menge;
-            this.Stueckpreis = obj.Stueckpreis;
-            this.Ust = obj.Ust;
+            //this.Menge = obj.Menge;
+            //this.Stueckpreis = obj.Stueckpreis;
+            //this.Ust = obj.Ust;
         }
 
         public Invoice Object { get; set; }

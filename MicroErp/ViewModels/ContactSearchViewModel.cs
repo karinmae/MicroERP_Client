@@ -59,9 +59,9 @@ namespace MicroErp.ViewModels
             get { return null; }
         }
 
-        #region Firmlist Result2
-        private Firmlist _ResultFirm;
-        public Firmlist ResultFirm
+        #region FirmList Result2
+        private FirmList _ResultFirm;
+        public FirmList ResultFirm
         {
             get
             {

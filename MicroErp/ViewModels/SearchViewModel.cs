@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
+using MicroERP.Windows;
 
 namespace MicroErp.ViewModels
 {
@@ -85,7 +86,7 @@ namespace MicroErp.ViewModels
         private string _selected;
         public string Selected
         {
-            
+
             get
             {
                 _selected = this.ContactIsCheck ? this.Contact1 : this.Firm1;
@@ -125,15 +126,15 @@ namespace MicroErp.ViewModels
             {
                 if (_searchCommand == null)
                 {
-                       
-                        _searchCommand = new SimpleCommandViewModel(
-                            "Suchen",
-                            "Startet eine Suche",
-                            Search,
-                            () => !string.IsNullOrEmpty(SearchText) &&
-                                  !string.IsNullOrEmpty(Selected)) ;
-                            
-                    
+
+                    _searchCommand = new SimpleCommandViewModel(
+                        "Suchen",
+                        "Startet eine Suche",
+                        Search,
+                        () => !string.IsNullOrEmpty(SearchText) &&
+                              !string.IsNullOrEmpty(Selected));
+
+
                 }
                 return _searchCommand;
             }
@@ -177,7 +178,7 @@ namespace MicroErp.ViewModels
                         "Öffnet das EditContact Beispiel",
                         () =>
                         {
-                            
+
                             if (SelectedItem.ID != "x")
                             {
                                 if (Selected == "Kontakte")
@@ -329,6 +330,54 @@ namespace MicroErp.ViewModels
                         );
                 }
                 return _SearchInvoiceCommand;
+            }
+        }
+        #endregion
+
+        /* Neu-Button */
+        #region NewInvoiceCommand
+        //private ICommandViewModel _NewInvoiceCommand;
+        //public ICommandViewModel NewInvoiceCommand
+        //{
+        //    get
+        //    {
+        //        if (_NewInvoiceCommand == null)
+        //        {
+        //            _NewInvoiceCommand = new SimpleCommandViewModel(
+        //                "Suchen",
+        //                "Startet eine Suche",
+        //                () => 
+        //                );
+        //        }
+        //        return _SearchInvoiceCommand;
+        //    }
+        //}
+        #endregion
+
+        /* Rechnung editieren/anzeigen */
+        #region EditInvoiceCommand
+        private ICommandViewModel _EditInvoiceCommand;
+        public ICommandViewModel EditInvoiceCommand
+        {
+            get
+            {
+                if (_EditInvoiceCommand == null)
+                {
+                    _EditInvoiceCommand = new SimpleCommandViewModel(
+                        "EditContact",
+                        "Öffnet das EditContact Beispiel",
+                        () =>
+                        {
+
+                            if (SelectedItem.ID != "x")
+                            {
+                                var dlg = new EditInvoice();
+                                dlg.DataContext = new InvoiceEditViewModel(SelectedItem.ID); ;
+                                dlg.ShowDialog();
+                            }
+                        });
+                }
+                return _EditInvoiceCommand;
             }
         }
         #endregion

@@ -6,7 +6,7 @@ namespace MicroErp
     /* Firma */
 
     [XmlRoot("Firmen")]
-    public class Firmlist
+    public class FirmList
     {
         [XmlElement("Firma")]
         public List<Firma> Firma { get; set; }

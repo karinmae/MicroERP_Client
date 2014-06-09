@@ -14,7 +14,7 @@ namespace MicroErp.ViewModels
         {
             ID2 = ID;
             Proxy proxy = new Proxy();
-            Firmlist result = proxy.SearchFirmID(ID);
+            FirmList result = proxy.SearchFirmID(ID);
             foreach (var obj in result.Firma)
             {
 
