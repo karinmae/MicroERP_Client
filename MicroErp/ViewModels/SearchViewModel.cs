@@ -114,14 +114,14 @@ namespace MicroErp.ViewModels
                     if (Selected == "Kontakte")
                     {
                         ContactViewModel obj = (ContactViewModel)value;
-                        _SelectedItem = obj;
+                        _SelectedItem = obj.Id;
 
                         OnPropertyChanged("SelectedItem");
                     }
                     else
                     {
                         FirmViewModel obj = (FirmViewModel)value;
-                        _SelectedItem = obj;
+                        _SelectedItem = obj.Id;
                         OnPropertyChanged("SelectedItem");
                     }
                 }
