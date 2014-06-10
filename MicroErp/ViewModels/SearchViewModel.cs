@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Collections.ObjectModel;
 using MicroERP.Windows;
+using MicroErp.ViewModels.Firm;
 
 namespace MicroErp.ViewModels
 {
@@ -99,8 +100,8 @@ namespace MicroErp.ViewModels
 
         /* Ausgewählte Items der ListView */
         #region SelectedItem
-        private ContactViewModel _SelectedItem;
-        public ContactViewModel SelectedItem
+        private object _SelectedItem;
+        public object SelectedItem
         {
             get
             {
@@ -110,8 +111,19 @@ namespace MicroErp.ViewModels
             {
                 if (_SelectedItem != value)
                 {
-                    _SelectedItem = value;
-                    OnPropertyChanged("SelectedItem");
+                    if (Selected == "Kontakte")
+                    {
+                        ContactViewModel obj = (ContactViewModel)value;
+                        _SelectedItem = obj;
+
+                        OnPropertyChanged("SelectedItem");
+                    }
+                    else
+                    {
+                        FirmViewModel obj = (FirmViewModel)value;
+                        _SelectedItem = obj;
+                        OnPropertyChanged("SelectedItem");
+                    }
                 }
             }
         }
@@ -165,6 +177,7 @@ namespace MicroErp.ViewModels
         #endregion
 
         /* Kontakt editieren/anzeigen */
+        /* Kontakt editieren/anzeigen */
         #region EditContactCommand
         private ICommandViewModel _EditContactCommand;
         public ICommandViewModel EditContactCommand
@@ -179,27 +192,32 @@ namespace MicroErp.ViewModels
                         () =>
                         {
 
-                            //if (SelectedItem.Id != "x")
+                            //if (SelectedItem != "x")
                             //{
-                                if (Selected == "Kontakte")
-                                {
-                                    var dlg = new EditContact();
-                                    dlg.DataContext = new ContactEditViewModel(SelectedItem.Id); ;
-                                    dlg.ShowDialog();
-                                }
-                                else
-                                {
-                                    var dlg = new EditFirmContact();
-                                    dlg.DataContext = new FirmEditViewModel(SelectedItem.Id); ;
-                                    dlg.ShowDialog();
-                                }
-                            //}
+                            if (Selected == "Kontakte")
+                            {
+                                var dlg = new EditContact();
+
+                                string sel = SelectedItem.ToString();
+                                dlg.DataContext = new ContactEditViewModel(sel);
+                                dlg.ShowDialog();
+                            }
+                            else
+                            {
+                                var dlg = new EditFirmContact();
+                                string sel = SelectedItem.ToString();
+                                dlg.DataContext = new FirmEditViewModel(sel); ;
+                                dlg.ShowDialog();
+                            }
+                            //  }
                         });
                 }
                 return _EditContactCommand;
             }
         }
         #endregion
+
+
         #endregion
 
         /* Invoice */
