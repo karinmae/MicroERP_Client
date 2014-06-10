@@ -12,7 +12,7 @@ namespace MicroErp.ViewModels
         {
             this.Object = obj;
 
-            this.ID = obj.ID;
+            this.Id = obj.ID;
             this.Datum = obj.Datum;
             this.Faelligkeit = obj.Faelligkeit;
             this.Nummer = obj.Nummer;
@@ -25,9 +25,9 @@ namespace MicroErp.ViewModels
 
         public Invoice Object { get; set; }
 
-        #region ID
+        #region Id
         private string _ID;
-        public string ID
+        public string Id
         {
             get
             {
@@ -38,7 +38,7 @@ namespace MicroErp.ViewModels
                 if (_ID != value)
                 {
                     _ID = value;
-                    OnPropertyChanged("ID");
+                    OnPropertyChanged("Id");
                 }
             }
         }

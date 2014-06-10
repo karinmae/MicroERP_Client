@@ -12,7 +12,7 @@ namespace MicroErp.ViewModels
         {
             this.Object = obj;
 
-            this.ID = obj.ID;
+            this.Id = obj.ID;
             this.Titel = obj.Titel;
             this.FirstName = obj.Vorname;
             this.LastName = obj.Nachname;
@@ -22,14 +22,14 @@ namespace MicroErp.ViewModels
             this.Deliveryaddress = obj.Lieferadresse;
             this.Billingaddress = obj.Rechnungsadresse;
 
-            this.name = FirstName + " " + LastName;
+            this.Name = FirstName + " " + LastName;
         }
 
         public Contact Object { get; set; }
 
-        #region name 
+        #region Name 
         private string _name;
-        public string name
+        public string Name
         {
             get
             {
@@ -40,15 +40,15 @@ namespace MicroErp.ViewModels
                 if (_name != value)
                 {
                     _name = value;
-                    OnPropertyChanged("name");
+                    OnPropertyChanged("Name");
                 }
             }
         }
         #endregion
 
-        #region ID
+        #region Id
         private string _ID;
-        public string ID
+        public string Id
         {
             get
             {
@@ -59,7 +59,7 @@ namespace MicroErp.ViewModels
                 if (_ID != value)
                 {
                     _ID = value;
-                    OnPropertyChanged("ID");
+                    OnPropertyChanged("Id");
                 }
             }
         }

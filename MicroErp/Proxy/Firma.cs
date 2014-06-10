@@ -14,10 +14,10 @@ namespace MicroErp
 
     public class Firma
     {
-        [XmlElement("ID")]
+        [XmlElement("Id")]
         public string ID { get; set; }
 
-        [XmlElement("UID")]
+        [XmlElement("Uid")]
         public string UID { get; set; }
 
         [XmlElement("Name")]

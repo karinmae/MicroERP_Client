@@ -43,7 +43,7 @@ namespace MicroErp.ViewModels
                 if (_UID != value)
                 {
                     _UID = value;
-                    OnPropertyChanged("UID");
+                    OnPropertyChanged("Uid");
                     NotifyStateChanged();
                 }
             }
@@ -366,7 +366,6 @@ namespace MicroErp.ViewModels
                                 RStrasse, RPlz, ROrt);
                                 Result = resp;
                             }
-                            
 
                         });
                 }

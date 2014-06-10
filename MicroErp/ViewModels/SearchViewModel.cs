@@ -179,18 +179,18 @@ namespace MicroErp.ViewModels
                         () =>
                         {
 
-                            //if (SelectedItem.ID != "x")
+                            //if (SelectedItem.Id != "x")
                             //{
                                 if (Selected == "Kontakte")
                                 {
                                     var dlg = new EditContact();
-                                    dlg.DataContext = new ContactEditViewModel(SelectedItem.ID); ;
+                                    dlg.DataContext = new ContactEditViewModel(SelectedItem.Id); ;
                                     dlg.ShowDialog();
                                 }
                                 else
                                 {
                                     var dlg = new EditFirmContact();
-                                    dlg.DataContext = new FirmEditViewModel(SelectedItem.ID); ;
+                                    dlg.DataContext = new FirmEditViewModel(SelectedItem.Id); ;
                                     dlg.ShowDialog();
                                 }
                             //}
@@ -389,10 +389,10 @@ namespace MicroErp.ViewModels
                         () =>
                         {
 
-                            if (SelectedItem.ID != "x")
+                            if (SelectedItem.Id != "x")
                             {
                                 var dlg = new EditInvoice();
-                                dlg.DataContext = new InvoiceEditViewModel(SelectedItem.ID); ;
+                                dlg.DataContext = new InvoiceEditViewModel(SelectedItem.Id); ;
                                 dlg.ShowDialog();
                             }
                         });

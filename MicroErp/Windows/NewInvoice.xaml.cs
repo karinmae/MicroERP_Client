@@ -12,17 +12,17 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-namespace MicroErp
+namespace MicroERP.Windows
 {
     /// <summary>
-    /// Interaction logic for NewContact.xaml
+    /// Interaction logic for NewInvoice.xaml
     /// </summary>
-    public partial class NewContact : Window
+    public partial class NewInvoice : Window
     {
-        public NewContact()
+        public NewInvoice()
         {
             InitializeComponent();
-           this.DataContext = new MicroErp.ViewModels.ContactNewViewModel();
+            this.DataContext = new MicroErp.ViewModels.InvoiceNewViewModel();
         }
     }
 }

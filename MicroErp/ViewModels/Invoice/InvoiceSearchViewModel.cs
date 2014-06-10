@@ -11,11 +11,11 @@ namespace MicroErp.ViewModels
         public override void Search()
         {
             Proxy proxy = new Proxy();
-            result = proxy.SearchInvoice(DateFrom, DateTo, AmountFrom,AmountTo,SearchContact);
+            Result = proxy.SearchInvoice(DateFrom, DateTo, AmountFrom,AmountTo,SearchContact);
             Items.Clear();
-            if (result.Invoice != null)
+            if (Result.Invoice != null)
             {
-                foreach (var obj in result.Invoice)
+                foreach (var obj in Result.Invoice)
                 {
                     Items.Add(new InvoiceViewModel(obj));
                 }
@@ -30,18 +30,18 @@ namespace MicroErp.ViewModels
         }
 
         #region InvoiceList Result
-        private InvoiceList _result;
-        public InvoiceList result
+        private InvoiceList _Result;
+        public InvoiceList Result
         {
             get
             {
-                return _result;
+                return _Result;
             }
             set
             {
-                if (_result != value)
+                if (_Result != value)
                 {
-                    _result = value;
+                    _Result = value;
                 }
             }
         }

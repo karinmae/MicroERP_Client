@@ -22,7 +22,7 @@ namespace MicroErp
             WebClient http = new WebClient();
             try
             {
-                string result = http.DownloadString(new Uri(URL + "Contacts/Search?name=" + Uri.EscapeUriString(text)));
+                string result = http.DownloadString(new Uri(URL + "Contacts/Search?Name=" + Uri.EscapeUriString(text)));
                 Console.WriteLine(result);
                 XmlSerializer serializer = new XmlSerializer(typeof(ContactsList));
                 TextReader reader = new StringReader(result);
@@ -39,12 +39,12 @@ namespace MicroErp
         }
         #endregion
 
-        #region Search Contact ID
+        #region Search Contact Id
         public ContactsList SearchID(string text)
         {
             WebClient http = new WebClient();
             //Console.WriteLine(text);
-            string result = http.DownloadString(new Uri(URL + "Contacts/ID?id=" + Uri.EscapeUriString(text)));
+            string result = http.DownloadString(new Uri(URL + "Contacts/Id?Id=" + Uri.EscapeUriString(text)));
             //Contact list=null;
             Console.WriteLine(result);
             XmlSerializer serializer = new XmlSerializer(typeof(ContactsList));
@@ -97,7 +97,7 @@ namespace MicroErp
                 "&adress=" + Uri.EscapeUriString(Adresse) +
                 "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
                 "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
-            string result = http.DownloadString(new Uri(URL + "Contacts/Update?id=" + Uri.EscapeUriString(ID) + req));
+            string result = http.DownloadString(new Uri(URL + "Contacts/Update?Id=" + Uri.EscapeUriString(ID) + req));
 
             return result;
         }
@@ -112,7 +112,7 @@ namespace MicroErp
             WebClient http = new WebClient();
             try
             {
-                string result = http.DownloadString(new Uri(URL + "Contacts/SearchFirm?name=" + Uri.EscapeUriString(text)));
+                string result = http.DownloadString(new Uri(URL + "Contacts/SearchFirm?Name=" + Uri.EscapeUriString(text)));
                 Console.WriteLine(result);
                 XmlSerializer serializer = new XmlSerializer(typeof(FirmList));
                 TextReader reader = new StringReader(result);
@@ -128,11 +128,11 @@ namespace MicroErp
         }
         #endregion
 
-        #region Search Firm ID
+        #region Search Firm Id
         public FirmList SearchFirmID(string text)
         {
             WebClient http = new WebClient();
-            string result = http.DownloadString(new Uri(URL + "Contacts/FirmID?id=" + Uri.EscapeUriString(text)));
+            string result = http.DownloadString(new Uri(URL + "Contacts/FirmID?Id=" + Uri.EscapeUriString(text)));
             Console.WriteLine(result);
             XmlSerializer serializer = new XmlSerializer(typeof(FirmList));
             TextReader reader = new StringReader(result);
@@ -156,7 +156,7 @@ namespace MicroErp
 
             WebClient http = new WebClient();
             string req =
-                "&UID=" + Uri.EscapeUriString(UID) +
+                "&Uid=" + Uri.EscapeUriString(UID) +
                 "&adress=" + Uri.EscapeUriString(Adress) +
                 "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
                 "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
@@ -176,7 +176,7 @@ namespace MicroErp
                 "&adress=" + Uri.EscapeUriString(Adresse) +
                 "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
                 "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
-            string result = http.DownloadString(new Uri(URL + "Contacts/UpdateFirm?id=" + Uri.EscapeUriString(ID) + req));
+            string result = http.DownloadString(new Uri(URL + "Contacts/UpdateFirm?Id=" + Uri.EscapeUriString(ID) + req));
 
             return result;
         }
@@ -231,11 +231,11 @@ namespace MicroErp
         }
         #endregion
 
-        #region Search Invoice ID
+        #region Search Invoice Id
         public InvoiceList SearchInvoiceID(string text)
         {
             WebClient http = new WebClient();
-            string result = http.DownloadString(new Uri(URL + "Invoice/ID?id=" + Uri.EscapeUriString(text)));
+            string result = http.DownloadString(new Uri(URL + "Invoice/Id?Id=" + Uri.EscapeUriString(text)));
             Console.WriteLine(result);
             XmlSerializer serializer = new XmlSerializer(typeof(InvoiceList));
             TextReader reader = new StringReader(result);
@@ -245,11 +245,64 @@ namespace MicroErp
         }
         #endregion
 
+        #region New Invoice
+        public string NewInvoice(string InvoiceNumber, string PayDate, string Costumer, string Comment, string Note,
+                                 string Amount1, string Article1, string Price1, string USt1, 
+                                 string Amount2, string Article2, string Price2, string USt2,
+                                 string Amount3, string Article3, string Price3, string USt3)
+        {
+            if ((string.IsNullOrEmpty(Amount1)) || (string.IsNullOrEmpty(Article1)) || (string.IsNullOrEmpty(Price1)) || (string.IsNullOrEmpty(USt1)))
+            {
+                Amount1 ="";
+                Article1 ="";
+                Price1="";
+                USt1="";
+            }
+            if ((string.IsNullOrEmpty(Amount2)) || (string.IsNullOrEmpty(Article2)) || (string.IsNullOrEmpty(Price2)) || (string.IsNullOrEmpty(USt2)))
+            {
+                Amount2 = "";
+                Article2 = "";
+                Price2 = "";
+                USt2 = "";
+            }
+            if ((string.IsNullOrEmpty(Amount3)) || (string.IsNullOrEmpty(Article3)) || (string.IsNullOrEmpty(Price3)) || (string.IsNullOrEmpty(USt3)))
+            {
+                Amount3 = "";
+                Article3 = "";
+                Price3 = "";
+                USt3 = "";
+            }
+            
+                                
+            WebClient http = new WebClient();
+            string req =
+                "&PayDate=" + Uri.EscapeUriString(PayDate) +
+                "&Id=" + Uri.EscapeUriString(Costumer) +
+                "&Message=" + Uri.EscapeUriString(Note) +
+                "&Comment=" + Uri.EscapeUriString(Comment) +
+                    "&A1=" + Uri.EscapeUriString(Amount1) +
+                    "&Art1=" + Uri.EscapeUriString(Article1) +
+                    "&P1=" + Uri.EscapeUriString(Price1) +
+                    "&U1=" + Uri.EscapeUriString(USt1) +
+                    "&A2=" + Uri.EscapeUriString(Amount2) +
+                    "&Art2=" + Uri.EscapeUriString(Article2) +
+                    "&P2=" + Uri.EscapeUriString(Price2) +
+                    "&U2=" + Uri.EscapeUriString(USt2) +
+                    "&A3=" + Uri.EscapeUriString(Amount3) +
+                    "&Art3=" + Uri.EscapeUriString(Article3) +
+                    "&P3=" + Uri.EscapeUriString(Price3) +
+                    "&U3=" + Uri.EscapeUriString(USt3);
+            string result = http.DownloadString(new Uri(URL + "Invoice/New?Number=" + Uri.EscapeUriString(InvoiceNumber) + req));
+
+            return result;
+        }
+        #endregion
+
         #region Edit Invoice
         public string UpdateInvoice(string ID, string Comment, string Note,
-                             string Stk1, string Article1, string USt1, string Price1,
-                             string Stk2, string Article2, string USt2, string Price2,
-                             string Stk3, string Article3, string USt3, string Price3
+                             string Amount1, string Article1, string USt1, string Price1,
+                             string Amount2, string Article2, string USt2, string Price2,
+                             string Amount3, string Article3, string USt3, string Price3
                              )
         {
 
@@ -259,8 +312,8 @@ namespace MicroErp
             if (string.IsNullOrEmpty(Note))
                 Note = "";
 
-            if (string.IsNullOrEmpty(Stk1))
-                Stk1 = "";
+            if (string.IsNullOrEmpty(Amount1))
+                Amount1 = "";
 
             if (string.IsNullOrEmpty(Article1))
                 Article1 = "";
@@ -294,17 +347,17 @@ namespace MicroErp
                 "&Note=" + Uri.EscapeUriString(Note) +
                 "&Article1=" + Uri.EscapeUriString(Article1) +
                 "&Price1=" + Uri.EscapeUriString(Price1) +
-                "&Stk1=" + Uri.EscapeUriString(Stk1) +
+                "&Amount1=" + Uri.EscapeUriString(Amount1) +
                 "&UST1=" + Uri.EscapeUriString(USt1) +
                 "&Article2=" + Uri.EscapeUriString(Article2) +
                 "&Price2=" + Uri.EscapeUriString(Price2) +
-                "&Stk2=" + Uri.EscapeUriString(Stk2) +
+                "&Amount2=" + Uri.EscapeUriString(Amount2) +
                 "&UST2=" + Uri.EscapeUriString(USt2) +
                 "&Article3=" + Uri.EscapeUriString(Article3) +
                 "&Price3=" + Uri.EscapeUriString(Price3) +
-                "&Stk3=" + Uri.EscapeUriString(Stk3) +
+                "&Amount3=" + Uri.EscapeUriString(Amount3) +
                 "&UST3=" + Uri.EscapeUriString(USt3);
-            string result = http.DownloadString(new Uri(URL + "Contacts/Update?id=" + Uri.EscapeUriString(ID) + req));
+            string result = http.DownloadString(new Uri(URL + "Contacts/Update?Id=" + Uri.EscapeUriString(ID) + req));
 
             return result;
         }
@@ -313,8 +366,8 @@ namespace MicroErp
         #region Display
         private static void Display(ContactsList list)
         {
-            Console.WriteLine("Count: {0}", list.Contact.Count);
-            foreach (Contact value in list.Contact)
+            Console.WriteLine("Count: {0}", list.contact.Count);
+            foreach (Contact value in list.contact)
             {
                 Console.WriteLine("Name: {0}", value.Vorname);
                 Console.WriteLine("Phone: {0}", value.Nachname);

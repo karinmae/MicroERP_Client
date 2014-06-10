@@ -9,21 +9,21 @@ namespace MicroErp.ViewModels
 {
     public class FirmEditViewModel : ViewModel
     {
-        private string ID2;
-        public FirmEditViewModel(string ID)
+        private string id2;
+        public FirmEditViewModel(string id)
         {
-            ID2 = ID;
+            id2 = id;
             Proxy proxy = new Proxy();
-            FirmList result = proxy.SearchFirmID(ID);
+            FirmList result = proxy.SearchFirmID(id);
             foreach (var obj in result.Firma)
             {
 
-                name = obj.Name;
-                UID = obj.UID;
+                Name = obj.Name;
+                Uid = obj.UID;
                 Adresse = obj.Adresse;
                 Deliveryaddress = obj.Lieferadresse;
                 Billingaddress = obj.Rechnungsadresse;
-                ID = obj.ID;
+                id = obj.ID;
 
             }
 
@@ -42,7 +42,7 @@ namespace MicroErp.ViewModels
                         () =>
                         {
                             Proxy prx = new Proxy();
-                            string resp = prx.UpdateFirm(ID2, name, UID, Adresse, Deliveryaddress, Billingaddress);
+                            string resp = prx.UpdateFirm(id2, Name, Uid, Adresse, Deliveryaddress, Billingaddress);
                             Result = resp;
                         });
                 }
@@ -69,9 +69,9 @@ namespace MicroErp.ViewModels
         }
         #endregion
 
-        #region name
+        #region Name
         private string _name;
-        public string name
+        public string Name
         {
             get
             {
@@ -82,15 +82,15 @@ namespace MicroErp.ViewModels
                 if (_name != value)
                 {
                     _name = value;
-                    OnPropertyChanged("name");
+                    OnPropertyChanged("Name");
                 }
             }
         }
         #endregion
 
-        #region UID
+        #region Uid
         private string _UID;
-        public string UID
+        public string Uid
         {
             get
             {
@@ -101,7 +101,7 @@ namespace MicroErp.ViewModels
                 if (_UID != value)
                 {
                     _UID = value;
-                    OnPropertyChanged("UID");
+                    OnPropertyChanged("Uid");
                 }
             }
         }

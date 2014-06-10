@@ -17,9 +17,9 @@ namespace MicroErp.ViewModels
             {
                 ResultContact = proxy.Search(SearchText);
                 Items.Clear();
-                if (ResultContact.Contact != null)
+                if (ResultContact.contact != null)
                 {
-                    foreach (var obj in ResultContact.Contact)
+                    foreach (var obj in ResultContact.contact)
                     {
                         Items.Add(new ContactViewModel(obj));
                     }

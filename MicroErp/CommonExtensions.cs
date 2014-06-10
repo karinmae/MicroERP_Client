@@ -13,9 +13,9 @@ namespace MicroErp
         /// <summary>
         /// Foreach Extension Method for IEnumerable.
         /// </summary>
-        /// <typeparam name="T">Type of the Objects in the Enumeration.</typeparam>
-        /// <param name="lst">Enumeration</param>
-        /// <param name="action">Action to perform on each element.</param>
+        /// <typeparam Name="T">Type of the Objects in the Enumeration.</typeparam>
+        /// <param Name="lst">Enumeration</param>
+        /// <param Name="action">Action to perform on each element.</param>
         public static void ForEach<T>(this IEnumerable lst, Action<T> action)
         {
             if (lst == null) { throw new ArgumentNullException("lst"); }
@@ -30,9 +30,9 @@ namespace MicroErp
         /// <summary>
         /// Foreach Extension Method for IEnumerable. This Extension does not check if the Enumeration Entry is NULL!
         /// </summary>
-        /// <typeparam name="T">Type of the Objects in the Enumeration.</typeparam>
-        /// <param name="lst">Enumeration</param>
-        /// <param name="action">Action to perform on each element.</param>
+        /// <typeparam Name="T">Type of the Objects in the Enumeration.</typeparam>
+        /// <param Name="lst">Enumeration</param>
+        /// <param Name="action">Action to perform on each element.</param>
         public static void ForEach<T>(this IEnumerable<T> lst, Action<T> action)
         {
             if (lst == null) { throw new ArgumentNullException("lst"); }
@@ -47,9 +47,9 @@ namespace MicroErp
         /// <summary>
         /// Foreach Extension Method for IList&lt;>. This Extension does not check if the Enumeration Entry is NULL!
         /// </summary>
-        /// <typeparam name="T">Type of the Objects in the Enumeration.</typeparam>
-        /// <param name="lst">Enumeration</param>
-        /// <param name="action">Action to perform on each element.</param>
+        /// <typeparam Name="T">Type of the Objects in the Enumeration.</typeparam>
+        /// <param Name="lst">Enumeration</param>
+        /// <param Name="action">Action to perform on each element.</param>
         public static void ForEach<T>(this IList<T> lst, Action<T> action)
         {
             if (lst == null) { throw new ArgumentNullException("lst"); }
@@ -63,9 +63,9 @@ namespace MicroErp
         /// <summary>
         /// Foreach Extension Method for IQueryable&lt;>. This Extension does not check if the query results contain NULLs!
         /// </summary>
-        /// <typeparam name="T">Type of the Objects in the IQueryable.</typeparam>
-        /// <param name="lst">IQueryable</param>
-        /// <param name="action">Action to perform on each element.</param>
+        /// <typeparam Name="T">Type of the Objects in the IQueryable.</typeparam>
+        /// <param Name="lst">IQueryable</param>
+        /// <param Name="action">Action to perform on each element.</param>
         public static void ForEach<T>(this IQueryable<T> lst, Action<T> action)
         {
             if (lst == null) { throw new ArgumentNullException("lst"); }
@@ -163,9 +163,9 @@ namespace MicroErp
         /// <summary>
         /// Calls a public method on the given object. Uses Reflection.
         /// </summary>
-        /// <typeparam name="TReturn">expected return type</typeparam>
-        /// <param name="obj">the object on which to call the method</param>
-        /// <param name="methodName">which method to call</param>
+        /// <typeparam Name="TReturn">expected return type</typeparam>
+        /// <param Name="obj">the object on which to call the method</param>
+        /// <param Name="methodName">which method to call</param>
         /// <returns>the return value of the method</returns>
         /// <exception cref="ArgumentOutOfRangeException">if the method is not found</exception>
         public static TReturn CallMethod<TReturn>(this object obj, string methodName)
@@ -186,9 +186,9 @@ namespace MicroErp
         /// <summary>
         /// Finds a Method with the given method parameter.
         /// </summary>
-        /// <param name="type">Type to search in</param>
-        /// <param name="methodName">Methodname to search for</param>
-        /// <param name="parameterTypes">parameter types to match</param>
+        /// <param Name="type">Type to search in</param>
+        /// <param Name="methodName">Methodname to search for</param>
+        /// <param Name="parameterTypes">parameter types to match</param>
         /// <returns>MethodInfo or null if the method was not found</returns>
         public static MethodInfo FindMethod(this Type type, string methodName, Type[] parameterTypes)
         {
@@ -245,10 +245,10 @@ namespace MicroErp
         /// <summary>
         /// Finds a Method with the given method parameter.
         /// </summary>
-        /// <param name="type">Type to search in</param>
-        /// <param name="methodName">Methodname to search for</param>
-        /// <param name="typeArguments">type arguments to match</param>
-        /// <param name="parameterTypes">parameter types to match</param>
+        /// <param Name="type">Type to search in</param>
+        /// <param Name="methodName">Methodname to search for</param>
+        /// <param Name="typeArguments">type arguments to match</param>
+        /// <param Name="parameterTypes">parameter types to match</param>
         /// <returns>MethodInfo or null if the method was not found</returns>
         public static MethodInfo FindGenericMethod(this Type type, string methodName, Type[] typeArguments, Type[] parameterTypes)
         {
@@ -258,11 +258,11 @@ namespace MicroErp
         /// <summary>
         /// Finds a Method with the given method parameter.
         /// </summary>
-        /// <param name="type">Type to search in</param>
-        /// <param name="isPrivate">whether or not the method is private</param>
-        /// <param name="methodName">Methodname to search for</param>
-        /// <param name="typeArguments">type arguments to match</param>
-        /// <param name="parameterTypes">parameter types to match</param>
+        /// <param Name="type">Type to search in</param>
+        /// <param Name="isPrivate">whether or not the method is private</param>
+        /// <param Name="methodName">Methodname to search for</param>
+        /// <param Name="typeArguments">type arguments to match</param>
+        /// <param Name="parameterTypes">parameter types to match</param>
         /// <returns>MethodInfo or null if the method was not found</returns>
         public static MethodInfo FindGenericMethod(this Type type, bool isPrivate, string methodName, Type[] typeArguments, Type[] parameterTypes)
         {

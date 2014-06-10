@@ -55,7 +55,7 @@
                     <ListView ItemsSource="{Binding Items}" SelectedItem="{Binding SelectedItem}" Grid.Row="3" Grid.ColumnSpan="2" Margin="30,5,30,5" Height="265" >
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Kontakt" DisplayMemberBinding="{Binding name}" Width="620"></GridViewColumn>
+                                <GridViewColumn Header="Kontakt" DisplayMemberBinding="{Binding Name}" Width="620"></GridViewColumn>
                             </GridView>
                         </ListView.View>
 

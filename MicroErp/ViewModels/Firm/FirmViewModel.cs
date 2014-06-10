@@ -12,7 +12,7 @@ namespace MicroErp.ViewModels.Firm
         {
             this.Object = obj;
 
-            this.ID = obj.ID;
+            this.Id = obj.ID;
 
             this.name = obj.Name;
             this.UID = obj.UID;
@@ -23,7 +23,7 @@ namespace MicroErp.ViewModels.Firm
 
         public Firma Object { get; set; }
 
-        #region name
+        #region Name
         private string _name;
         public string name
         {
@@ -36,15 +36,15 @@ namespace MicroErp.ViewModels.Firm
                 if (_name != value)
                 {
                     _name = value;
-                    OnPropertyChanged("name");
+                    OnPropertyChanged("Name");
                 }
             }
         }
         #endregion
 
-        #region ID
+        #region Id
         private string _ID;
-        public string ID
+        public string Id
         {
             get
             {
@@ -55,13 +55,13 @@ namespace MicroErp.ViewModels.Firm
                 if (_ID != value)
                 {
                     _ID = value;
-                    OnPropertyChanged("ID");
+                    OnPropertyChanged("Id");
                 }
             }
         }
         #endregion
 
-        #region UID
+        #region Uid
         private string _UID;
         public string UID
         {
@@ -74,7 +74,7 @@ namespace MicroErp.ViewModels.Firm
                 if (_UID != value)
                 {
                     _UID = value;
-                    OnPropertyChanged("UID");
+                    OnPropertyChanged("Uid");
                 }
             }
         }

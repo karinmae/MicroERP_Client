@@ -9,12 +9,12 @@ namespace MicroErp
     public class ContactsList
     {
         [XmlElement("Contact")]
-        public List<Contact> Contact { get; set; }
+        public List<Contact> contact { get; set; }
     }
 
     public class Contact
     {
-        [XmlElement("ID")]
+        [XmlElement("Id")]
         public string ID { get; set; }
 
         [XmlElement("Titel")]

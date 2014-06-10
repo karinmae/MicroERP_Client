@@ -9,13 +9,13 @@ namespace MicroErp.ViewModels
 {
     public class ContactEditViewModel : ViewModel
     {
-        private string ID2;
-        public ContactEditViewModel(string ID)
+        private string id2;
+        public ContactEditViewModel(string id)
         {
-            ID2 = ID;
+            id2 = id;
             Proxy proxy = new Proxy();
-             ContactsList result = proxy.SearchID(ID);
-                foreach (var obj in result.Contact)
+             ContactsList result = proxy.SearchID(id);
+                foreach (var obj in result.contact)
                 {
                     FirstName = obj.Vorname;
                     LastName = obj.Nachname;
@@ -25,7 +25,7 @@ namespace MicroErp.ViewModels
                     Adresse = obj.Adresse;
                     Deliveryaddress = obj.Lieferadresse;
                     Billingaddress = obj.Rechnungsadresse;
-                    ID = obj.ID;
+                    id = obj.ID;
 
                     string[] birth = Regex.Split(birth2, "T");
                     Birthday = birth[0];
@@ -47,7 +47,7 @@ namespace MicroErp.ViewModels
                         () =>
                         {
                             Proxy prx = new Proxy();
-                            string resp = prx.Update(ID2, FirstName, LastName, Titel, Suffix, Birthday, Adresse, Deliveryaddress, Billingaddress);
+                            string resp = prx.Update(id2, FirstName, LastName, Titel, Suffix, Birthday, Adresse, Deliveryaddress, Billingaddress);
                             Result = resp;
                         });
                 }

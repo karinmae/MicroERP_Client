@@ -21,7 +21,7 @@ namespace MicroErp.ViewModels
                     string PayDate1 = obj.Faelligkeit;
                     string EditDate1 = obj.Datum;
                     Name = obj.Name;
-                    DelAdress = obj.Billingadress;
+                    BillingAdress = obj.Billingadress;
                     Comment = obj.Kommentar;
                     Note = obj.Nachricht;
 
@@ -155,9 +155,9 @@ namespace MicroErp.ViewModels
         }
         #endregion
 
-        #region DelAdress
+        #region BillingAdress
         private string _DelAdress;
-        public string DelAdress
+        public string BillingAdress
         {
             get
             {
@@ -168,7 +168,7 @@ namespace MicroErp.ViewModels
                 if (_DelAdress != value)
                 {
                     _DelAdress = value;
-                    OnPropertyChanged("DelAdress");
+                    OnPropertyChanged("BillingAdress");
                 }
             }
         }
@@ -213,7 +213,7 @@ namespace MicroErp.ViewModels
         #endregion
 
         /* Rechnungszeile 1 */
-        #region Stk1
+        #region Amount1
         private string _Stk1;
         public string Stk1
         {
@@ -226,7 +226,7 @@ namespace MicroErp.ViewModels
                 if (_Stk1 != value)
                 {
                     _Stk1 = value;
-                    OnPropertyChanged("Stk1");
+                    OnPropertyChanged("Amount1");
                 }
             }
         }
@@ -329,7 +329,7 @@ namespace MicroErp.ViewModels
 
 
         /* Rechnungszeile 2 */
-        #region Stk2
+        #region Amount2
         private string _Stk2;
         public string Stk2
         {
@@ -342,7 +342,7 @@ namespace MicroErp.ViewModels
                 if (_Stk2 != value)
                 {
                     _Stk2 = value;
-                    OnPropertyChanged("Stk2");
+                    OnPropertyChanged("Amount2");
                 }
             }
         }
@@ -444,7 +444,7 @@ namespace MicroErp.ViewModels
 
 
         /* Rechnungszeile 3 */
-        #region Stk3
+        #region Amount3
         private string _Stk3;
         public string Stk3
         {
@@ -457,7 +457,7 @@ namespace MicroErp.ViewModels
                 if (_Stk3 != value)
                 {
                     _Stk3 = value;
-                    OnPropertyChanged("Stk3");
+                    OnPropertyChanged("Amount3");
                 }
             }
         }

@@ -14,16 +14,16 @@ namespace MicroErp
 
     public class Invoice
     {
-        [XmlElement("ID")]
+        [XmlElement("Id")]
         public string ID { get; set; }
 
-        [XmlElement("Datum")]
+        [XmlElement("Date")]
         public string Datum { get; set; }
 
-        [XmlElement("Faelligkeit")]
+        [XmlElement("PaymentDate")]
         public string Faelligkeit { get; set; }
 
-        [XmlElement("Nummer")]
+        [XmlElement("Number")]
         public string Nummer { get; set; }
 
         [XmlElement("Name")]
@@ -32,43 +32,43 @@ namespace MicroErp
         [XmlElement("Billingadress")]
         public string Billingadress { get; set; }
 
-        [XmlElement("Kommentar")]
+        [XmlElement("Comment")]
         public string Kommentar { get; set; }
 
-        [XmlElement("Nachricht")]
+        [XmlElement("Message")]
         public string Nachricht { get; set; }
 
-        [XmlElement("Artikel1")]
+        [XmlElement("Article1")]
         public string Artikel1 { get; set; }
 
-        [XmlElement("Menge1")]
+        [XmlElement("Amount1")]
         public string Menge1 { get; set; }
 
-        [XmlElement("Stueckpreis1")]
+        [XmlElement("UnitPrice1")]
         public string Stueckpreis1 { get; set; }
 
         [XmlElement("Ust1")]
         public string Ust1 { get; set; }
 
-        [XmlElement("Artikel2")]
+        [XmlElement("Article2")]
         public string Artikel2 { get; set; }
 
-        [XmlElement("Menge2")]
+        [XmlElement("Amount2")]
         public string Menge2 { get; set; }
 
-        [XmlElement("Stueckpreis2")]
+        [XmlElement("UnitPrice2")]
         public string Stueckpreis2 { get; set; }
 
         [XmlElement("Ust2")]
         public string Ust2 { get; set; }
 
-        [XmlElement("Artikel3")]
+        [XmlElement("Article3")]
         public string Artikel3 { get; set; }
 
-        [XmlElement("Menge3")]
+        [XmlElement("Amount3")]
         public string Menge3 { get; set; }
 
-        [XmlElement("Stueckpreis3")]
+        [XmlElement("UnitPrice3")]
         public string Stueckpreis3 { get; set; }
 
         [XmlElement("Ust3")]

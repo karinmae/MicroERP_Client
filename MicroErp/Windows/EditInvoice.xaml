@@ -28,8 +28,7 @@
     	<GroupBox Header="Besteller" HorizontalAlignment="Left" VerticalAlignment="Top" Height="113.84" Width="364" Margin="10,100,0,0"/>
     	<Label Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,121,0,0"/>
         <Label Content="{Binding NameUid}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,151.96,0,0"/>
-        <Label Content="{Binding DelAdress}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,182.92,0,0"/>
-    	
+        <Label Content="{Binding BillingAdress}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,182.92,0,0"/>
 
         <GroupBox Header="Kommentar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="379,100,0,0" Height="113.84" Width="245"/>
         <TextBox Text="{Binding Comment}" HorizontalAlignment="Left" Height="83" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Margin="389,121,0,0"/>
@@ -68,5 +67,6 @@
 
         <Button Content="Drucken" Command="{Binding PrintInvoiceCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="549,353.207,0,0"/>
         <Button Content="Bearbeiten" Command="{Binding UpdateInvoiceCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="469,353.207,0,0"/>
+        <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,347,0,0"/>
     </Grid>
 </Window>
