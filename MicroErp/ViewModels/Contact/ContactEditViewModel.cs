@@ -25,7 +25,7 @@ namespace MicroErp.ViewModels
                     Adresse = obj.Adresse;
                     Deliveryaddress = obj.Lieferadresse;
                     Billingaddress = obj.Rechnungsadresse;
-                    id = obj.ID;
+                    id = obj.Id;
 
                     string[] birth = Regex.Split(birth2, "T");
                     Birthday = birth[0];

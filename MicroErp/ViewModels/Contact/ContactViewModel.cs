@@ -12,7 +12,7 @@ namespace MicroErp.ViewModels
         {
             this.Object = obj;
 
-            this.Id = obj.ID;
+            this.Id = obj.Id;
             this.Titel = obj.Titel;
             this.FirstName = obj.Vorname;
             this.LastName = obj.Nachname;

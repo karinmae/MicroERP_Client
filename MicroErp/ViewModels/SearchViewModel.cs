@@ -356,22 +356,25 @@ namespace MicroErp.ViewModels
 
         /* Neu-Button */
         #region NewInvoiceCommand
-        //private ICommandViewModel _NewInvoiceCommand;
-        //public ICommandViewModel NewInvoiceCommand
-        //{
-        //    get
-        //    {
-        //        if (_NewInvoiceCommand == null)
-        //        {
-        //            _NewInvoiceCommand = new SimpleCommandViewModel(
-        //                "Suchen",
-        //                "Startet eine Suche",
-        //                () => 
-        //                );
-        //        }
-        //        return _SearchInvoiceCommand;
-        //    }
-        //}
+        private ICommandViewModel _NewInvoiceCommand;
+        public ICommandViewModel NewInvoiceCommand
+        {
+            get
+            {
+                if (_NewInvoiceCommand == null)
+                {
+                    _NewInvoiceCommand = new SimpleCommandViewModel(
+                         "NewContact",
+                        "Öffnet das NewInvoice Beispiel",
+                        () =>
+                        {
+                            var dlg = new NewInvoice();
+                            dlg.ShowDialog();
+                        });
+                }
+                return _NewInvoiceCommand;
+            }
+        }
         #endregion
 
         /* Rechnung editieren/anzeigen */

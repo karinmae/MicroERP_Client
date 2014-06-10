@@ -28,7 +28,7 @@ namespace MicroErp.ViewModels
                 {
                     Contact obj = new Contact();
                     obj.Vorname = "Keinen Eintrag gefunden!";
-                    obj.ID = "x";
+                    obj.Id = "x";
                     Items.Add(new ContactViewModel(obj));
                 }
             }
@@ -47,7 +47,7 @@ namespace MicroErp.ViewModels
                 {
                     Firma obj = new Firma();
                     obj.Name = "Keinen Eintrag gefunden!";
-                    obj.ID = "x";
+                    obj.Id = "x";
                     Items.Add(new FirmViewModel(obj));
                 }
             }

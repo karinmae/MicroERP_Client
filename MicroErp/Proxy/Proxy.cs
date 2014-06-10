@@ -71,14 +71,28 @@ namespace MicroErp
             Console.WriteLine(Geburtstag);
 
             WebClient http = new WebClient();
+            if (string.IsNullOrEmpty(Titel))
+                Titel = "";
+            if (string.IsNullOrEmpty(Suffix))
+                Suffix = "";
+            if (string.IsNullOrEmpty(Geburtstag))
+                Geburtstag = "";
+            if (string.IsNullOrEmpty(Adress))
+                Adress = "";
+            if (string.IsNullOrEmpty(Deliveryaddress))
+                Deliveryaddress = "";
+            if (string.IsNullOrEmpty(Billingaddress))
+                Billingaddress = "";
+
             string req =
-                "&vorname=" + Uri.EscapeUriString(Vorname) +
-                "&nachname=" + Uri.EscapeUriString(Nachname) +
+                "&firstname=" + Uri.EscapeUriString(Vorname) +
+                "&lastname=" + Uri.EscapeUriString(Nachname) +
                 "&suffix=" + Uri.EscapeUriString(Suffix) +
-                "&adress=" + Uri.EscapeUriString(Adress) +
+                "&birthday=" + Uri.EscapeUriString(Geburtstag) +
+                "&address=" + Uri.EscapeUriString(Adress) +
                 "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
                 "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
-            string result = http.DownloadString(new Uri(URL + "Contact/New?Titel=" + Uri.EscapeUriString(Titel) + req));
+            string result = http.DownloadString(new Uri(URL + "Contacts/New?Title=" + Uri.EscapeUriString(Titel) + req));
 
             return result;
         }
@@ -88,6 +102,18 @@ namespace MicroErp
         public string Update(string ID, string FirstName, string LastName, string Titel, string Suffix, string Birthday, string Adresse, string Deliveryaddress, string Billingaddress)
         {
             WebClient http = new WebClient();
+            if (string.IsNullOrEmpty(Titel))
+                Titel = "";
+            if (string.IsNullOrEmpty(Suffix))
+                Suffix = "";
+            if (string.IsNullOrEmpty(Birthday))
+                Birthday = "";
+            if (string.IsNullOrEmpty(Adresse))
+                Adresse = "";
+            if (string.IsNullOrEmpty(Deliveryaddress))
+                Deliveryaddress = "";
+            if (string.IsNullOrEmpty(Billingaddress))
+                Billingaddress = "";
             string req =
                 "&firstname=" + Uri.EscapeUriString(FirstName) +
                 "&lastname=" + Uri.EscapeUriString(LastName) +
@@ -112,7 +138,7 @@ namespace MicroErp
             WebClient http = new WebClient();
             try
             {
-                string result = http.DownloadString(new Uri(URL + "Contacts/SearchFirm?Name=" + Uri.EscapeUriString(text)));
+                string result = http.DownloadString(new Uri(URL + "Firm/Search?Name=" + Uri.EscapeUriString(text)));
                 Console.WriteLine(result);
                 XmlSerializer serializer = new XmlSerializer(typeof(FirmList));
                 TextReader reader = new StringReader(result);
@@ -132,7 +158,7 @@ namespace MicroErp
         public FirmList SearchFirmID(string text)
         {
             WebClient http = new WebClient();
-            string result = http.DownloadString(new Uri(URL + "Contacts/FirmID?Id=" + Uri.EscapeUriString(text)));
+            string result = http.DownloadString(new Uri(URL + "Firm/Id?Id=" + Uri.EscapeUriString(text)));
             Console.WriteLine(result);
             XmlSerializer serializer = new XmlSerializer(typeof(FirmList));
             TextReader reader = new StringReader(result);
@@ -157,10 +183,10 @@ namespace MicroErp
             WebClient http = new WebClient();
             string req =
                 "&Uid=" + Uri.EscapeUriString(UID) +
-                "&adress=" + Uri.EscapeUriString(Adress) +
+                "&address=" + Uri.EscapeUriString(Adress) +
                 "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
                 "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
-            string result = http.DownloadString(new Uri(URL + "Firma/New?Name=" + Uri.EscapeUriString(Name) + req));
+            string result = http.DownloadString(new Uri(URL + "Firm/New?Name=" + Uri.EscapeUriString(Name) + req));
 
             return result;
         }
@@ -171,12 +197,12 @@ namespace MicroErp
         {
             WebClient http = new WebClient();
             string req =
-                "&firstname=" + Uri.EscapeUriString(Name) +
-                "&lastname=" + Uri.EscapeUriString(UID) +
+                "&name=" + Uri.EscapeUriString(Name) +
+                "&Uid=" + Uri.EscapeUriString(UID) +
                 "&adress=" + Uri.EscapeUriString(Adresse) +
                 "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +
                 "&billingaddress=" + Uri.EscapeUriString(Billingaddress);
-            string result = http.DownloadString(new Uri(URL + "Contacts/UpdateFirm?Id=" + Uri.EscapeUriString(ID) + req));
+            string result = http.DownloadString(new Uri(URL + "Firm/Update?Id=" + Uri.EscapeUriString(ID) + req));
 
             return result;
         }

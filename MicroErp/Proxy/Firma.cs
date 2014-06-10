@@ -5,25 +5,25 @@ namespace MicroErp
 {
     /* Firma */
 
-    [XmlRoot("Firmen")]
+    [XmlRoot("Firms")]
     public class FirmList
     {
-        [XmlElement("Firma")]
+        [XmlElement("Firm")]
         public List<Firma> Firma { get; set; }
     }
 
     public class Firma
     {
-        [XmlElement("Id")]
-        public string ID { get; set; }
+        [XmlElement("ID")]
+        public string Id { get; set; }
 
-        [XmlElement("Uid")]
+        [XmlElement("UID")]
         public string UID { get; set; }
 
         [XmlElement("Name")]
         public string Name { get; set; }
 
-        [XmlElement("Adresse")]
+        [XmlElement("Adress")]
         public string Adresse { get; set; }
 
         [XmlElement("deliveryaddress")]

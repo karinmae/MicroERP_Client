@@ -14,8 +14,8 @@ namespace MicroErp
 
     public class Contact
     {
-        [XmlElement("Id")]
-        public string ID { get; set; }
+        [XmlElement("ID")]
+        public string Id { get; set; }
 
         [XmlElement("Titel")]
         public string Titel { get; set; }
@@ -32,7 +32,7 @@ namespace MicroErp
         [XmlElement("Birthday")]
         public string Geburtsdatum { get; set; }
 
-        [XmlElement("Adresse")]
+        [XmlElement("Adress")]
         public string Adresse { get; set; }
 
         [XmlElement("deliveryaddress")]

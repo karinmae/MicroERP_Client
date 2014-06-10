@@ -12,9 +12,9 @@ namespace MicroErp.ViewModels.Firm
         {
             this.Object = obj;
 
-            this.Id = obj.ID;
+            this.Id = obj.Id;
 
-            this.name = obj.Name;
+            this.Name = obj.Name;
             this.UID = obj.UID;
             this.Adresse = obj.Adresse;
             this.Deliveryaddress = obj.Lieferadresse;
@@ -24,18 +24,18 @@ namespace MicroErp.ViewModels.Firm
         public Firma Object { get; set; }
 
         #region Name
-        private string _name;
-        public string name
+        private string _Name;
+        public string Name
         {
             get
             {
-                return _name;
+                return _Name;
             }
             set
             {
-                if (_name != value)
+                if (_Name != value)
                 {
-                    _name = value;
+                    _Name = value;
                     OnPropertyChanged("Name");
                 }
             }

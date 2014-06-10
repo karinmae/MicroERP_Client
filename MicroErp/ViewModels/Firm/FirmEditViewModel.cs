@@ -23,7 +23,7 @@ namespace MicroErp.ViewModels
                 Adresse = obj.Adresse;
                 Deliveryaddress = obj.Lieferadresse;
                 Billingaddress = obj.Rechnungsadresse;
-                id = obj.ID;
+                id = obj.Id;
 
             }
 
