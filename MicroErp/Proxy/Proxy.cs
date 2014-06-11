@@ -243,8 +243,10 @@ namespace MicroErp
             WebClient http = new WebClient();
             try
             {
-                string req = "&DateTo=" + Uri.EscapeUriString(DateTo) + "&AmountTo=" + Uri.EscapeUriString(AmountTo)
-                    + "&SearchContact=" + Uri.EscapeUriString(SearchContact);
+                string req = "&DateTo=" + Uri.EscapeUriString(DateTo) +
+                             "&AmountFrom=" + Uri.EscapeUriString(AmountFrom) +
+                             "&AmountTo=" + Uri.EscapeUriString(AmountTo) +
+                             "&SearchContact=" + Uri.EscapeUriString(SearchContact);
                 string ResultContact = http.DownloadString(new Uri(URL + "Invoice/Search?DateFrom=" + Uri.EscapeUriString(AmountFrom) + req));
                 Console.WriteLine(ResultContact);
                 XmlSerializer serializer = new XmlSerializer(typeof(InvoiceList));
