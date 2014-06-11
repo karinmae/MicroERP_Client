@@ -38,6 +38,9 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp">
+      <HintPath>iText\itextsharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
@@ -62,6 +65,7 @@
     <Compile Include="Controls\CommandButton.cs" />
     <Compile Include="Controls\ListView.cs" />
     <Compile Include="Controls\TabControl.cs" />
+    <Compile Include="ipdf\PrintPDF.cs" />
     <Compile Include="Proxy\Firma.cs" />
     <Compile Include="Proxy\Invoice.cs" />
     <Compile Include="ViewModels\Firm\FirmEditViewModel.cs" />
