@@ -89,18 +89,18 @@ namespace MicroErp.ViewModels
         #endregion
 
         #region Uid
-        private string _UID;
+        private string _Uid;
         public string Uid
         {
             get
             {
-                return _UID;
+                return _Uid;
             }
             set
             {
-                if (_UID != value)
+                if (_Uid != value)
                 {
-                    _UID = value;
+                    _Uid = value;
                     OnPropertyChanged("Uid");
                 }
             }

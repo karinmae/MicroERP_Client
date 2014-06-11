@@ -196,6 +196,11 @@ namespace MicroErp
         public string UpdateFirm(string ID, string Name, string UID, string Adresse, string Deliveryaddress, string Billingaddress)
         {
             WebClient http = new WebClient();
+            if (string.IsNullOrEmpty(Deliveryaddress))
+                Deliveryaddress = "";
+            if (string.IsNullOrEmpty(Billingaddress))
+                Billingaddress = "";
+
             string req =
                 "&name=" + Uri.EscapeUriString(Name) +
                 "&Uid=" + Uri.EscapeUriString(UID) +
