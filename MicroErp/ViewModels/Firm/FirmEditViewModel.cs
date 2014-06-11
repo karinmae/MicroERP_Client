@@ -29,14 +29,14 @@ namespace MicroErp.ViewModels
 
         }
 
-        private ICommandViewModel _UpdateFirmContactCommand;
-        public ICommandViewModel UpdateFirmContactCommand
+        private ICommandViewModel _UpdateFirmCommand;
+        public ICommandViewModel UpdateFirmCommand
         {
             get
             {
-                if (_UpdateFirmContactCommand == null)
+                if (_UpdateFirmCommand == null)
                 {
-                    _UpdateFirmContactCommand = new SimpleCommandViewModel(
+                    _UpdateFirmCommand = new SimpleCommandViewModel(
                         "Update",
                         "Startet Update",
                         () =>
@@ -46,7 +46,7 @@ namespace MicroErp.ViewModels
                             Result = resp;
                         });
                 }
-                return _UpdateFirmContactCommand;
+                return _UpdateFirmCommand;
             }
         }
 

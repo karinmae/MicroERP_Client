@@ -46,7 +46,7 @@
         <Label Style="{StaticResource style1}" Grid.Row="7" Height="26" Margin="15,5,10,0" >Rechnungsadresse:</Label>
         <TextBox Grid.Column="1" Grid.Row="7" Margin="10,10,30,5"  Text="{Binding Billingaddress}"></TextBox>
         
-        <Button Content="Bearbeiten" Command="{Binding UpdateContactCommand}" Grid.Column="1" HorizontalAlignment="Left" Margin="251,3,0,0" Grid.Row="8" VerticalAlignment="Top" Width="75"/>
+        <Button Content="Bearbeiten" Command="{Binding UpdateFrimCommand}" Grid.Column="1" HorizontalAlignment="Left" Margin="251,3,0,0" Grid.Row="8" VerticalAlignment="Top" Width="75"/>
         <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" Grid.Column="1" HorizontalAlignment="Left" Margin="10,1,0,0" Grid.Row="8" VerticalAlignment="Top"/>
  
 
