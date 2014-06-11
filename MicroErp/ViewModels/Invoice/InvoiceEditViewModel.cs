@@ -58,9 +58,9 @@ namespace MicroErp.ViewModels
         {
             get
             {
-                if (_UpdateContactCommand == null)
+                if (_PrintInvoiceCommand == null)
                 {
-                    _UpdateContactCommand = new SimpleCommandViewModel(
+                    _PrintInvoiceCommand = new SimpleCommandViewModel(
                         "Update",
                         "Startet Update",
                         () =>
@@ -75,9 +75,36 @@ namespace MicroErp.ViewModels
                             Result = resp;
                         });
                 }
-                return _UpdateContactCommand;
+                return _PrintInvoiceCommand;
             }
         }
+
+        #region PDF drucken
+        private ICommandViewModel _PrintInvoiceCommand;
+        public ICommandViewModel PrintInvoiceCommand
+        {
+            get
+            {
+                if (_PrintInvoiceCommand == null)
+                {
+                    _PrintInvoiceCommand = new SimpleCommandViewModel(
+                        "Update",
+                        "Startet Update",
+                        () =>
+                        {
+                            Proxy prx = new Proxy();
+                            prx.UpdateInvoice
+                            (ID2, Comment, Note,
+                             Stk1, Article1, USt1, Price1,
+                             Stk2, Article2, USt2, Price2,
+                             Stk3, Article3, USt3, Price3
+                             );   
+                        });
+                }
+                return _PrintInvoiceCommand;
+            }
+        }
+        #endregion
 
         #region InvoiceNum
         private string _InvoiceNum;
