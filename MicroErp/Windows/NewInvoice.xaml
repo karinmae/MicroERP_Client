@@ -13,14 +13,11 @@
         <Label Content="RechnungsNr:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,10,0,0" FontWeight="Bold"/>
         <TextBox Text="{Binding InvoiceNumber}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146.737" Margin="106.013,12.96,0,0"/>
 
-        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,38,0,0" FontWeight="Bold" Content="Fälligkeit:"/>
-        <TextBox Text="{Binding PayDate}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146.737" Margin="106.013,40.96,0,0"/>
+        <Label HorizontalAlignment="Left" VerticalAlignment="Top" Margin="8,47,0,0" FontWeight="Bold" Content="Fälligkeit:"/>
 
-        <Label Content="Datum:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,66.92,0,0" FontWeight="Bold"/>
-
-        <Label Content="Kunde:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,97.88,0,0" FontWeight="Bold"/>
-        <TextBox Text="{Binding Costumer}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146.737" Margin="106.013,96.96,0,0"/>
-        <Button Command="{Binding SearchCostumer}" Content="Suchen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="258,97,0,0" Height="23"/>
+        <Label Content="Kunde:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,90,0,0" FontWeight="Bold"/>
+        <TextBox Text="{Binding Costumer}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Margin="106,89,0,0"/>
+        <Button Command="{Binding SearchCostumer}" Content="Suchen" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="258,89,0,0" Height="23"/>
 
         <GroupBox Header="Kommentar" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="387.5,14.5,0,0" Height="113.84" Width="245"/>
         <TextBox Text="{Binding Comment}" HorizontalAlignment="Left" Height="83" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Margin="397.5,35.5,0,0"/>
@@ -58,8 +55,8 @@
         <Label Content="{Binding Brutto3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="296,229,0,0"/>
         <Label Content="{Binding Netto3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="339,229,0,0"/>
 
-        <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,120,0,-39"/>
+        <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="445,274,0,0"/>
         <Button Command="{Binding NewInvoiceCommand}" Content="Speichern" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="557.5,274.04,0,0"/>
-        <DatePicker SelectedDate="{Binding Date}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,69,0,0" Width="147"/>
+        <DatePicker SelectedDate="{Binding PayDate}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,50,0,0" Width="147"/>
     </Grid>
 </Window>
