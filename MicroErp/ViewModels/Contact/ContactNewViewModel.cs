@@ -123,6 +123,23 @@ namespace MicroErp.ViewModels
             }
         }
 
+        public string _FirmName;
+        public string FirmName
+        {
+            get
+            {
+                return _FirmName;
+            }
+            set
+            {
+                if (_FirmName != value)
+                {
+                    _FirmName = value;
+                    OnPropertyChanged("FirmName");
+                    //NotifyStateChanged();
+                }
+            }
+        }
 
         public string _GebTag;
         public string GebTag
@@ -361,7 +378,7 @@ namespace MicroErp.ViewModels
                             }
                             if (CanEditPerson == true)
                             {
-                                string resp = prx.NewContact(Titel, VName, NName, Suffix, GebTag, AStrasse, APlz, AOrt,
+                                string resp = prx.NewContact(Titel, VName, NName, Suffix, FirmName, GebTag, AStrasse, APlz, AOrt,
                                 LStrasse, LPlz, LOrt,
                                 RStrasse, RPlz, ROrt);
                                 Result = resp;

@@ -58,7 +58,7 @@ namespace MicroErp
 
         #region New Contact
         public string NewContact(string Titel, string Vorname, string Nachname,
-                            string Suffix, string Geburtstag,
+                            string Suffix, string FirmName, string Geburtstag,
                             string AStrasse, string APlz, string AOrt,
                             string LStrasse, string LPlz, string LOrt,
                             string RStrasse, string RPlz, string ROrt)
@@ -75,6 +75,8 @@ namespace MicroErp
                 Titel = "";
             if (string.IsNullOrEmpty(Suffix))
                 Suffix = "";
+            if (string.IsNullOrEmpty(FirmName))
+                FirmName = "";
             if (string.IsNullOrEmpty(Geburtstag))
                 Geburtstag = "";
             if (string.IsNullOrEmpty(Adress))
@@ -88,6 +90,7 @@ namespace MicroErp
                 "&firstname=" + Uri.EscapeUriString(Vorname) +
                 "&lastname=" + Uri.EscapeUriString(Nachname) +
                 "&suffix=" + Uri.EscapeUriString(Suffix) +
+                "&FirmName=" + Uri.EscapeUriString(FirmName) +
                 "&birthday=" + Uri.EscapeUriString(Geburtstag) +
                 "&address=" + Uri.EscapeUriString(Adress) +
                 "&deliveryaddress=" + Uri.EscapeUriString(Deliveryaddress) +

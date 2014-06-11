@@ -4,55 +4,58 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Text.RegularExpressions;
+using MicroERP.ipdf;
 
 namespace MicroErp.ViewModels
 {
     public class InvoiceEditViewModel : ViewModel
     {
         private string ID2;
+        InvoiceList result;
         public InvoiceEditViewModel(string ID)
         {
             ID2 = ID;
             Proxy proxy = new Proxy();
-             InvoiceList result = proxy.SearchInvoiceID(ID);
-                foreach (var obj in result.Invoice)
-                {
-                    InvoiceNum = obj.Nummer;
-                    string PayDate1 = obj.Faelligkeit;
-                    string EditDate1 = obj.Datum;
-                    Name = obj.Name;
-                    BillingAdress = obj.Billingadress;
-                    Comment = obj.Kommentar;
-                    Note = obj.Nachricht;
+            result = proxy.SearchInvoiceID(ID);
+            foreach (var obj in result.Invoice)
+            {
+                InvoiceNum = obj.Nummer;
+                string PayDate1 = obj.Faelligkeit;
+                string EditDate1 = obj.Datum;
+                Name = obj.Name;
+                BillingAdress = obj.Billingadress;
+                Comment = obj.Kommentar;
+                Note = obj.Nachricht;
 
-                    /* Rechungszeile 1 */
-                    Stk1 = obj.Menge1;
-                    Article1 = obj.Artikel1;
-                    Price1 = obj.Stueckpreis1;
-                    USt1 = obj.Ust1;
+                /* Rechungszeile 1 */
+                Stk1 = obj.Menge1;
+                Article1 = obj.Artikel1;
+                Price1 = obj.Stueckpreis1;
+                USt1 = obj.Ust1;
 
-                    /* Rechungszeile 2 */
-                    Stk2 = obj.Menge2;
-                    Article2 = obj.Artikel2;
-                    Price2 = obj.Stueckpreis2;
-                    USt2 = obj.Ust2;
+                /* Rechungszeile 2 */
+                Stk2 = obj.Menge2;
+                Article2 = obj.Artikel2;
+                Price2 = obj.Stueckpreis2;
+                USt2 = obj.Ust2;
 
-                    /* Rechungszeile 3 */
-                    Stk3 = obj.Menge3;
-                    Article3 = obj.Artikel3;
-                    Price3 = obj.Stueckpreis3;
-                    USt3 = obj.Ust3;
+                /* Rechungszeile 3 */
+                Stk3 = obj.Menge3;
+                Article3 = obj.Artikel3;
+                Price3 = obj.Stueckpreis3;
+                USt3 = obj.Ust3;
 
-                    string[] PayDateReg = Regex.Split(PayDate1, "T");
-                    PayDate = PayDateReg[0];
+                string[] PayDateReg = Regex.Split(PayDate1, "T");
+                PayDate = PayDateReg[0];
 
-                    string[] EditDateReg = Regex.Split(EditDate1, "T");
-                    EditDate = EditDateReg[0];
+                string[] EditDateReg = Regex.Split(EditDate1, "T");
+                EditDate = EditDateReg[0];
 
-                }
-            
+            }
+
         }
 
+        #region Update
         private ICommandViewModel _UpdateContactCommand;
         public ICommandViewModel UpdateContactCommand
         {
@@ -78,6 +81,7 @@ namespace MicroErp.ViewModels
                 return _PrintInvoiceCommand;
             }
         }
+        #endregion
 
         #region PDF drucken
         private ICommandViewModel _PrintInvoiceCommand;
@@ -92,13 +96,10 @@ namespace MicroErp.ViewModels
                         "Startet Update",
                         () =>
                         {
-                            Proxy prx = new Proxy();
-                            prx.UpdateInvoice
-                            (ID2, Comment, Note,
-                             Stk1, Article1, USt1, Price1,
-                             Stk2, Article2, USt2, Price2,
-                             Stk3, Article3, USt3, Price3
-                             );   
+                            foreach (var obj in result.Invoice)
+                            {
+                                PrintPDF prx = new PrintPDF(obj);
+                            }
                         });
                 }
                 return _PrintInvoiceCommand;
@@ -604,7 +605,7 @@ namespace MicroErp.ViewModels
             }
         }
         #endregion
-       
+
     }
 }
 

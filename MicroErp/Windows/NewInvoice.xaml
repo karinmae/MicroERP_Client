@@ -17,7 +17,6 @@
         <TextBox Text="{Binding PayDate}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146.737" Margin="106.013,40.96,0,0"/>
 
         <Label Content="Datum:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,66.92,0,0" FontWeight="Bold"/>
-        <TextBox Text="{Binding Date}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146.737" Margin="106.013,68.96,0,0"/>
 
         <Label Content="Kunde:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,97.88,0,0" FontWeight="Bold"/>
         <TextBox Text="{Binding Costumer}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="146.737" Margin="106.013,96.96,0,0"/>
@@ -61,5 +60,6 @@
 
         <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="0,120,0,-39"/>
         <Button Command="{Binding NewInvoiceCommand}" Content="Speichern" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="557.5,274.04,0,0"/>
+        <DatePicker SelectedDate="{Binding Date}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,69,0,0" Width="147"/>
     </Grid>
 </Window>
