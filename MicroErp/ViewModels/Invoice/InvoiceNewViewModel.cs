@@ -12,36 +12,6 @@ namespace MicroErp.ViewModels
         {
 
         }
-        /*
-         * InvoiceNumber
-         * PayDate
-         * Date
-         * Costumer
-         * Comment
-         * Note
-         * 
-         * Amount1
-         * Article1
-         * Price1
-         * USt1
-         * Brutto1
-         * Netto1
-         * 
-         * Amount2
-         * Article2
-         * Price2
-         * USt2
-         * Brutto2
-         * Netto2
-         * 
-         * Amount2
-         * Article2
-         * Price2
-         * USt2
-         * Brutto2
-         * Netto2
-         */
-
 
         #region Note
         private string _Note;
@@ -172,6 +142,8 @@ namespace MicroErp.ViewModels
                 {
                     _USt1 = value;
                     OnPropertyChanged("USt1");
+                    //calcNetto1();
+                    calcBrutto1();
                 }
             }
         }
@@ -191,6 +163,7 @@ namespace MicroErp.ViewModels
                 {
                     _Price1 = value;
                     OnPropertyChanged("Price1");
+                    calcNetto1();
                 }
             }
         }
@@ -233,6 +206,64 @@ namespace MicroErp.ViewModels
             }
         }
         #endregion
+
+        #region Netto1
+        private string _Netto1;
+        public string Netto1
+        {
+            get
+            {
+                return _Netto1;
+            }
+            set
+            {
+                if (_Netto1 != value)
+                {
+                    _Netto1 = value;
+                    OnPropertyChanged("Netto1");
+                }
+            }
+        }
+
+        private void calcNetto1()
+        {
+            int stk = Convert.ToInt32(Stk1);
+            int preis = Convert.ToInt32(Price1);
+            int netto = stk * preis;
+            Netto1 = Convert.ToString(netto);
+        }
+
+       
+        #endregion
+
+
+        #region Brutto1
+        private string _Brutto1;
+        public string Brutto1
+        {
+            get
+            {
+                return _Brutto1;
+            }
+            set
+            {
+                if (_Brutto1 != value)
+                {
+                    _Brutto1 = value;
+                    OnPropertyChanged("Brutto1");
+                }
+            }
+        }
+
+        private void calcBrutto1()
+        {
+
+            int netto = Convert.ToInt32(Netto1);
+            int Ust = Convert.ToInt32(USt1);
+            float brutto = ((netto / 100) * Ust) + netto;
+            Brutto1 = Convert.ToString(brutto);
+        }
+        #endregion
         #endregion
 
         #region Artikel 2
@@ -250,6 +281,7 @@ namespace MicroErp.ViewModels
                 {
                     _USt2 = value;
                     OnPropertyChanged("USt2");
+                    calcBrutto2();
                 }
             }
         }
@@ -269,6 +301,7 @@ namespace MicroErp.ViewModels
                 {
                     _Price2 = value;
                     OnPropertyChanged("Price2");
+                    calcNetto2();
                 }
             }
         }
@@ -311,6 +344,63 @@ namespace MicroErp.ViewModels
             }
         }
         #endregion
+
+        #region Netto2
+        private string _Netto2;
+        public string Netto2
+        {
+            get
+            {
+                return _Netto2;
+            }
+            set
+            {
+                if (_Netto2 != value)
+                {
+                    _Netto2 = value;
+                    OnPropertyChanged("Netto2");
+                }
+            }
+        }
+
+        private void calcNetto2()
+        {
+            int stk = Convert.ToInt32(Stk2);
+            int preis = Convert.ToInt32(Price2);
+            int netto = stk * preis;
+            Netto2 = Convert.ToString(netto);
+        }
+
+
+        #endregion
+
+        #region Brutto2
+        private string _Brutto2;
+        public string Brutto2
+        {
+            get
+            {
+                return _Brutto2;
+            }
+            set
+            {
+                if (_Brutto2 != value)
+                {
+                    _Brutto2 = value;
+                    OnPropertyChanged("Brutto2");
+                }
+            }
+        }
+
+        private void calcBrutto2()
+        {
+
+            int netto = Convert.ToInt32(Netto2);
+            int Ust = Convert.ToInt32(USt1);
+            float brutto = ((netto / 100) * Ust) + netto;
+            Brutto2 = Convert.ToString(brutto);
+        }
+        #endregion
         #endregion
 
         #region Artikel 3
@@ -328,6 +418,7 @@ namespace MicroErp.ViewModels
                 {
                     _USt3 = value;
                     OnPropertyChanged("USt3");
+                    calcBrutto3();
                 }
             }
         }
@@ -347,6 +438,7 @@ namespace MicroErp.ViewModels
                 {
                     _Price3 = value;
                     OnPropertyChanged("Price3");
+                    calcNetto3();
                 }
             }
         }
@@ -387,6 +479,64 @@ namespace MicroErp.ViewModels
                     OnPropertyChanged("Amount3");
                 }
             }
+        }
+        #endregion
+
+
+        #region Netto3
+        private string _Netto3;
+        public string Netto3
+        {
+            get
+            {
+                return _Netto3;
+            }
+            set
+            {
+                if (_Netto3 != value)
+                {
+                    _Netto3 = value;
+                    OnPropertyChanged("Netto3");
+                }
+            }
+        }
+
+        private void calcNetto3()
+        {
+            int stk = Convert.ToInt32(Stk3);
+            int preis = Convert.ToInt32(Price3);
+            int netto = stk * preis;
+            Netto3 = Convert.ToString(netto);
+        }
+
+
+        #endregion
+
+        #region Brutto3
+        private string _Brutto3;
+        public string Brutto3
+        {
+            get
+            {
+                return _Brutto3;
+            }
+            set
+            {
+                if (_Brutto3 != value)
+                {
+                    _Brutto3 = value;
+                    OnPropertyChanged("Brutto3");
+                }
+            }
+        }
+
+        private void calcBrutto3()
+        {
+
+            int netto = Convert.ToInt32(Netto3);
+            int Ust = Convert.ToInt32(USt3);
+            float brutto = ((netto / 100) * Ust) + netto;
+            Brutto3 = Convert.ToString(brutto);
         }
         #endregion
         #endregion

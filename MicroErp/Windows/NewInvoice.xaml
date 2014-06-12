@@ -34,28 +34,28 @@
         <Label Content="Brutto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="287,148,0,0" FontWeight="Bold"/>
         <Label Content="Netto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="332,148,0,0" FontWeight="Bold"/>
 
-        <TextBox Text="{Binding Stk1}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Margin="29,168,0,0"/>
+        <TextBox Text="{Binding Stk1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Margin="29,168,0,0"/>
         <TextBox Text="{Binding Article1}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" Margin="71,168,0,0"/>
-        <TextBox Text="{Binding Price1}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" Margin="181,168,0,0"/>
-        <TextBox Text="{Binding USt1}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="243,168,0,0"/>
-        <Label Content="{Binding Brutto1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="296,175,0,0"/>
-        <Label Content="{Binding Netto1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="339,175,0,0"/>
+        <TextBox Text="{Binding Price1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" Margin="181,168,0,0"/>
+        <TextBox Text="{Binding USt1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="243,168,0,0"/>
+        <Label Content="{Binding Brutto1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="299,176,0,0"/>
+        <Label Content="{Binding Netto1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="342,176,0,0"/>
 
-        <TextBox Text="{Binding Stk2}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Margin="29,196,0,0"/>
+        <TextBox Text="{Binding Stk2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Margin="29,196,0,0"/>
         <TextBox Text="{Binding Article2}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" Margin="71,196,0,0"/>
-        <TextBox Text="{Binding Price2}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" Margin="181,196,0,0"/>
-        <TextBox Text="{Binding USt2}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="243,196,0,0"/>
-        <Label Content="{Binding Brutto2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="296,203,0,0"/>
-        <Label Content="{Binding Netto2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="339,203,0,0"/>
+        <TextBox Text="{Binding Price2,UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" Margin="181,196,0,0"/>
+        <TextBox Text="{Binding USt2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="243,196,0,0"/>
+        <Label Content="{Binding Brutto2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="299,204,0,0"/>
+        <Label Content="{Binding Netto2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="342,204,0,0"/>
 
-        <TextBox Text="{Binding Stk3}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Margin="29,224,0,0"/>
+        <TextBox Text="{Binding Stk3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" Margin="29,224,0,0"/>
         <TextBox Text="{Binding Article3}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="106" Margin="71,224,0,0"/>
-        <TextBox Text="{Binding Price3}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" Margin="181,224,0,0"/>
-        <TextBox Text="{Binding USt3}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="243,224,0,0"/>
-        <Label Content="{Binding Brutto3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="296,229,0,0"/>
-        <Label Content="{Binding Netto3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="339,229,0,0"/>
+        <TextBox Text="{Binding Price3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="57" Margin="181,224,0,0"/>
+        <TextBox Text="{Binding USt3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="243,224,0,0"/>
+        <Label Content="{Binding Brutto3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="299,230,0,0"/>
+        <Label Content="{Binding Netto3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="342,230,0,0"/>
 
-        <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="445,274,0,0"/>
+        <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="432,272,0,0"/>
         <Button Command="{Binding NewInvoiceCommand}" Content="Speichern" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="557.5,274.04,0,0"/>
         <DatePicker SelectedDate="{Binding PayDate}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="106,50,0,0" Width="147"/>
     </Grid>
