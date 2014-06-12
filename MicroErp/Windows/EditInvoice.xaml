@@ -15,18 +15,18 @@
         </Style>
     </Window.Resources>
     <Grid>
-    	
-    	<Label Content="Rechnungsnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
+
+        <Label Content="Rechnungsnummer:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,10,0,0" FontWeight="Bold"/>
         <Label Content="{Binding InvoiceNum}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="132.006,13.01,0,0"/>
-    	
-    	<Label Content="Fälligkeit:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,35.96,0,0" FontWeight="Bold"/>
+
+        <Label Content="Fälligkeit:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,35.96,0,0" FontWeight="Bold"/>
         <Label Content="{Binding PayDate}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="132.006,43.97,0,0"/>
-        
+
         <Label Content="Datum:" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="11.679,61.92,0,0" FontWeight="Bold"/>
         <Label Content="{Binding EditDate}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="132.006,75,0,0"/>
-    	
-    	<GroupBox Header="Besteller" HorizontalAlignment="Left" VerticalAlignment="Top" Height="113.84" Width="364" Margin="10,100,0,0"/>
-    	<Label Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,121,0,0"/>
+
+        <GroupBox Header="Besteller" HorizontalAlignment="Left" VerticalAlignment="Top" Height="113.84" Width="364" Margin="10,100,0,0"/>
+        <Label Content="{Binding Name}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,121,0,0"/>
         <Label Content="{Binding NameUid}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,151.96,0,0"/>
         <Label Content="{Binding BillingAdress}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="22,182.92,0,0"/>
 
@@ -35,38 +35,38 @@
 
         <GroupBox Header="Notizen" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="379,219.34,0,0" Height="128.867" Width="245"/>
         <TextBox Text="{Binding Note}" HorizontalAlignment="Left" Height="89.88" TextWrapping="Wrap" VerticalAlignment="Top" Width="225" Margin="389,246.5,0,0"/>
-       
+
         <GroupBox Header="Artikel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="10,219.34,0,0" Height="128.867" Width="364"/>
         <Label Content="Stk." HorizontalAlignment="Left" VerticalAlignment="Top" Margin="25.989,235.55,0,0" FontWeight="Bold"/>
-    	<Label Content="Artikel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="91,235.55,0,0" FontWeight="Bold"/>
-    	<Label Content="Preis/Stk" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,235.55,0,0" FontWeight="Bold"/>
-    	<Label Content="USt" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="242.256,235.55,0,0" FontWeight="Bold"/>
-    	<Label Content="Brutto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="280.25,235.55,0,0" FontWeight="Bold"/>
-    	<Label Content="Netto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325.243,235.55,0,0" FontWeight="Bold"/>
+        <Label Content="Artikel" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="91,235.55,0,0" FontWeight="Bold"/>
+        <Label Content="Preis/Stk" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="174,235.55,0,0" FontWeight="Bold"/>
+        <Label Content="USt" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="242.256,235.55,0,0" FontWeight="Bold"/>
+        <Label Content="Brutto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="280.25,235.55,0,0" FontWeight="Bold"/>
+        <Label Content="Netto" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325.243,235.55,0,0" FontWeight="Bold"/>
 
-        <TextBox Text="{Binding Stk1}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="37.993" Margin="22,256.5,0,0"/>
+        <TextBox Text="{Binding Stk1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="37.993" Margin="22,256.5,0,0"/>
         <TextBox Text="{Binding Article1}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="105.007" Margin="64.993,256.5,0,0"/>
-        <TextBox Text="{Binding Price1}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="56.25" Margin="175,256.5,0,0"/>
-        <TextBox Text="{Binding USt1}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="236.25,256.5,0,0"/>
-        <Label Content="{Binding Brutto1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="282.25,256.5,0,0"/>
-        <Label Content="{Binding Netto1}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325.243,256.5,0,0"/>
+        <TextBox Text="{Binding Price1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="56.25" Margin="175,256.5,0,0"/>
+        <TextBox Text="{Binding USt1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="236.25,256.5,0,0"/>
+        <Label Content="{Binding Brutto1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="291,262,0,0"/>
+        <Label Content="{Binding Netto1, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="334,262,0,0"/>
 
-        <TextBox Text="{Binding Stk2}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="37.993" Margin="22,284.5,0,0"/>
+        <TextBox Text="{Binding Stk2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="37.993" Margin="22,284.5,0,0"/>
         <TextBox Text="{Binding Article2}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="105.007" Margin="64.993,284.5,0,0"/>
-        <TextBox Text="{Binding Price2}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="56.25" Margin="175,284.5,0,0"/>
-        <TextBox Text="{Binding USt2}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="236.25,284.5,0,0"/>
-        <Label Content="{Binding Brutto2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="282.25,284.46,0,0"/>
-        <Label Content="{Binding Netto2}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325.243,284.46,0,0"/>
+        <TextBox Text="{Binding Price2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="56.25" Margin="175,284.5,0,0"/>
+        <TextBox Text="{Binding USt2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="236.25,284.5,0,0"/>
+        <Label Content="{Binding Brutto2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="291,290,0,0"/>
+        <Label Content="{Binding Netto2, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="334,290,0,0"/>
 
-        <TextBox Text="{Binding Stk3}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="37.993" Margin="22,312.5,0,0"/>
+        <TextBox Text="{Binding Stk3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="37.993" Margin="22,312.5,0,0"/>
         <TextBox Text="{Binding Article3}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="105.007" Margin="64.993,312.5,0,0"/>
-        <TextBox Text="{Binding Price3}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="56.25" Margin="175,312.5,0,0"/>
-        <TextBox Text="{Binding USt3}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="236.25,312.5,0,0"/>
-        <Label Content="{Binding Brutto3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="282.25,310.42,0,0"/>
-        <Label Content="{Binding Netto3}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="325.243,310.42,0,0"/>
+        <TextBox Text="{Binding Price3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="56.25" Margin="175,312.5,0,0"/>
+        <TextBox Text="{Binding USt3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" Height="23" TextWrapping="Wrap" VerticalAlignment="Top" Width="41" Margin="236.25,312.5,0,0"/>
+        <Label Content="{Binding Brutto3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="291,316,0,0"/>
+        <Label Content="{Binding Netto3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="334,316,0,0"/>
 
         <Button Content="Drucken" Command="{Binding PrintInvoiceCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="549,353.207,0,0"/>
         <Button Content="Bearbeiten" Command="{Binding UpdateInvoiceCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="469,353.207,0,0"/>
-        <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="336,347,0,0"/>
+        <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,358,0,0"/>
     </Grid>
 </Window>
