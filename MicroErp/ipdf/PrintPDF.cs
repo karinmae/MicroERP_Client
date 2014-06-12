@@ -68,10 +68,10 @@ namespace MicroERP.ipdf
             cb.ShowText(bill.Billingadress);
             
             cb.SetTextMatrix(50, 600);
-            cb.ShowText("Rechnung Nr. " + bill.Faelligkeit.ToString()); 
+            cb.ShowText("Rechnung Nr. " + bill.Faelligkeit); 
             cb.SetFontAndSize(font_calibri, 9);
             cb.SetTextMatrix(460, 600);
-            cb.ShowText("Datum:     " + bill.Datum.ToString()); 
+            cb.ShowText("Fälligkeit:     " + bill.Faelligkeit.ToString()); 
             cb.EndText();
 
             Paragraph p1 = new Paragraph(" ");
