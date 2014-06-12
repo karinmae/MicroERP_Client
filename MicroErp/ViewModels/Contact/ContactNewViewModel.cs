@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MicroErp.ViewModels
 {
@@ -355,7 +356,29 @@ namespace MicroErp.ViewModels
         }
         #endregion
 
-        #region Command
+        #region Commands
+        private ICommandViewModel _CloseContactCommand;
+        public ICommandViewModel CloseContactCommand
+        {
+            get
+            {
+                if (_CloseContactCommand == null)
+                {
+                    _CloseContactCommand = new SimpleCommandViewModel(
+                        "New",
+                        "Startet New",
+                        () =>
+                        {
+                            Application.Current.Windows[1].Close(); 
+
+                        });
+                }
+                return _CloseContactCommand;
+            }
+        }
+
+
+
         private ICommandViewModel _NewContactCommand;
         public ICommandViewModel NewContactCommand
         {
