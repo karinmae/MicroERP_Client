@@ -26,6 +26,9 @@ namespace MicroErp
         [XmlElement("Number")]
         public string Nummer { get; set; }
 
+        [XmlElement("IDContact")]
+        public int IDKontakt { get; set; }
+
         [XmlElement("Firstname")]
         public string Vorname { get; set; }
 
