@@ -397,30 +397,30 @@ namespace MicroErp.ViewModels
 
         /* Rechnung editieren/anzeigen */
         #region EditInvoiceCommand
-        //private ICommandViewModel _EditInvoiceCommand;
-        //public ICommandViewModel EditInvoiceCommand
-        //{
-        //    get
-        //    {
-        //        if (_EditInvoiceCommand == null)
-        //        {
-        //            _EditInvoiceCommand = new SimpleCommandViewModel(
-        //                "EditContact",
-        //                "Öffnet das EditContact Beispiel",
-        //                () =>
-        //                {
+        private ICommandViewModel _EditInvoiceCommand;
+        public ICommandViewModel EditInvoiceCommand
+        {
+            get
+            {
+                if (_EditInvoiceCommand == null)
+                {
+                    _EditInvoiceCommand = new SimpleCommandViewModel(
+                        "EditContact",
+                        "Öffnet das EditContact Beispiel",
+                        () =>
+                        {
 
-        //                    if (SelectedItem.Id!= "x")
-        //                    {
-        //                        var dlg = new EditInvoice();
-        //                        dlg.DataContext = new InvoiceEditViewModel(SelectedItem.Id); ;
-        //                        dlg.ShowDialog();
-        //                    }
-        //                });
-        //        }
-        //        return _EditInvoiceCommand;
-        //    }
-        //}
+                            if (SelectedInvoiceItem.Id != "x")
+                            {
+                                var dlg = new EditInvoice();
+                                dlg.DataContext = new InvoiceEditViewModel(SelectedInvoiceItem.Id); ;
+                                dlg.ShowDialog();
+                            }
+                        });
+                }
+                return _EditInvoiceCommand;
+            }
+        }
         #endregion
 
         #endregion
