@@ -22,7 +22,7 @@ namespace MicroErp.ViewModels
                 InvoiceNum = obj.Nummer;
                 string PayDate1 = obj.Faelligkeit;
                 string EditDate1 = obj.Datum;
-                Name = obj.Name;
+                Name = obj.Vorname + " " + obj.Nachname;
                 BillingAdress = obj.Billingadress;
                 Comment = obj.Kommentar;
                 Note = obj.Nachricht;

@@ -26,8 +26,11 @@ namespace MicroErp
         [XmlElement("Number")]
         public string Nummer { get; set; }
 
-        [XmlElement("Name")]
-        public string Name { get; set; }
+        [XmlElement("Firstname")]
+        public string Vorname { get; set; }
+
+        [XmlElement("Lastname")]
+        public string Nachname { get; set; }
 
         [XmlElement("Billingadress")]
         public string Billingadress { get; set; }
