@@ -393,7 +393,7 @@ namespace MicroErp
                 "&Price3=" + Uri.EscapeUriString(Price3) +
                 "&Amount3=" + Uri.EscapeUriString(Amount3) +
                 "&UST3=" + Uri.EscapeUriString(USt3);
-            string result = http.DownloadString(new Uri(URL + "Contacts/Update?Id=" + Uri.EscapeUriString(ID) + req));
+            string result = http.DownloadString(new Uri(URL + "Invoice/Update?Id=" + Uri.EscapeUriString(ID) + req));
 
             return result;
         }
