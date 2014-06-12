@@ -15,10 +15,10 @@ namespace MicroERP.ipdf
 {
     class PrintPDF
     {
-        //public void openPDF()
-        //{
-        //    Process.Start("C:\\Temp\\Test.pdf");
-        //}
+        public void openPDF()
+        {
+            Process.Start("C:\\Temp\\Test.pdf");
+        }
         
         public Document doc { get; set; }
         private float sumNetto;
@@ -35,8 +35,8 @@ namespace MicroERP.ipdf
 
             doc = new Document(iTextSharp.text.PageSize.A4, 20, 20, 20, 20);
 
-            FileStream fs = new FileStream("Invoice.pdf", FileMode.Create, FileAccess.Write, FileShare.None);
-            PdfWriter writer = PdfWriter.GetInstance(doc, fs);
+            PdfWriter writer = PdfWriter.GetInstance(doc, new FileStream("C:\\Temp\\Test.pdf", FileMode.Create));
+            
             writer.SetFullCompression();
             writer.CloseStream = true;
 
