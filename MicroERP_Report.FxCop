@@ -1,0 +1,1614 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="10.0" Name="My FxCop Project">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">$(FxCopDir)\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded, Good, Noise" NewOnly="False" />
+   <Report Status="Active, Good, Noise" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="de-DE" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/WebServer/bin/Debug/WebServer.exe" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/../MicroERP_Client/MicroErp/bin/Debug/MicroERP.exe" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityTransparencyRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="False" AllRulesEnabled="False" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="10.0">
+  <Namespaces>
+   <Namespace Name="MicroERP.Windows">
+    <Messages>
+     <Message Id="ERP" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+      <Issue Name="Namespace">
+       <Item>ERP</Item>
+       <Item>MicroERP.Windows</Item>
+       <Item>Erp</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/WebServer/bin/Debug/WebServer.exe">
+    <Modules>
+     <Module Name="webserver.exe">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2014-06-12 12:23:08Z">
+        <Issue Name="NoStrongName">
+         <Item>'WebServer.exe'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2014-06-12 12:23:08Z">
+        <Issue>
+         <Item>'WebServer.exe'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="WebServer">
+        <Types>
+         <Type Name="Program">
+          <Members>
+           <Member Name="#Main(System.String[])">
+            <Messages>
+             <Message Id="neuerServer" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Program.Main(string[])'</Item>
+               <Item>'neuerServer'</Item>
+               <Item>'Server'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Request">
+          <Messages>
+           <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Created="2014-06-12 12:23:08Z" FixCategory="DependsOnFix">
+            <Issue Name="DependsOnFix">
+             <Item>'Request'</Item>
+             <Item>'StreamReader'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#.ctor(System.String)">
+            <Messages>
+             <Message Id="URL" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="MemberParameter">
+               <Item>'Request.Request(string)'</Item>
+               <Item>URL</Item>
+               <Item>'httpURL'</Item>
+               <Item>Url</Item>
+              </Issue>
+             </Message>
+             <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'httpURL'</Item>
+               <Item>'Request.Request(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#favicon">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Request.favicon'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#getURL()">
+            <Messages>
+             <Message Id="URL" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>URL</Item>
+               <Item>'Request.getURL()'</Item>
+               <Item>Url</Item>
+              </Issue>
+             </Message>
+             <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>get</Item>
+               <Item>'Request.getURL()'</Item>
+               <Item>Get</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Request.getURL()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#handleGETRequest()">
+            <Messages>
+             <Message Id="GET" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>GET</Item>
+               <Item>'Request.handleGETRequest()'</Item>
+               <Item>Get</Item>
+              </Issue>
+             </Message>
+             <Message Id="handle" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>handle</Item>
+               <Item>'Request.handleGETRequest()'</Item>
+               <Item>Handle</Item>
+              </Issue>
+             </Message>
+             <Message Id="function" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Request.handleGETRequest()'</Item>
+               <Item>'function'</Item>
+               <Item>'string'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#http_url">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Request.http_url'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#httpHeaders">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Request.httpHeaders'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#parseRequest(System.String)">
+            <Messages>
+             <Message Id="parse" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>parse</Item>
+               <Item>'Request.parseRequest(string)'</Item>
+               <Item>Parse</Item>
+              </Issue>
+             </Message>
+             <Message Id="new_http_url" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Request.parseRequest(string)'</Item>
+               <Item>'new_http_url'</Item>
+               <Item>'string'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#readHeaders()">
+            <Messages>
+             <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Created="2014-06-12 12:23:08Z">
+              <Issue Name="IsNullOrEmpty">
+               <Item>'string.Equals(string)'</Item>
+               <Item>'Request.readHeaders()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#theUrl">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Request.theUrl'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Response">
+          <Members>
+           <Member Name="#.ctor(System.Object,System.Object)">
+            <Messages>
+             <Message Id="http_url" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Response.Response(object, object)'</Item>
+               <Item>'http_url'</Item>
+               <Item>'string'</Item>
+              </Issue>
+             </Message>
+             <Message Id="pluginName" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Response.Response(object, object)'</Item>
+               <Item>'pluginName'</Item>
+               <Item>'string'</Item>
+              </Issue>
+             </Message>
+             <Message Id="sw" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Response.Response(object, object)'</Item>
+               <Item>'sw'</Item>
+               <Item>'StreamWriter'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#sw">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Response.sw'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Server">
+          <Members>
+           <Member Name="#ClientComm(System.Object)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Server.ClientComm(object)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="neuerWriter" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Server.ClientComm(object)'</Item>
+               <Item>'neuerWriter'</Item>
+               <Item>'Response'</Item>
+              </Issue>
+             </Message>
+             <Message Id="splitString" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Server.ClientComm(object)'</Item>
+               <Item>'splitString'</Item>
+               <Item>'Dictionary&lt;string, string&gt;'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#set_TCPClient(System.Net.Sockets.TcpClient)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Server.set_TCPClient(TcpClient)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/../MicroERP_Client/MicroErp/bin/Debug/MicroERP.exe">
+    <Modules>
+     <Module Name="microerp.exe">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2014-06-12 12:23:08Z">
+        <Issue Name="NoStrongName">
+         <Item>'MicroERP.exe'</Item>
+        </Issue>
+       </Message>
+       <Message Id="ERP" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+        <Issue Name="Assembly">
+         <Item>ERP</Item>
+         <Item>'MicroERP.exe'</Item>
+         <Item>Erp</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2014-06-12 12:23:08Z">
+        <Issue>
+         <Item>'MicroERP.exe'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824" Created="2014-06-12 12:23:08Z">
+        <Issue>
+         <Item>'MicroERP.exe'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="MicroErp">
+        <Types>
+         <Type Name="CommonExtensions">
+          <Members>
+           <Member Name="#CallMethod`1(System.Object,System.String)">
+            <Messages>
+             <Message Id="obj" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Created="2014-06-12 12:23:08Z">
+              <Issue Name="LanguageIndependentMemberParameter">
+               <Item>'CommonExtensions.CallMethod&lt;TReturn&gt;(this object, string)'</Item>
+               <Item>obj</Item>
+               <Item>'obj'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ContactsList">
+          <Members>
+           <Member Name="#contact">
+            <Messages>
+             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'List&lt;Contact&gt;'</Item>
+               <Item>'ContactsList.contact'</Item>
+              </Issue>
+             </Message>
+             <Message Id="contact" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>contact</Item>
+               <Item>'ContactsList.contact'</Item>
+               <Item>Contact</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="EditContact">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'EditContact'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="EditFirmContact">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'EditFirmContact'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Firma">
+          <Members>
+           <Member Name="#UID">
+            <Messages>
+             <Message Id="UID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>UID</Item>
+               <Item>'Firma.UID'</Item>
+               <Item>Uid</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="FirmList">
+          <Members>
+           <Member Name="#Firma">
+            <Messages>
+             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'List&lt;Firma&gt;'</Item>
+               <Item>'FirmList.Firma'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Invoice">
+          <Members>
+           <Member Name="#ID">
+            <Messages>
+             <Message Id="ID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="MemberAbbreviation">
+               <Item>ID</Item>
+               <Item>'Invoice.ID'</Item>
+               <Item>Id</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="InvoiceList">
+          <Members>
+           <Member Name="#Invoice">
+            <Messages>
+             <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'List&lt;Invoice&gt;'</Item>
+               <Item>'InvoiceList.Invoice'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MainWindow">
+          <Members>
+           <Member Name="#RadioButton_Checked(System.Object,System.Windows.RoutedEventArgs)">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'MainWindow.RadioButton_Checked(object, RoutedEventArgs)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'MainWindow'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NewContact">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'NewContact'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Proxy">
+          <Members>
+           <Member Name="#Search(System.String)">
+            <Messages>
+             <Message Id="ex" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Proxy.Search(string)'</Item>
+               <Item>'ex'</Item>
+               <Item>'WebException'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SearchFirm(System.String)">
+            <Messages>
+             <Message Id="ex" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Proxy.SearchFirm(string)'</Item>
+               <Item>'ex'</Item>
+               <Item>'WebException'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SearchInvoice(System.String,System.String,System.String,System.String,System.String)">
+            <Messages>
+             <Message Id="ex" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'Proxy.SearchInvoice(string, string, string, string, string)'</Item>
+               <Item>'ex'</Item>
+               <Item>'WebException'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="MicroErp.Controls">
+        <Types>
+         <Type Name="ListView">
+          <Members>
+           <Member Name="#OnSelectedViewModelsChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)">
+            <Messages>
+             <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Parameter">
+               <Item>'obj'</Item>
+               <Item>'ListView'</Item>
+               <Item>'ListView.OnSelectedViewModelsChanged(DependencyObject, DependencyPropertyChangedEventArgs)'</Item>
+               <Item>castclass</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="MicroERP.ipdf">
+        <Types>
+         <Type Name="PrintPDF">
+          <Members>
+           <Member Name="#openPDF()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'PrintPDF.openPDF()'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'PrintPDF.openPDF()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#sumBrutto">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'PrintPDF.sumBrutto'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#sumNetto">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'PrintPDF.sumNetto'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#sumUSt10">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'PrintPDF.sumUSt10'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#sumUSt20">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'PrintPDF.sumUSt20'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="MicroErp.ViewModels">
+        <Types>
+         <Type Name="ContactNewViewModel">
+          <Members>
+           <Member Name="#AOrt">
+            <Accessors>
+             <Accessor Name="#set_AOrt(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.AOrt.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#APlz">
+            <Accessors>
+             <Accessor Name="#set_APlz(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.APlz.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#AStrasse">
+            <Accessors>
+             <Accessor Name="#set_AStrasse(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.AStrasse.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#CloseContactCommand">
+            <Accessors>
+             <Accessor Name="#get_CloseContactCommand()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.CloseContactCommand.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Firmenname">
+            <Accessors>
+             <Accessor Name="#set_Firmenname(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.Firmenname.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#FirmName">
+            <Accessors>
+             <Accessor Name="#set_FirmName(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.FirmName.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#GebTag">
+            <Accessors>
+             <Accessor Name="#set_GebTag(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.GebTag.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#LOrt">
+            <Accessors>
+             <Accessor Name="#set_LOrt(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.LOrt.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#LPlz">
+            <Accessors>
+             <Accessor Name="#set_LPlz(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.LPlz.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#LStrasse">
+            <Accessors>
+             <Accessor Name="#set_LStrasse(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.LStrasse.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#NewContactCommand">
+            <Accessors>
+             <Accessor Name="#get_NewContactCommand()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.NewContactCommand.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#NName">
+            <Accessors>
+             <Accessor Name="#set_NName(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.NName.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#NotifyStateChanged()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'ContactNewViewModel.NotifyStateChanged()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Result">
+            <Accessors>
+             <Accessor Name="#get_Result()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.Result.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#ROrt">
+            <Accessors>
+             <Accessor Name="#set_ROrt(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.ROrt.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#RPlz">
+            <Accessors>
+             <Accessor Name="#set_RPlz(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.RPlz.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#RStrasse">
+            <Accessors>
+             <Accessor Name="#set_RStrasse(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.RStrasse.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Suffix">
+            <Accessors>
+             <Accessor Name="#set_Suffix(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.Suffix.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Titel">
+            <Accessors>
+             <Accessor Name="#set_Titel(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.Titel.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#UID">
+            <Accessors>
+             <Accessor Name="#set_UID(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.UID.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#VName">
+            <Accessors>
+             <Accessor Name="#set_VName(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'ContactNewViewModel.VName.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="InvoiceEditViewModel">
+          <Members>
+           <Member Name="#.ctor(System.String)">
+            <Messages>
+             <Message Id="ID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="MemberParameterAbbreviation">
+               <Item>'InvoiceEditViewModel.InvoiceEditViewModel(string)'</Item>
+               <Item>ID</Item>
+               <Item>'ID'</Item>
+               <Item>id</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#_UpdateContactCommand">
+            <Messages>
+             <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'InvoiceEditViewModel._UpdateContactCommand'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#PrintInvoiceCommand">
+            <Accessors>
+             <Accessor Name="#get_PrintInvoiceCommand()">
+              <Messages>
+               <Message Id="prx" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceEditViewModel.PrintInvoiceCommand.get()'</Item>
+                 <Item>'prx'</Item>
+                 <Item>'PrintPDF'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#USt1">
+            <Messages>
+             <Message Id="St" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>St</Item>
+               <Item>'InvoiceEditViewModel.USt1'</Item>
+               <Item>ST</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#USt2">
+            <Messages>
+             <Message Id="St" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>St</Item>
+               <Item>'InvoiceEditViewModel.USt2'</Item>
+               <Item>ST</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#USt3">
+            <Messages>
+             <Message Id="St" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>St</Item>
+               <Item>'InvoiceEditViewModel.USt3'</Item>
+               <Item>ST</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="InvoiceNewViewModel">
+          <Members>
+           <Member Name="#Article1">
+            <Accessors>
+             <Accessor Name="#set_Article1(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Article1.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Article2">
+            <Accessors>
+             <Accessor Name="#set_Article2(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Article2.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Article3">
+            <Accessors>
+             <Accessor Name="#set_Article3(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Article3.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Brutto1">
+            <Accessors>
+             <Accessor Name="#get_Brutto1()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Brutto1.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Brutto1(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Brutto1.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Brutto2">
+            <Accessors>
+             <Accessor Name="#get_Brutto2()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Brutto2.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Brutto2(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Brutto2.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Brutto3">
+            <Accessors>
+             <Accessor Name="#get_Brutto3()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Brutto3.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Brutto3(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Brutto3.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#calcBrutto1()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'InvoiceNewViewModel.calcBrutto1()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#calcBrutto2()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'InvoiceNewViewModel.calcBrutto2()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#calcBrutto3()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'InvoiceNewViewModel.calcBrutto3()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#calcNetto1()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'InvoiceNewViewModel.calcNetto1()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#calcNetto2()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'InvoiceNewViewModel.calcNetto2()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#calcNetto3()">
+            <Messages>
+             <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'InvoiceNewViewModel.calcNetto3()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Comment">
+            <Accessors>
+             <Accessor Name="#set_Comment(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Comment.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Costumer">
+            <Accessors>
+             <Accessor Name="#set_Costumer(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Costumer.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Date">
+            <Accessors>
+             <Accessor Name="#get_Date()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Date.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Date(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Date.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#InvoiceNumber">
+            <Accessors>
+             <Accessor Name="#set_InvoiceNumber(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.InvoiceNumber.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Netto1">
+            <Accessors>
+             <Accessor Name="#get_Netto1()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Netto1.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Netto1(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Netto1.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Netto2">
+            <Accessors>
+             <Accessor Name="#get_Netto2()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Netto2.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Netto2(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Netto2.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Netto3">
+            <Accessors>
+             <Accessor Name="#get_Netto3()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Netto3.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+             <Accessor Name="#set_Netto3(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Netto3.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#NewInvoiceCommand">
+            <Accessors>
+             <Accessor Name="#get_NewInvoiceCommand()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.NewInvoiceCommand.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Note">
+            <Accessors>
+             <Accessor Name="#set_Note(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Note.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#PayDate">
+            <Accessors>
+             <Accessor Name="#set_PayDate(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.PayDate.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Price1">
+            <Accessors>
+             <Accessor Name="#set_Price1(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Price1.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Price2">
+            <Accessors>
+             <Accessor Name="#set_Price2(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Price2.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Price3">
+            <Accessors>
+             <Accessor Name="#set_Price3(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Price3.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Result">
+            <Accessors>
+             <Accessor Name="#get_Result()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Result.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#ResultContact">
+            <Accessors>
+             <Accessor Name="#get_ResultContact()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.ResultContact.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#SearchCostumer">
+            <Accessors>
+             <Accessor Name="#get_SearchCostumer()">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.SearchCostumer.get()'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Stk1">
+            <Accessors>
+             <Accessor Name="#set_Stk1(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Stk1.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Stk2">
+            <Accessors>
+             <Accessor Name="#set_Stk2(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Stk2.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Stk3">
+            <Accessors>
+             <Accessor Name="#set_Stk3(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.Stk3.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#USt1">
+            <Accessors>
+             <Accessor Name="#set_USt1(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.USt1.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#USt2">
+            <Accessors>
+             <Accessor Name="#set_USt2(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.USt2.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#USt3">
+            <Accessors>
+             <Accessor Name="#set_USt3(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2014-06-12 12:23:08Z">
+                <Issue>
+                 <Item>'InvoiceNewViewModel.USt3.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SearchViewModel">
+          <Messages>
+           <Message TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012" Created="2014-06-12 12:23:08Z">
+            <Issue>
+             <Item>'SearchViewModel'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="SimpleCommandViewModel">
+          <Members>
+           <Member Name="#.ctor(System.String,System.String,System.Action,System.Func`1&lt;System.Boolean&gt;)">
+            <Messages>
+             <Message TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'SimpleCommandViewModel.SimpleCommandViewModel(string, string, Action, Func&lt;bool&gt;)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SimpleParameterCommandViewModel`1">
+          <Members>
+           <Member Name="#.ctor(System.String,System.String,System.Action`1&lt;!0&gt;,System.Func`1&lt;System.Boolean&gt;)">
+            <Messages>
+             <Message TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'SimpleParameterCommandViewModel&lt;TParam&gt;.SimpleParameterCommandViewModel(string, string, Action&lt;TParam&gt;, Func&lt;bool&gt;)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="MicroErp.ViewModels.Firm">
+        <Types>
+         <Type Name="FirmViewModel">
+          <Members>
+           <Member Name="#UID">
+            <Messages>
+             <Message Id="UID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Created="2014-06-12 12:23:08Z">
+              <Issue Name="Member">
+               <Item>UID</Item>
+               <Item>'FirmViewModel.UID'</Item>
+               <Item>Uid</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="MicroERP.Windows">
+        <Types>
+         <Type Name="EditInvoice">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'EditInvoice'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="NewInvoice">
+          <Members>
+           <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Created="2014-06-12 12:23:08Z">
+              <Issue>
+               <Item>'NewInvoice'</Item>
+               <Item>'IComponentConnector.Connect(int, object)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Rules>
+   <Rule TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012">
+    <Resolution Name="Default">Change the accessibility of all public constructors in {0} to protected.</Resolution>
+   </Rule>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+    <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+    <Resolution Name="Default">It appears that field {0} is never used or is only ever assigned to. Use this field or remove it.</Resolution>
+   </Rule>
+   <Rule TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026">
+    <Resolution Name="Default">Replace method {0} with an overload that supplies all default arguments.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+    <Resolution Name="Parameter">{0}, a parameter, is cast to type {1} multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+    <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002">
+    <Resolution Name="Default">Change {0} in {1} to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+    <Resolution Name="Assembly">Correct the casing of '{0}' in assembly name {1} by changing it to '{2}'.</Resolution>
+    <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+    <Resolution Name="MemberAbbreviation">Correct the casing of '{0}' in member name {1} by changing it to '{2}'. '{2}' is an abbreviation and therefore is not subject to acronym casing guidelines.</Resolution>
+    <Resolution Name="MemberParameter">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'.</Resolution>
+    <Resolution Name="MemberParameterAbbreviation">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'. '{3}' is an abbreviation and therefore is not subject to acronym casing guidelines.</Resolution>
+    <Resolution Name="Namespace">Correct the casing of '{0}' in namespace name '{1}' by changing it to '{2}'.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720">
+    <Resolution Name="LanguageIndependentMemberParameter">In member {0}, consider replacing the data type identifier '{1}' in parameter name {2} with a more generic term, such as 'value'.</Resolution>
+   </Rule>
+   <Rule TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033">
+    <Resolution Name="Default">Make {0} sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of {1} and is visible to derived classes.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+    <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824">
+    <Resolution Name="Default">Because assembly {0} contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804">
+    <Resolution Name="Default">{0} declares a variable, {1}, of type {2}, which is never used or is only assigned to. Use this variable or remove it.</Resolution>
+   </Rule>
+   <Rule TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820">
+    <Resolution Name="IsNullOrEmpty">Replace the call to {0} in {1} with a call to 'String.IsNullOrEmpty'.</Resolution>
+   </Rule>
+   <Rule TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001">
+    <Resolution Name="DependsOnFix">Implement IDisposable on {0} because it creates members of the following IDisposable types: {1}. If {0} has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Resolution>
+   </Rule>
+   <Rule TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054">
+    <Resolution Name="Default">Change the type of parameter {0} of method {1} from string to System.Uri, or provide an overload of {1}, that allows {0} to be passed as a System.Uri object.</Resolution>
+   </Rule>
+   <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+    <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

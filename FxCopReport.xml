@@ -1,0 +1,1405 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="c:\program files (x86)\microsoft fxcop 10.0\Xml\FxCopReport.xsl"?>
+<FxCopReport Version="10.0">
+ <Namespaces>
+  <Namespace Name="MicroERP.Windows">
+   <Messages>
+    <Message Id="ERP" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+     <Issue Name="Namespace" Certainty="85" Level="Error">Correct the casing of 'ERP' in namespace name 'MicroERP.Windows' by changing it to 'Erp'.</Issue>
+    </Message>
+   </Messages>
+  </Namespace>
+ </Namespaces>
+ <Targets>
+  <Target Name="$(ProjectDir)/WebServer/bin/Debug/WebServer.exe">
+   <Modules>
+    <Module Name="webserver.exe">
+     <Messages>
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+       <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">Sign 'WebServer.exe' with a strong name key.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Mark 'WebServer.exe' with CLSCompliant(true) because it exposes externally visible types.</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="WebServer">
+       <Types>
+        <Type Name="Program" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#Main(System.String[])" Kind="Method" Static="True" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message Id="neuerServer" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Program.cs" Line="21">'Program.Main(string[])' declares a variable, 'neuerServer', of type 'Server', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Request" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="DependsOnFix">
+           <Issue Name="DependsOnFix" Certainty="95" Level="CriticalError">Implement IDisposable on 'Request' because it creates members of the following IDisposable types: 'StreamReader'. If 'Request' has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Issue>
+          </Message>
+         </Messages>
+         <Members>
+          <Member Name="#.ctor(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="URL" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="MemberParameter" Certainty="85" Level="Error" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="26">In member 'Request.Request(string)', correct the casing of 'URL' in parameter name 'httpURL' by changing it to 'Url'.</Issue>
+            </Message>
+            <Message Id="0#" TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="60" Level="Error" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="26">Change the type of parameter 'httpURL' of method 'Request.Request(string)' from string to System.Uri, or provide an overload of 'Request.Request(string)', that allows 'httpURL' to be passed as a System.Uri object.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#favicon" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'Request.favicon' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#getURL()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="URL" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="45">Correct the casing of 'URL' in member name 'Request.getURL()' by changing it to 'Url'.</Issue>
+            </Message>
+            <Message Id="get" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="45">Correct the casing of 'get' in member name 'Request.getURL()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="45">Change 'Request.getURL()' to a property if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#handleGETRequest()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="GET" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="117">Correct the casing of 'GET' in member name 'Request.handleGETRequest()' by changing it to 'Get'.</Issue>
+            </Message>
+            <Message Id="handle" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="117">Correct the casing of 'handle' in member name 'Request.handleGETRequest()' by changing it to 'Handle'.</Issue>
+            </Message>
+            <Message Id="function" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="136">'Request.handleGETRequest()' declares a variable, 'function', of type 'string', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#http_url" Kind="Field" Static="False" Accessibility="Family" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'Request.http_url' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#httpHeaders" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'Request.httpHeaders' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#parseRequest(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="parse" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="70">Correct the casing of 'parse' in member name 'Request.parseRequest(string)' by changing it to 'Parse'.</Issue>
+            </Message>
+            <Message Id="new_http_url" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="78">'Request.parseRequest(string)' declares a variable, 'new_http_url', of type 'string', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#readHeaders()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Name="IsNullOrEmpty" Certainty="95" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Request.cs" Line="89">Replace the call to 'string.Equals(string)' in 'Request.readHeaders()' with a call to 'String.IsNullOrEmpty'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#theUrl" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'Request.theUrl' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Response" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(System.Object,System.Object)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="http_url" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Response.cs" Line="30">'Response.Response(object, object)' declares a variable, 'http_url', of type 'string', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+            <Message Id="pluginName" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Response.cs" Line="29">'Response.Response(object, object)' declares a variable, 'pluginName', of type 'string', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+            <Message Id="sw" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Response.cs" Line="26">'Response.Response(object, object)' declares a variable, 'sw', of type 'StreamWriter', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#sw" Kind="Field" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="90" Level="Error">Because field 'Response.sw' is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Server" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#ClientComm(System.Object)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="CriticalError" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Server.cs" Line="106">Modify 'Server.ClientComm(object)' to catch a more specific exception than 'Exception' or rethrow the exception.</Issue>
+            </Message>
+            <Message Id="neuerWriter" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Server.cs" Line="90">'Server.ClientComm(object)' declares a variable, 'neuerWriter', of type 'Response', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+            <Message Id="splitString" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Server.cs" Line="86">'Server.ClientComm(object)' declares a variable, 'splitString', of type 'Dictionary&lt;string, string&gt;', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#set_TCPClient(System.Net.Sockets.TcpClient)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="d:\FH\4.Semester\Software Engineering\WebServer\WebServer" File="Server.cs" Line="39">'Server.set_TCPClient(TcpClient)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="$(ProjectDir)/../MicroERP_Client/MicroErp/bin/Debug/MicroERP.exe">
+   <Modules>
+    <Module Name="microerp.exe">
+     <Messages>
+      <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+       <Issue Name="NoStrongName" Certainty="95" Level="CriticalError">Sign 'MicroERP.exe' with a strong name key.</Issue>
+      </Message>
+      <Message Id="ERP" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+       <Issue Name="Assembly" Certainty="85" Level="Error">Correct the casing of 'ERP' in assembly name 'MicroERP.exe' by changing it to 'Erp'.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Error">Mark 'MicroERP.exe' with CLSCompliant(true) because it exposes externally visible types.</Issue>
+      </Message>
+      <Message TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+       <Issue Certainty="95" Level="Warning">Because assembly 'MicroERP.exe' contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Issue>
+      </Message>
+     </Messages>
+     <Namespaces>
+      <Namespace Name="MicroErp">
+       <Types>
+        <Type Name="CommonExtensions" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#CallMethod`1(System.Object,System.String)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="obj" TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="LanguageIndependentMemberParameter" Certainty="75" Level="Error" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp" File="CommonExtensions.cs" Line="172">In member 'CommonExtensions.CallMethod&lt;TReturn&gt;(this object, string)', consider replacing the data type identifier 'obj' in parameter name 'obj' with a more generic term, such as 'value'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="ContactsList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#contact" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error">Change 'List&lt;Contact&gt;' in 'ContactsList.contact' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+            <Message Id="contact" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'contact' in member name 'ContactsList.contact' by changing it to 'Contact'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="EditContact" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error">Make 'EditContact' sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of 'IComponentConnector.Connect(int, object)' and is visible to derived classes.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="EditFirmContact" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error">Make 'EditFirmContact' sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of 'IComponentConnector.Connect(int, object)' and is visible to derived classes.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Firma" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#UID" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="UID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error">Correct the casing of 'UID' in member name 'Firma.UID' by changing it to 'Uid'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="FirmList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Firma" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error">Change 'List&lt;Firma&gt;' in 'FirmList.Firma' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Invoice" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#ID" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="ID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="MemberAbbreviation" Certainty="85" Level="Error">Correct the casing of 'ID' in member name 'Invoice.ID' by changing it to 'Id'. 'Id' is an abbreviation and therefore is not subject to acronym casing guidelines.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="InvoiceList" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#Invoice" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="95" Level="Error">Change 'List&lt;Invoice&gt;' in 'InvoiceList.Invoice' to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="MainWindow" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#RadioButton_Checked(System.Object,System.Windows.RoutedEventArgs)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp" File="MainWindow.xaml.cs" Line="32">'MainWindow.RadioButton_Checked(object, RoutedEventArgs)' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error">Make 'MainWindow' sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of 'IComponentConnector.Connect(int, object)' and is visible to derived classes.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="NewContact" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error">Make 'NewContact' sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of 'IComponentConnector.Connect(int, object)' and is visible to derived classes.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="Proxy" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#Search(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ex" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\Proxy" File="Proxy.cs" Line="33">'Proxy.Search(string)' declares a variable, 'ex', of type 'WebException', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SearchFirm(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ex" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\Proxy" File="Proxy.cs" Line="152">'Proxy.SearchFirm(string)' declares a variable, 'ex', of type 'WebException', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#SearchInvoice(System.String,System.String,System.String,System.String,System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message Id="ex" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\Proxy" File="Proxy.cs" Line="261">'Proxy.SearchInvoice(string, string, string, string, string)' declares a variable, 'ex', of type 'WebException', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="MicroErp.Controls">
+       <Types>
+        <Type Name="ListView" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#OnSelectedViewModelsChanged(System.Windows.DependencyObject,System.Windows.DependencyPropertyChangedEventArgs)" Kind="Method" Static="True" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Name="Parameter" Certainty="95" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\Controls" File="ListView.cs" Line="82">'obj', a parameter, is cast to type 'ListView' multiple times in method 'ListView.OnSelectedViewModelsChanged(DependencyObject, DependencyPropertyChangedEventArgs)'. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant castclass instruction.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="MicroERP.ipdf">
+       <Types>
+        <Type Name="PrintPDF" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#openPDF()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ipdf" File="PrintPDF.cs" Line="19">'PrintPDF.openPDF()' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+            <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ipdf" File="PrintPDF.cs" Line="19">The 'this' parameter (or 'Me' in Visual Basic) of 'PrintPDF.openPDF()' is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#sumBrutto" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'PrintPDF.sumBrutto' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#sumNetto" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'PrintPDF.sumNetto' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#sumUSt10" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'PrintPDF.sumUSt10' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#sumUSt20" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'PrintPDF.sumUSt20' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="MicroErp.ViewModels">
+       <Types>
+        <Type Name="ContactNewViewModel" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#AOrt" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_AOrt(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="207">'ContactNewViewModel.AOrt.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#APlz" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_APlz(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="190">'ContactNewViewModel.APlz.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#AStrasse" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_AStrasse(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="173">'ContactNewViewModel.AStrasse.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#CloseContactCommand" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_CloseContactCommand()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="364">'ContactNewViewModel.CloseContactCommand.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Firmenname" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Firmenname(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="26">'ContactNewViewModel.Firmenname.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#FirmName" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_FirmName(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="135">'ContactNewViewModel.FirmName.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#GebTag" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_GebTag(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="153">'ContactNewViewModel.GebTag.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#LOrt" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_LOrt(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="260">'ContactNewViewModel.LOrt.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#LPlz" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_LPlz(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="243">'ContactNewViewModel.LPlz.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#LStrasse" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_LStrasse(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="226">'ContactNewViewModel.LStrasse.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#NewContactCommand" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_NewContactCommand()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="386">'ContactNewViewModel.NewContactCommand.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#NName" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_NName(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="81">'ContactNewViewModel.NName.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#NotifyStateChanged()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="352">'ContactNewViewModel.NotifyStateChanged()' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Result" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_Result()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="420">'ContactNewViewModel.Result.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#ROrt" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_ROrt(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="313">'ContactNewViewModel.ROrt.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#RPlz" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_RPlz(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="296">'ContactNewViewModel.RPlz.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#RStrasse" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_RStrasse(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="279">'ContactNewViewModel.RStrasse.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Suffix" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Suffix(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="117">'ContactNewViewModel.Suffix.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Titel" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Titel(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="99">'ContactNewViewModel.Titel.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#UID" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_UID(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="43">'ContactNewViewModel.UID.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#VName" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_VName(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Contact" File="ContactNewViewModel.cs" Line="63">'ContactNewViewModel.VName.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="InvoiceEditViewModel" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="ID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="MemberParameterAbbreviation" Certainty="85" Level="Error" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceEditViewModel.cs" Line="15">In member 'InvoiceEditViewModel.InvoiceEditViewModel(string)', correct the casing of 'ID' in parameter name 'ID' by changing it to 'id'. 'id' is an abbreviation and therefore is not subject to acronym casing guidelines.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#_UpdateContactCommand" Kind="Field" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning">It appears that field 'InvoiceEditViewModel._UpdateContactCommand' is never used or is only ever assigned to. Use this field or remove it.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#PrintInvoiceCommand" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Accessors>
+            <Accessor Name="#get_PrintInvoiceCommand()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+             <Messages>
+              <Message Id="prx" TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="95" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceEditViewModel.cs" Line="101">'InvoiceEditViewModel.PrintInvoiceCommand.get()' declares a variable, 'prx', of type 'PrintPDF', which is never used or is only assigned to. Use this variable or remove it.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#USt1" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="St" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceEditViewModel.cs" Line="307">Correct the casing of 'St' in member name 'InvoiceEditViewModel.USt1' by changing it to 'ST'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#USt2" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="St" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceEditViewModel.cs" Line="445">Correct the casing of 'St' in member name 'InvoiceEditViewModel.USt2' by changing it to 'ST'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#USt3" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="St" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceEditViewModel.cs" Line="582">Correct the casing of 'St' in member name 'InvoiceEditViewModel.USt3' by changing it to 'ST'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="InvoiceNewViewModel" Kind="Class" Accessibility="Assembly" ExternallyVisible="False">
+         <Members>
+          <Member Name="#Article1" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Article1(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="181">'InvoiceNewViewModel.Article1.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Article2" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Article2(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="319">'InvoiceNewViewModel.Article2.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Article3" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Article3(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="456">'InvoiceNewViewModel.Article3.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Brutto1" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_Brutto1()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="245">'InvoiceNewViewModel.Brutto1.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+            <Accessor Name="#set_Brutto1(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="249">'InvoiceNewViewModel.Brutto1.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Brutto2" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_Brutto2()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="382">'InvoiceNewViewModel.Brutto2.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+            <Accessor Name="#set_Brutto2(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="386">'InvoiceNewViewModel.Brutto2.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Brutto3" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_Brutto3()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="520">'InvoiceNewViewModel.Brutto3.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+            <Accessor Name="#set_Brutto3(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="524">'InvoiceNewViewModel.Brutto3.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#calcBrutto1()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="259">'InvoiceNewViewModel.calcBrutto1()' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#calcBrutto2()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="396">'InvoiceNewViewModel.calcBrutto2()' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#calcBrutto3()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="534">'InvoiceNewViewModel.calcBrutto3()' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#calcNetto1()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="229">'InvoiceNewViewModel.calcNetto1()' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#calcNetto2()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="367">'InvoiceNewViewModel.calcNetto2()' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#calcNetto3()" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="False">
+           <Messages>
+            <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="505">'InvoiceNewViewModel.calcNetto3()' appears to have no upstream public or protected callers.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+          <Member Name="#Comment" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Comment(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="44">'InvoiceNewViewModel.Comment.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Costumer" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Costumer(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="63">'InvoiceNewViewModel.Costumer.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Date" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_Date()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="78">'InvoiceNewViewModel.Date.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+            <Accessor Name="#set_Date(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="82">'InvoiceNewViewModel.Date.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#InvoiceNumber" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_InvoiceNumber(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="101">'InvoiceNewViewModel.InvoiceNumber.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Netto1" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_Netto1()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="215">'InvoiceNewViewModel.Netto1.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+            <Accessor Name="#set_Netto1(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="219">'InvoiceNewViewModel.Netto1.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Netto2" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_Netto2()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="353">'InvoiceNewViewModel.Netto2.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+            <Accessor Name="#set_Netto2(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="357">'InvoiceNewViewModel.Netto2.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Netto3" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_Netto3()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="491">'InvoiceNewViewModel.Netto3.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+            <Accessor Name="#set_Netto3(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="495">'InvoiceNewViewModel.Netto3.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#NewInvoiceCommand" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_NewInvoiceCommand()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="549">'InvoiceNewViewModel.NewInvoiceCommand.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Note" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Note(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="25">'InvoiceNewViewModel.Note.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#PayDate" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_PayDate(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="120">'InvoiceNewViewModel.PayDate.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Price1" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Price1(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="161">'InvoiceNewViewModel.Price1.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Price2" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Price2(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="299">'InvoiceNewViewModel.Price2.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Price3" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Price3(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="436">'InvoiceNewViewModel.Price3.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Result" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_Result()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="576">'InvoiceNewViewModel.Result.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#ResultContact" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_ResultContact()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="618">'InvoiceNewViewModel.ResultContact.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#SearchCostumer" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#get_SearchCostumer()" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="596">'InvoiceNewViewModel.SearchCostumer.get()' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Stk1" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Stk1(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="200">'InvoiceNewViewModel.Stk1.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Stk2" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Stk2(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="338">'InvoiceNewViewModel.Stk2.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#Stk3" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_Stk3(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="475">'InvoiceNewViewModel.Stk3.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#USt1" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_USt1(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="140">'InvoiceNewViewModel.USt1.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#USt2" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_USt2(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="279">'InvoiceNewViewModel.USt2.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+          <Member Name="#USt3" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="False">
+           <Accessors>
+            <Accessor Name="#set_USt3(System.String)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="False">
+             <Messages>
+              <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+               <Issue Certainty="75" Level="Warning" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Invoice" File="InvoiceNewViewModel.cs" Line="416">'InvoiceNewViewModel.USt3.set(string)' appears to have no upstream public or protected callers.</Issue>
+              </Message>
+             </Messages>
+            </Accessor>
+           </Accessors>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SearchViewModel" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Messages>
+          <Message TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+           <Issue Certainty="95" Level="CriticalWarning">Change the accessibility of all public constructors in 'SearchViewModel' to protected.</Issue>
+          </Message>
+         </Messages>
+        </Type>
+        <Type Name="SimpleCommandViewModel" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(System.String,System.String,System.Action,System.Func`1&lt;System.Boolean&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Error" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels" File="CommandViewModel.cs" Line="68">Replace method 'SimpleCommandViewModel.SimpleCommandViewModel(string, string, Action, Func&lt;bool&gt;)' with an overload that supplies all default arguments.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="SimpleParameterCommandViewModel`1" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#.ctor(System.String,System.String,System.Action`1&lt;!0&gt;,System.Func`1&lt;System.Boolean&gt;)" Kind="Method" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Certainty="75" Level="Error" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels" File="CommandViewModel.cs" Line="101">Replace method 'SimpleParameterCommandViewModel&lt;TParam&gt;.SimpleParameterCommandViewModel(string, string, Action&lt;TParam&gt;, Func&lt;bool&gt;)' with an overload that supplies all default arguments.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="MicroErp.ViewModels.Firm">
+       <Types>
+        <Type Name="FirmViewModel" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#UID" Kind="Property" Static="False" Accessibility="Public" ExternallyVisible="True">
+           <Messages>
+            <Message Id="UID" TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="Breaking">
+             <Issue Name="Member" Certainty="85" Level="Error" Path="c:\Users\Teresa\Documents\Visual Studio 2013\Projects\MicroERP_Client\MicroErp\ViewModels\Firm" File="FirmViewModel.cs" Line="69">Correct the casing of 'UID' in member name 'FirmViewModel.UID' by changing it to 'Uid'.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+      <Namespace Name="MicroERP.Windows">
+       <Types>
+        <Type Name="EditInvoice" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error">Make 'EditInvoice' sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of 'IComponentConnector.Connect(int, object)' and is visible to derived classes.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+        <Type Name="NewInvoice" Kind="Class" Accessibility="Public" ExternallyVisible="True">
+         <Members>
+          <Member Name="#System.Windows.Markup.IComponentConnector.Connect(System.Int32,System.Object)" Kind="Method" Static="False" Accessibility="Private" ExternallyVisible="True">
+           <Messages>
+            <Message TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033" Status="Active" Created="2014-06-12 12:23:08Z" FixCategory="NonBreaking">
+             <Issue Certainty="95" Level="Error">Make 'NewInvoice' sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of 'IComponentConnector.Connect(int, object)' and is visible to derived classes.</Issue>
+            </Message>
+           </Messages>
+          </Member>
+         </Members>
+        </Type>
+       </Types>
+      </Namespace>
+     </Namespaces>
+    </Module>
+   </Modules>
+  </Target>
+ </Targets>
+ <Rules>
+  <Rule TypeName="AbstractTypesShouldNotHaveConstructors" Category="Microsoft.Design" CheckId="CA1012">
+   <Name>Abstract types should not have constructors</Name>
+   <Description>Public constructors for abstract types do not make sense because you cannot create instances of abstract types.</Description>
+   <Resolution Name="Default">Change the accessibility of all public constructors in {0} to protected.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182126(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalWarning</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+   <Name>Assemblies should have valid strong names</Name>
+   <Description>Either the assembly has no strong name, an invalid one, or the strong name is valid only because of the computer configuration. The assembly should not be deployed in this state. The most common causes of this are: 1) The assembly's contents were modified after it was signed. 2) The signing process failed. 3) The assembly was delay-signed. 4) A registry key existed that allowed the check to pass (where it would not have otherwise).</Description>
+   <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182127(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+   <Name>Avoid uncalled private code</Name>
+   <Description>There is uncalled code that is not externally visible and is not a known runtime entry point. If this violation fires in error, please send a problem report to the Visual Studio Code Analysis team.</Description>
+   <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182264(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="AvoidUnusedPrivateFields" Category="Microsoft.Performance" CheckId="CA1823">
+   <Name>Avoid unused private fields</Name>
+   <Description>Private fields were detected that do not appear to be accessed within the assembly. If this violation fires in error, please send a problem report to the Visual Studio Code Analysis team.</Description>
+   <Resolution Name="Default">It appears that field {0} is never used or is only ever assigned to. Use this field or remove it.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245042(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DefaultParametersShouldNotBeUsed" Category="Microsoft.Design" CheckId="CA1026">
+   <Name>Default parameters should not be used</Name>
+   <Description>Some programming languages do not support default parameters. Replace default parameters with method overloads that supply the default argument.</Description>
+   <Resolution Name="Default">Replace method {0} with an overload that supplies all default arguments.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182135(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCastUnnecessarily" Category="Microsoft.Performance" CheckId="CA1800">
+   <Name>Do not cast unnecessarily</Name>
+   <Description>Avoid duplicate casts where possible, since there is a cost associated with them.</Description>
+   <Resolution Name="Parameter">{0}, a parameter, is cast to type {1} multiple times in method {2}. Cache the result of the 'as' operator or direct cast in order to eliminate the redundant {3} instruction.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182271(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+   <Name>Do not catch general exception types</Name>
+   <Description>You should not catch Exception or SystemException. Catching generic exception types can hide run-time problems from the library user, and can complicate debugging. You should catch only those exceptions that you can handle gracefully.</Description>
+   <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182137(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+   <Name>Do not declare visible instance fields</Name>
+   <Description>Instance fields that are visible outside of the type that declares them, limit your ability to change the implementation details for those data items. Use properties instead. They do not compromise usability or performance and they do provide flexibility in that they conceal the implementation details of the underlying data.</Description>
+   <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182141(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="90">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="DoNotExposeGenericLists" Category="Microsoft.Design" CheckId="CA1002">
+   <Name>Do not expose generic lists</Name>
+   <Description>Do not expose List&lt;T&gt; in object models. Use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt; instead. List&lt;T&gt; is meant to be used from implementation, not in object model API. List&lt;T&gt; is optimized for performance at the cost of long term versioning. For example, if you return List&lt;T&gt; to the client code, you will not ever be able to receive notifications when client code modifies the collection.</Description>
+   <Resolution Name="Default">Change {0} in {1} to use Collection&lt;T&gt;, ReadOnlyCollection&lt;T&gt; or KeyedCollection&lt;K,V&gt;</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182142(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldBeCasedCorrectly" Category="Microsoft.Naming" CheckId="CA1709">
+   <Name>Identifiers should be cased correctly</Name>
+   <Description>Type, namespace, and member identifiers are Pascal-cased. Parameter identifiers are camel-cased. Two letter acronyms within these identifiers should be upper-cased, for example, use System.IO instead of System.Io. Acronyms of three or more letters should be Pascal-cased, for example, use System.Xml instead of System.XML. The pascal-casing convention capitalizes the first letter of each word, as in BackColor. The camel-casing convention formats the first letter of the first word in lowercase and capitalizes the first letter of all subsequent words, as in backgroundColor. Although it may be common practice for some two letter acronyms to not be fully capitalized, violations of this rule should not be excluded for this reason. For example, 'DbConnection', is common but incorrect; use DBConnection. A violation of this rule might be required for compatibility with existing, non-managed symbol schemes. In general, however, these symbols should not be visible outside the assembly that uses them.</Description>
+   <Resolution Name="Assembly">Correct the casing of '{0}' in assembly name {1} by changing it to '{2}'.</Resolution>
+   <Resolution Name="Member">Correct the casing of '{0}' in member name {1} by changing it to '{2}'.</Resolution>
+   <Resolution Name="MemberAbbreviation">Correct the casing of '{0}' in member name {1} by changing it to '{2}'. '{2}' is an abbreviation and therefore is not subject to acronym casing guidelines.</Resolution>
+   <Resolution Name="MemberParameter">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'.</Resolution>
+   <Resolution Name="MemberParameterAbbreviation">In member {0}, correct the casing of '{1}' in parameter name {2} by changing it to '{3}'. '{3}' is an abbreviation and therefore is not subject to acronym casing guidelines.</Resolution>
+   <Resolution Name="Namespace">Correct the casing of '{0}' in namespace name '{1}' by changing it to '{2}'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182240(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="85">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="IdentifiersShouldNotContainTypeNames" Category="Microsoft.Naming" CheckId="CA1720">
+   <Name>Identifiers should not contain type names</Name>
+   <Description>Avoid using language-specific types name in parameters and members and data type identifiers in parameters. Types names might not be intuitive for all developers. It is recommended that you select a generic name, such as 'value', instead. If this is not sufficient, be sure to use the type name as it is defined in the .NET Framework Library and avoid language-specific type names completely. Some examples of C#-specific type names are 'float' (use 'Single' if a generic name is not sufficient), and 'ulong' (use 'UInt64' if a generic name is not sufficient).</Description>
+   <Resolution Name="LanguageIndependentMemberParameter">In member {0}, consider replacing the data type identifier '{1}' in parameter name {2} with a more generic term, such as 'value'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb531486(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Error</MessageLevel>
+   <File Name="NamingRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="InterfaceMethodsShouldBeCallableByChildTypes" Category="Microsoft.Design" CheckId="CA1033">
+   <Name>Interface methods should be callable by child types</Name>
+   <Description>Explicit method implementations are defined with private accessibility. Classes that derive from classes with explicit method implementations and choose to re-declare them on the class will not be able to call into the base class implementation unless the base class has provided an alternate method with appropriate accessibility. When overriding a base class method that has been hidden by explicit interface implementation, in order to call into the base class implementation, a derived class must cast the base pointer to the relevant interface. When calling through this reference, however, the derived class implementation will actually be invoked, resulting in recursion and an eventual stack overflow.</Description>
+   <Resolution Name="Default">Make {0} sealed (a breaking change if this class has previously shipped), implement the method non-explicitly, or implement a new method that exposes the functionality of {1} and is visible to derived classes.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182153(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+   <Name>Mark assemblies with CLSCompliantAttribute</Name>
+   <Description>Assemblies should explicitly state their CLS compliance using the CLSCompliant attribute. An assembly without this attribute is not CLS-compliant. Assemblies, modules, and types can be CLS-compliant even if some parts of the assembly, module, or type are not CLS-compliant. The following rules apply: 1) If the element is marked CLSCompliant, any noncompliant members must have the CLSCompliant attribute present with its argument set to false. 2) A comparable CLS-compliant alternative member must be supplied for each member that is not CLS-compliant.</Description>
+   <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182156(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkAssembliesWithNeutralResourcesLanguage" Category="Microsoft.Performance" CheckId="CA1824">
+   <Name>Mark assemblies with NeutralResourcesLanguageAttribute</Name>
+   <Description>The NeutralResourcesLanguage attribute informs the ResourceManager of the language used to render the neutral culture's resources for an assembly. When looking up resources in the same culture as the neutral resources language, the ResourceManager automatically uses the resources located in the main assembly, instead of searching for a satellite assembly with the current user interface culture for the current thread. This will improve lookup performance for the first resource you load and can reduce your working set.</Description>
+   <Resolution Name="Default">Because assembly {0} contains a ResX-based resource file, mark it with the NeutralResourcesLanguage attribute, specifying the language of the resources within the assembly. This could improve lookup performance the first time a resource is retrieved.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/bb385967(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+   <Name>Mark members as static</Name>
+   <Description>Methods which do not access instance data or call instance methods can be marked as static (Shared in Visual Basic). After doing so, the compiler will emit non-virtual call sites to these members which will prevent a check at runtime for each call that ensures the current object pointer is non-null. This can result in a measurable performance gain for performance-sensitive code. In some cases, the failure to access the current object instance represents a correctness issue.</Description>
+   <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms245046(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="RemoveUnusedLocals" Category="Microsoft.Performance" CheckId="CA1804">
+   <Name>Remove unused locals</Name>
+   <Description>Remove locals that are not used or are only assigned to in method implementations.</Description>
+   <Resolution Name="Default">{0} declares a variable, {1}, of type {2}, which is never used or is only assigned to. Use this variable or remove it.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182278(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820">
+   <Name>Test for empty strings using string length</Name>
+   <Description>To test for empty strings, check if String.Length is equal to zero. Constructs such as "".Equals(someString) and String.Empty.Equals(someString) are less efficient than testing the string length. Replace these with checks for someString.Length == 0.</Description>
+   <Resolution Name="IsNullOrEmpty">Replace the call to {0} in {1} with a call to 'String.IsNullOrEmpty'.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182279(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">Warning</MessageLevel>
+   <File Name="PerformanceRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="TypesThatOwnDisposableFieldsShouldBeDisposable" Category="Microsoft.Design" CheckId="CA1001">
+   <Name>Types that own disposable fields should be disposable</Name>
+   <Description>Types that declare disposable members should also implement IDisposable. If the type does not own any unmanaged resources, do not implement a finalizer on it.</Description>
+   <Resolution Name="DependsOnFix">Implement IDisposable on {0} because it creates members of the following IDisposable types: {1}. If {0} has previously shipped, adding new members that implement IDisposable to this type is considered a breaking change to existing consumers.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182172(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="95">CriticalError</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="UriParametersShouldNotBeStrings" Category="Microsoft.Design" CheckId="CA1054">
+   <Name>URI parameters should not be strings</Name>
+   <Description>If a parameter name contains "uri" or "url" or "urn", and it's typed as string, the parameter type should be changed to System.Uri, unless there is an overload method where the same parameter is typed as System.Uri.</Description>
+   <Resolution Name="Default">Change the type of parameter {0} of method {1} from string to System.Uri, or provide an overload of {1}, that allows {0} to be passed as a System.Uri object.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182174(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="60">Error</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+  <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+   <Name>Use properties where appropriate</Name>
+   <Description>Properties should be used instead of Get/Set methods in most situations. Methods are preferable to properties in the following situations: the operation is a conversion, is expensive or has an observable side-effect; the order of execution is important; calling the member twice in succession creates different results; a member is static but returns a mutable value; or the member returns an array.</Description>
+   <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   <Owner />
+   <Url>http://msdn.microsoft.com/library/ms182181(VS.100).aspx</Url>
+   <Email>[none]</Email>
+   <MessageLevel Certainty="75">Warning</MessageLevel>
+   <File Name="DesignRules.dll" Version="10.0.0.0" />
+  </Rule>
+ </Rules>
+ <Localized>
+  <String Key="Category">Category</String>
+  <String Key="Certainty">Certainty</String>
+  <String Key="CollapseAll">Collapse All</String>
+  <String Key="CheckId">Check Id</String>
+  <String Key="Error">Error</String>
+  <String Key="Errors">error(s)</String>
+  <String Key="ExpandAll">Expand All</String>
+  <String Key="Help">Help</String>
+  <String Key="Line">Line</String>
+  <String Key="Messages">message(s)</String>
+  <String Key="LocationNotStoredInPdb">[Location not stored in Pdb]</String>
+  <String Key="Project">Project</String>
+  <String Key="Resolution">Resolution</String>
+  <String Key="Rule">Rule</String>
+  <String Key="RuleFile">Rule File</String>
+  <String Key="RuleDescription">Rule Description</String>
+  <String Key="Source">Source</String>
+  <String Key="Status">Status</String>
+  <String Key="Target">Target</String>
+  <String Key="Warning">Warning</String>
+  <String Key="Warnings">warning(s)</String>
+  <String Key="ReportTitle">Code Analysis Report</String>
+ </Localized>
+</FxCopReport>

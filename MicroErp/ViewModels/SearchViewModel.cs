@@ -111,18 +111,23 @@ namespace MicroErp.ViewModels
             {
                 if (_SelectedItem != value)
                 {
-                    if (Selected == "Kontakte")
+                    try
+                    {
+                        if (Selected == "Kontakte")
                     {
                         ContactViewModel obj = (ContactViewModel)value;
                         _SelectedItem = obj.Id;
-
-                        OnPropertyChanged("SelectedItem");
                     }
-                    else
+                    if (Selected == "Firma")
                     {
                         FirmViewModel obj = (FirmViewModel)value;
                         _SelectedItem = obj.Id;
-                        OnPropertyChanged("SelectedItem");
+                    }
+                    OnPropertyChanged("SelectedItem");
+                    }
+                    catch(NullReferenceException ex)
+                    {
+                        
                     }
                 }
             }
@@ -145,9 +150,8 @@ namespace MicroErp.ViewModels
                         Search,
                         () => !string.IsNullOrEmpty(SearchText) &&
                               !string.IsNullOrEmpty(Selected));
-
-
-                }
+                   // SelectedItem = 
+                } 
                 return _searchCommand;
             }
         }

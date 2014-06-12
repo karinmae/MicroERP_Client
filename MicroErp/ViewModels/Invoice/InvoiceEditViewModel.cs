@@ -651,6 +651,34 @@ namespace MicroErp.ViewModels
         }
         #endregion
 
+        #region Command
+        private ICommandViewModel _EditInvoiceCommand;
+        public ICommandViewModel EditInvoiceCommand
+        {
+            get
+            {
+                if (_EditInvoiceCommand == null)
+                {
+                    _EditInvoiceCommand = new SimpleCommandViewModel(
+                        "New",
+                        "Startet New",
+                        () =>
+                        {
+                            Proxy prx = new Proxy();
+
+                            string resp = prx.UpdateInvoice(ID2, Comment, Note,
+                              Stk1, Article1, USt1, Price1,
+                              Stk2, Article2, USt2, Price2,
+                             Stk3, Article3, USt3, Price3);
+                            Result = resp;
+
+                        }
+                        );
+                }
+                return _EditInvoiceCommand;
+            }
+        }
+        #endregion
 
         #region Result
         private string _Result;

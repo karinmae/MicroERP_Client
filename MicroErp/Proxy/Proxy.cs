@@ -250,7 +250,7 @@ namespace MicroErp
                              "&AmountFrom=" + Uri.EscapeUriString(AmountFrom) +
                              "&AmountTo=" + Uri.EscapeUriString(AmountTo) +
                              "&SearchContact=" + Uri.EscapeUriString(SearchContact);
-                string ResultContact = http.DownloadString(new Uri(URL + "Invoice/Search?DateFrom=" + Uri.EscapeUriString(AmountFrom) + req));
+                string ResultContact = http.DownloadString(new Uri(URL + "Invoice/Search?DateFrom=" + Uri.EscapeUriString(DateFrom) + req));
                 Console.WriteLine(ResultContact);
                 XmlSerializer serializer = new XmlSerializer(typeof(InvoiceList));
                 TextReader reader = new StringReader(ResultContact);

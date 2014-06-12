@@ -66,7 +66,7 @@
         <Label Content="{Binding Netto3, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="334,316,0,0"/>
 
         <Button Content="Drucken" Command="{Binding PrintInvoiceCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="549,353.207,0,0"/>
-        <Button Content="Bearbeiten" Command="{Binding UpdateInvoiceCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="469,353.207,0,0"/>
+        <Button Content="Bearbeiten" Command="{Binding EditInvoiceCommand}" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" Margin="469,353.207,0,0"/>
         <Label Content="{Binding Path=Result, UpdateSourceTrigger=PropertyChanged}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="309,358,0,0"/>
     </Grid>
 </Window>
